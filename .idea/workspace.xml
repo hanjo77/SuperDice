@@ -12,11 +12,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fabfe62-49b7-42f3-94f2-f6eb64780319" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-hdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/res/drawable-hdpi/ic_launcher.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-mdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/res/drawable-mdpi/ic_launcher.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ic_launcher.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-xxhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/res/drawable-xxhdpi/ic_launcher.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-hdpi/side1.png" afterPath="$PROJECT_DIR$/res/drawable-hdpi/side1.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-hdpi/side2.png" afterPath="$PROJECT_DIR$/res/drawable-hdpi/side2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-hdpi/side3.png" afterPath="$PROJECT_DIR$/res/drawable-hdpi/side3.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-hdpi/side4.png" afterPath="$PROJECT_DIR$/res/drawable-hdpi/side4.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-hdpi/side5.png" afterPath="$PROJECT_DIR$/res/drawable-hdpi/side5.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-hdpi/side6.png" afterPath="$PROJECT_DIR$/res/drawable-hdpi/side6.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java" afterPath="$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oldschool/superdice/DiceRenderer.java" afterPath="$PROJECT_DIR$/src/oldschool/superdice/DiceRenderer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oldschool/superdice/MainActivity.java" afterPath="$PROJECT_DIR$/src/oldschool/superdice/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SuperDice.iws" />
@@ -72,6 +80,23 @@
       </breakpoint>
     </breakpoint_any>
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <line_breakpoints>
+      <breakpoint url="file://$PROJECT_DIR$/src/oldschool/superdice/DiceRenderer.java" line="251" class="oldschool.superdice.DiceRenderer" package="oldschool.superdice">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -84,9 +109,11 @@
       <file leaf-file-name="DiceAnimationActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="53" selection-start="394" selection-end="394" vertical-scroll-proportion="0.0" vertical-offset="88" max-vertical-offset="525">
+            <state line="63" column="21" selection-start="1666" selection-end="1666" vertical-scroll-proportion="0.0" vertical-offset="658" max-vertical-offset="1425">
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1693#1861#0" expanded="true" />
+                <element signature="e#1856#1857#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -101,13 +128,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DiceRenderer.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="DiceRenderer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceRenderer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="26" selection-start="949" selection-end="949" vertical-scroll-proportion="-0.13729978" vertical-offset="645" max-vertical-offset="1110">
+            <state line="25" column="16" selection-start="697" selection-end="697" vertical-scroll-proportion="46.78182" vertical-offset="2948" max-vertical-offset="3930">
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#6765#6766#0" expanded="true" />
+                <element signature="e#6785#6786#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="results.csv" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/results.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="64" column="7" selection-start="520" selection-end="520" vertical-scroll-proportion="2.1967964" vertical-offset="0" max-vertical-offset="1050">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GLSurfaceView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/android-sdks/sources/android-19/android/opengl/GLSurfaceView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1239" column="0" selection-start="47900" selection-end="47900" vertical-scroll-proportion="0.0" vertical-offset="17795" max-vertical-offset="28545">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -115,19 +162,8 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="5" selection-start="362" selection-end="362" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
+            <state line="26" column="0" selection-start="641" selection-end="641" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/menu/main.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="49" selection-start="244" selection-end="244" vertical-scroll-proportion="-3.6" vertical-offset="0" max-vertical-offset="225">
-              <folding>
-                <element signature="e#217#242#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -191,8 +227,9 @@
         <option value="$PROJECT_DIR$/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/src/oldschool/superdice/MainActivity.java" />
-        <option value="$PROJECT_DIR$/src/oldschool/superdice/DiceRenderer.java" />
         <option value="$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java" />
+        <option value="$PROJECT_DIR$/src/oldschool/superdice/DiceRenderer.java" />
+        <option value="$PROJECT_DIR$/src/results.csv" />
       </list>
     </option>
   </component>
@@ -257,10 +294,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="superdice" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -329,6 +362,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SuperDice" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SuperDice" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawable-mdpi" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -528,6 +579,11 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SliceManager">
+    <option name="analysisUIOptions">
+      <AnalysisUIOptions />
+    </option>
+  </component>
   <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
     <option name="USER" value="" />
     <option name="PASSWORD" value="" />
@@ -570,7 +626,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32967034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32967034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -647,13 +703,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/android-sdks/sources/android-19/android/os/Binder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="403" column="0" selection-start="14389" selection-end="14389" vertical-scroll-proportion="0.0" vertical-offset="5532" max-vertical-offset="7290">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/menu/main.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="49" selection-start="244" selection-end="244" vertical-scroll-proportion="-3.6" vertical-offset="0" max-vertical-offset="225">
@@ -687,26 +736,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/android-sdks/sources/android-19/android/opengl/GLSurfaceView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1606" column="41" selection-start="64646" selection-end="64646" vertical-scroll-proportion="0.2631579" vertical-offset="23330" max-vertical-offset="28545">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="5" selection-start="362" selection-end="362" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/Die.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="198" column="0" selection-start="4481" selection-end="4481" vertical-scroll-proportion="0.0" vertical-offset="2734" max-vertical-offset="3330">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/android-sdks/sources/android-19/android/os/Binder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="403" column="0" selection-start="14389" selection-end="14389" vertical-scroll-proportion="0.7437071" vertical-offset="5360" max-vertical-offset="7290">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -717,21 +759,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="0" selection-start="641" selection-end="641" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/android-sdks/sources/android-19/android/opengl/GLSurfaceView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1239" column="0" selection-start="47900" selection-end="47900" vertical-scroll-proportion="0.0" vertical-offset="17795" max-vertical-offset="28545">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="53" selection-start="394" selection-end="394" vertical-scroll-proportion="0.0" vertical-offset="88" max-vertical-offset="525">
+        <state line="63" column="21" selection-start="1666" selection-end="1666" vertical-scroll-proportion="0.0" vertical-offset="658" max-vertical-offset="1425">
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1693#1861#0" expanded="true" />
+            <element signature="e#1856#1857#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="26" selection-start="949" selection-end="949" vertical-scroll-proportion="-0.13729978" vertical-offset="645" max-vertical-offset="1110">
+        <state line="25" column="16" selection-start="697" selection-end="697" vertical-scroll-proportion="46.78182" vertical-offset="2948" max-vertical-offset="3930">
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#6765#6766#0" expanded="true" />
+            <element signature="e#6785#6786#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/results.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="7" selection-start="520" selection-end="520" vertical-scroll-proportion="2.1967964" vertical-offset="0" max-vertical-offset="1050">
+          <folding />
         </state>
       </provider>
     </entry>
