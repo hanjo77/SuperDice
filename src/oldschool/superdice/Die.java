@@ -425,12 +425,18 @@ public class Die
 		resetPoint = false;
 		if (Math.abs(point) % 90 <= 10)
 		{
-			point = (float) Math.floor(point / 90) * 90;
+			if (point >= 0)
+			{
+				point = (float) Math.floor(point / 90) * 90;
+			}
+			else
+			{
+				point = (float) Math.ceil(point / 90) * 90;
+			}
 			resetPoint = true;
 		}
 		else if (Math.abs(point) % 90 >= 80)
 		{
-
 			if (point >= 0)
 			{
 				point = (float) (Math.floor(point / 90) + 1) * 90;
