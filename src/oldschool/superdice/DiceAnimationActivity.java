@@ -11,13 +11,15 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-public class DiceAnimationActivity extends Activity implements SensorEventListener {
+public class DiceAnimationActivity extends Activity implements SensorEventListener
+{
 
 	private SensorManager mSensorManager;
 	private DiceRenderer mDiceRenderer;
 
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState)
+	{
 		super.onCreate(savedInstanceState);
 
 		// Go fullscreen
@@ -35,14 +37,17 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 	}
 
 	@Override
-	public void onSensorChanged(SensorEvent event) {
-		if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+	public void onSensorChanged(SensorEvent event)
+	{
+		if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER)
+		{
 			getAccelerometer(event);
 		}
 
 	}
 
-	private void getAccelerometer(SensorEvent event) {
+	private void getAccelerometer(SensorEvent event)
+	{
 		float[] values = event.values;
 
 		float x = values[0];
@@ -57,24 +62,29 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 		}
 	}
 
-	public void toastNumber() {
-		runOnUiThread(new Runnable() {
-			public void run() {
+	public void toastNumber()
+	{
+		runOnUiThread(new Runnable()
+		{
+			public void run()
+			{
 				String number = "";
 				int[] numbers = mDiceRenderer.getNumber();
-				if (numbers.length == 2 && numbers[0] == numbers[1]) {
+				if (numbers.length == 2 && numbers[0] == numbers[1])
+				{
 					number = "double " + numbers[0] + "!";
 				}
-				else {
+				else
+				{
 					for (int i = 0; i < numbers.length; i++)
 					{
 						if (i > 0)
 						{
-							if (i < numbers.length-1)
+							if (i < numbers.length - 1)
 							{
 								number += ", a ";
 							}
-							else if (i == numbers.length-1)
+							else if (i == numbers.length - 1)
 							{
 								number += " and a ";
 							}
@@ -88,12 +98,14 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 	}
 
 	@Override
-	public void onAccuracyChanged(Sensor sensor, int accuracy) {
+	public void onAccuracyChanged(Sensor sensor, int accuracy)
+	{
 
 	}
 
 	@Override
-	protected void onResume() {
+	protected void onResume()
+	{
 		super.onResume();
 		mSensorManager.registerListener(this,
 				mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
@@ -101,7 +113,8 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 	}
 
 	@Override
-	protected void onPause() {
+	protected void onPause()
+	{
 		super.onPause();
 		mSensorManager.unregisterListener(this);
 	}

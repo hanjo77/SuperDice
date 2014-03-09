@@ -10,28 +10,44 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 
-public class Die {
-
-	/** The buffer holding the vertices */
+public class Die
+{
+	/**
+	 * The buffer holding the vertices
+	 */
 	private FloatBuffer vertexBuffer;
-	/** The buffer holding the texture coordinates */
+	/**
+	 * The buffer holding the texture coordinates
+	 */
 	private FloatBuffer textureBuffer;
-	/** The buffer holding the indices */
+	/**
+	 * The buffer holding the indices
+	 */
 	private ByteBuffer indexBuffer;
-	/** The thrown number */
+	/**
+	 * The thrown number
+	 */
 	private int number;
-	/** Indicates if the dice is rolling **/
+	/**
+	 * Indicates if the dice is rolling *
+	 */
 	private boolean isRolling;
-	/** Rotation values **/
+	/**
+	 * Rotation values *
+	 */
 	private float mCubeRotationX, mCubeRotationY, mCubeRotationZ, rotationX, rotationY, rotationZ;
 	private boolean resetPoint = false;
 	private boolean ready = false;
 	final float friction = 0.99f;
 
-	/** Our texture pointer */
+	/**
+	 * Our texture pointer
+	 */
 	private int[] textures = new int[6];
 
-	/** Textures */
+	/**
+	 * Textures
+	 */
 	private int[] resourceIds = new int[]{
 			R.drawable.side1,
 			R.drawable.side2,
@@ -42,7 +58,7 @@ public class Die {
 
 	/**
 	 * The initial vertex definition
-	 *
+	 * <p/>
 	 * Note that each face is defined, even
 	 * if indices are available, because
 	 * of the texturing we want to achieve
@@ -80,7 +96,9 @@ public class Die {
 			1.0f, 1.0f, -1.0f,
 	};
 
-	/** The initial texture coordinates (u, v) */
+	/**
+	 * The initial texture coordinates (u, v)
+	 */
 	private float texture[] = {
 			//Mapping coordinates for the vertices
 
@@ -116,38 +134,38 @@ public class Die {
 
 	};
 
-	/** The initial indices definition */
+	/**
+	 * The initial indices definition
+	 */
 	private byte indices[] = {
 			//Faces definition
-			0,1,3, 0,3,2,           //Face front
-			4,5,7, 4,7,6,           //Face right
-			8,9,11, 8,11,10,        //...
-			12,13,15, 12,15,14,
-			16,17,19, 16,19,18,
-			20,21,23, 20,23,22,
+			0, 1, 3, 0, 3, 2,           //Face front
+			4, 5, 7, 4, 7, 6,           //Face right
+			8, 9, 11, 8, 11, 10,        //...
+			12, 13, 15, 12, 15, 14,
+			16, 17, 19, 16, 19, 18,
+			20, 21, 23, 20, 23, 22,
 	};
 
 	/**
 	 * The Cube constructor.
-	 *
+	 * <p/>
 	 * Initiate the buffers.
 	 */
-	public Die() {
-		//
+	public Die()
+	{
 		ByteBuffer byteBuf = ByteBuffer.allocateDirect(vertices.length * 4);
 		byteBuf.order(ByteOrder.nativeOrder());
 		vertexBuffer = byteBuf.asFloatBuffer();
 		vertexBuffer.put(vertices);
 		vertexBuffer.position(0);
 
-		//
 		byteBuf = ByteBuffer.allocateDirect(texture.length * 4);
 		byteBuf.order(ByteOrder.nativeOrder());
 		textureBuffer = byteBuf.asFloatBuffer();
 		textureBuffer.put(texture);
 		textureBuffer.position(0);
 
-		//
 		indexBuffer = ByteBuffer.allocateDirect(indices.length);
 		indexBuffer.put(indices);
 		indexBuffer.position(0);
@@ -160,7 +178,8 @@ public class Die {
 	 *
 	 * @param gl - The GL Context
 	 */
-	public void draw(GL10 gl) {
+	public void draw(GL10 gl)
+	{
 
 		//Point to our buffers
 		gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
@@ -177,10 +196,11 @@ public class Die {
 		gl.glVertexPointer(3, GL10.GL_FLOAT, 0, vertexBuffer);
 		gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, textureBuffer);
 
-		for (int i=0;i<6;i++){
+		for (int i = 0; i < 6; i++)
+		{
 			//Bind our only previously generated texture in this case
 			gl.glBindTexture(GL10.GL_TEXTURE_2D, textures[i]);
-			indexBuffer.position(6*i);
+			indexBuffer.position(6 * i);
 			//Draw the vertices as triangles, based on the Index Buffer information
 			gl.glDrawElements(GL10.GL_TRIANGLES, 6, GL10.GL_UNSIGNED_BYTE, indexBuffer);
 		}
@@ -193,17 +213,17 @@ public class Die {
 	/**
 	 * Load the textures
 	 *
-	 * @param gl - The GL Context
+	 * @param gl      - The GL Context
 	 * @param context - The Activity context
 	 */
-	public void loadGLTexture(GL10 gl, Context context) {
-
+	public void loadGLTexture(GL10 gl, Context context)
+	{
 		//Generate a 6 texture pointer...
 		gl.glGenTextures(6, textures, 0);
 
 		Bitmap bitmap = null;
 
-		for (int i=0;i<6;i++)
+		for (int i = 0; i < 6; i++)
 		{
 			// Create a bitmap
 			bitmap = BitmapFactory.decodeResource(context.getResources(), resourceIds[i]);
@@ -227,69 +247,80 @@ public class Die {
 		}
 	}
 
-	public void rotate() {
+	public void rotate()
+	{
 		rotate(rotationX, rotationY, rotationZ);
 	}
 
-	public void rotate(float x, float y, float z) {
-
+	public void rotate(float x, float y, float z)
+	{
 		rotationX = x;
 		rotationY = y;
 		rotationZ = z;
 
-		if (Math.abs(rotationX) > 0) {
-			if (Math.abs(rotationX) > 0.2f) {
-
+		if (Math.abs(rotationX) > 0)
+		{
+			if (Math.abs(rotationX) > 0.2f)
+			{
 				rotationX *= friction;
 			}
 			mCubeRotationX += rotationX;
 		}
-		if (Math.abs(rotationY) > 0) {
-			if (Math.abs(rotationY) > 0.2f) {
-
+		if (Math.abs(rotationY) > 0)
+		{
+			if (Math.abs(rotationY) > 0.2f)
+			{
 				rotationY *= friction;
 			}
 			mCubeRotationY += rotationY;
 		}
-		if (Math.abs(rotationZ) > 0) {
-			if (Math.abs(rotationZ) > 0.2f) {
-
+		if (Math.abs(rotationZ) > 0)
+		{
+			if (Math.abs(rotationZ) > 0.2f)
+			{
 				rotationZ *= friction;
 			}
 			mCubeRotationZ += rotationZ;
 		}
 
-		if (Math.abs(rotationX) <= 0.2f) {
-
+		if (Math.abs(rotationX) <= 0.2f)
+		{
 			mCubeRotationX = findEdge(mCubeRotationX);
-			if (resetPoint) {
+			if (resetPoint)
+			{
 				rotationX = 0;
 			}
 		}
-		if (Math.abs(rotationY) <= 0.2f) {
-
+		if (Math.abs(rotationY) <= 0.2f)
+		{
 			mCubeRotationY = findEdge(mCubeRotationY);
-			if (resetPoint) {
+			if (resetPoint)
+			{
 				rotationY = 0;
 			}
 		}
-		if (Math.abs(rotationZ) <= 0.2f) {
+		if (Math.abs(rotationZ) <= 0.2f)
+		{
 			mCubeRotationZ = findEdge(mCubeRotationZ);
-			if (resetPoint) {
+			if (resetPoint)
+			{
 				rotationZ = 0;
 			}
 		}
 
-		int rotX = (int)(mCubeRotationX%360)/90;
-		int rotY = (int)(mCubeRotationY%360)/90;
-		int rotZ = (int)(mCubeRotationZ%360)/90;
-		if (rotX < 0) {
+		int rotX = (int) (mCubeRotationX % 360) / 90;
+		int rotY = (int) (mCubeRotationY % 360) / 90;
+		int rotZ = (int) (mCubeRotationZ % 360) / 90;
+		if (rotX < 0)
+		{
 			rotX += 4;
 		}
-		if (rotY < 0) {
+		if (rotY < 0)
+		{
 			rotY += 4;
 		}
-		if (rotZ < 0) {
+		if (rotZ < 0)
+		{
 			rotZ += 4;
 		}
 
@@ -300,8 +331,8 @@ public class Die {
 				(rotX == 2 && rotY == 2 && rotZ == 0) ||
 				(rotX == 2 && rotY == 2 && rotZ == 1) ||
 				(rotX == 2 && rotY == 2 && rotZ == 2) ||
-				(rotX == 2 && rotY == 2 && rotZ == 3)) {
-
+				(rotX == 2 && rotY == 2 && rotZ == 3))
+		{
 			number = 1;
 		}
 		else if ((rotX == 0 && rotY == 1 && rotZ == 2) ||
@@ -315,7 +346,8 @@ public class Die {
 				(rotX == 3 && rotY == 0 && rotZ == 3) ||
 				(rotX == 3 && rotY == 1 && rotZ == 3) ||
 				(rotX == 3 && rotY == 2 && rotZ == 3) ||
-				(rotX == 3 && rotY == 3 && rotZ == 3)) {
+				(rotX == 3 && rotY == 3 && rotZ == 3))
+		{
 
 			number = 2;
 		}
@@ -326,7 +358,8 @@ public class Die {
 				(rotX == 2 && rotY == 0 && rotZ == 0) ||
 				(rotX == 2 && rotY == 0 && rotZ == 1) ||
 				(rotX == 2 && rotY == 0 && rotZ == 2) ||
-				(rotX == 2 && rotY == 0 && rotZ == 3)) {
+				(rotX == 2 && rotY == 0 && rotZ == 3))
+		{
 
 			number = 3;
 		}
@@ -341,7 +374,8 @@ public class Die {
 				(rotX == 3 && rotY == 0 && rotZ == 1) ||
 				(rotX == 3 && rotY == 1 && rotZ == 1) ||
 				(rotX == 3 && rotY == 2 && rotZ == 1) ||
-				(rotX == 3 && rotY == 3 && rotZ == 1)) {
+				(rotX == 3 && rotY == 3 && rotZ == 1))
+		{
 
 			number = 4;
 		}
@@ -356,7 +390,8 @@ public class Die {
 				(rotX == 3 && rotY == 0 && rotZ == 0) ||
 				(rotX == 3 && rotY == 1 && rotZ == 0) ||
 				(rotX == 3 && rotY == 2 && rotZ == 0) ||
-				(rotX == 3 && rotY == 3 && rotZ == 0)) {
+				(rotX == 3 && rotY == 3 && rotZ == 0))
+		{
 
 			number = 5;
 		}
@@ -371,59 +406,76 @@ public class Die {
 				(rotX == 3 && rotY == 0 && rotZ == 2) ||
 				(rotX == 3 && rotY == 1 && rotZ == 2) ||
 				(rotX == 3 && rotY == 2 && rotZ == 2) ||
-				(rotX == 3 && rotY == 3 && rotZ == 2)) {
+				(rotX == 3 && rotY == 3 && rotZ == 2))
+		{
 
 			number = 6;
 		}
 
-		if (isRolling && rotationX == 0 && rotationY == 0 && rotationZ == 0) {
+		if (isRolling && rotationX == 0 && rotationY == 0 && rotationZ == 0)
+		{
 
 			isRolling = false;
 			ready = true;
 		}
 	}
 
-	private float findEdge(float point) {
-
+	private float findEdge(float point)
+	{
 		resetPoint = false;
-		if (Math.abs(point)%90 <= 10) {
-
-			point = (float)Math.floor(point/90)*90;
+		if (Math.abs(point) % 90 <= 10)
+		{
+			point = (float) Math.floor(point / 90) * 90;
 			resetPoint = true;
 		}
-		else if (Math.abs(point)%90 >= 80) {
+		else if (Math.abs(point) % 90 >= 80)
+		{
 
-			point = (float)(Math.floor(point/90)+1)*90;
+			if (point >= 0)
+			{
+				point = (float) (Math.floor(point / 90) + 1) * 90;
+			}
+			else
+			{
+				point = (float) (Math.floor(point / 90)) * 90;
+			}
 			resetPoint = true;
 		}
 		return point;
 	}
 
-	public int getNumber() {
+	public int getNumber()
+	{
 		return number;
 	}
 
-	public float[] getRotation() {
+	public float[] getRotation()
+	{
 		return new float[]{mCubeRotationX, mCubeRotationY, mCubeRotationZ};
 	}
 
-	public void setNumber(int number) {
+	public void setNumber(int number)
+	{
 		this.number = number;
 	}
 
-	public boolean isRolling() {
+	public boolean isRolling()
+	{
 		return isRolling;
 	}
 
-	public void setRolling(boolean rolling) {
+	public void setRolling(boolean rolling)
+	{
 		isRolling = rolling;
 	}
 
-	public boolean isReady() {
+	public boolean isReady()
+	{
 		return ready;
 	}
 
-	public void setReady(boolean ready) {
+	public void setReady(boolean ready)
+	{
 		this.ready = ready;
 	}
 }
