@@ -7,14 +7,10 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
-import android.os.Looper;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-/**
- * Created by hanjo on 08.03.14.
- */
 public class DiceAnimationActivity extends Activity implements SensorEventListener {
 
 	private SensorManager mSensorManager;
@@ -29,7 +25,7 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-		mDiceRenderer = new DiceRenderer(this);
+		mDiceRenderer = new DiceRenderer(this, 1);
 		GLSurfaceView view = new GLSurfaceView(this);
 		view.setRenderer(mDiceRenderer);
 		setContentView(view);
@@ -57,14 +53,36 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 				/ (SensorManager.GRAVITY_EARTH * SensorManager.GRAVITY_EARTH);
 		if (accelationSquareRoot >= 4) //
 		{
-			mDiceRenderer.setRotation(x, y, z);
+			mDiceRenderer.rollDice(new float[]{x, y, z});
 		}
 	}
 
 	public void toastNumber() {
 		runOnUiThread(new Runnable() {
 			public void run() {
-				Toast.makeText(getApplicationContext(), "You've thrown a " + mDiceRenderer.getNumber(), Toast.LENGTH_SHORT).show();
+				String number = "";
+				int[] numbers = mDiceRenderer.getNumber();
+				if (numbers.length == 2 && numbers[0] == numbers[1]) {
+					number = "double " + numbers[0] + "!";
+				}
+				else {
+					for (int i = 0; i < numbers.length; i++)
+					{
+						if (i > 0)
+						{
+							if (i < numbers.length-1)
+							{
+								number += ", a ";
+							}
+							else if (i == numbers.length-1)
+							{
+								number += " and a ";
+							}
+						}
+						number += numbers[i];
+					}
+				}
+				Toast.makeText(getApplicationContext(), "You've thrown a " + number, Toast.LENGTH_SHORT).show();
 			}
 		});
 	}
