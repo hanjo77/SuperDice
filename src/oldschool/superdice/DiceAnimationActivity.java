@@ -25,7 +25,7 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-		mDiceRenderer = new DiceRenderer(this, 1);
+		mDiceRenderer = new DiceRenderer(this, 2);
 		GLSurfaceView view = new GLSurfaceView(this);
 		view.setRenderer(mDiceRenderer);
 		setContentView(view);

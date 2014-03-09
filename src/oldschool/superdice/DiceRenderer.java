@@ -13,6 +13,7 @@ class DiceRenderer implements GLSurfaceView.Renderer{
 	private DiceAnimationActivity context;
 	private ArrayList<Die> mDice = new ArrayList<Die>();
 	private int[] number;
+	final int dist = 4;
 
 	public DiceRenderer(Context context) {
 
@@ -41,21 +42,18 @@ class DiceRenderer implements GLSurfaceView.Renderer{
 		float posY = 0.0f;
 		if (mDice.size() == 2) {
 
-			posY = -3f;
+			posY = -1*(dist/4);
 		}
 
 		boolean isFinished = true;
 
-		gl.glTranslatef(0.0f, 0.0f, mDice.size()*-10.0f);
+		gl.glTranslatef(0.0f, posY, ((mDice.size()-1)*-5)-10.0f);
 
 		for (int i = 0; i < mDice.size(); i++) {
 
 			gl.glPushMatrix();
 			Die die = mDice.get(i);
 			float[] diceRotation = die.getRotation();
-			gl.glRotatef(diceRotation[0], 1.0f, 0, 0);
-			gl.glRotatef(diceRotation[1], 0, 1.0f, 0);
-			gl.glRotatef(diceRotation[2], 0, 0, 1.0f);
 			die.rotate();
 			gl.glTranslatef(0.0f, posY, 0.0f);
 			die.draw(gl);
@@ -64,7 +62,7 @@ class DiceRenderer implements GLSurfaceView.Renderer{
 			}
 			if (mDice.size() == 2) {
 
-				posY += 6;
+				posY += dist;
 			}
 			gl.glPopMatrix();
 		}

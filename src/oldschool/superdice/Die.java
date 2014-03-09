@@ -169,6 +169,10 @@ public class Die {
 		//Set the face rotation
 		gl.glFrontFace(GL10.GL_CCW);
 
+		gl.glRotatef(mCubeRotationX, 1.0f, 0, 0);
+		gl.glRotatef(mCubeRotationY, 0, 1.0f, 0);
+		gl.glRotatef(mCubeRotationZ, 0, 0, 1.0f);
+
 		//Enable the vertex and texture state
 		gl.glVertexPointer(3, GL10.GL_FLOAT, 0, vertexBuffer);
 		gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, textureBuffer);
@@ -234,33 +238,42 @@ public class Die {
 		rotationZ = z;
 
 		if (Math.abs(rotationX) > 0) {
-			rotationX *= friction;
+			if (Math.abs(rotationX) > 0.2f) {
+
+				rotationX *= friction;
+			}
 			mCubeRotationX += rotationX;
 		}
 		if (Math.abs(rotationY) > 0) {
-			rotationY *= friction;
+			if (Math.abs(rotationY) > 0.2f) {
+
+				rotationY *= friction;
+			}
 			mCubeRotationY += rotationY;
 		}
 		if (Math.abs(rotationZ) > 0) {
-			rotationZ *= friction;
+			if (Math.abs(rotationZ) > 0.2f) {
+
+				rotationZ *= friction;
+			}
 			mCubeRotationZ += rotationZ;
 		}
 
-		if (Math.abs(rotationX) < 0.3f) {
+		if (Math.abs(rotationX) <= 0.2f) {
 
 			mCubeRotationX = findEdge(mCubeRotationX);
 			if (resetPoint) {
 				rotationX = 0;
 			}
 		}
-		if (Math.abs(rotationY) < 0.3f) {
+		if (Math.abs(rotationY) <= 0.2f) {
 
 			mCubeRotationY = findEdge(mCubeRotationY);
 			if (resetPoint) {
 				rotationY = 0;
 			}
 		}
-		if (Math.abs(rotationZ) < 0.3f) {
+		if (Math.abs(rotationZ) <= 0.2f) {
 			mCubeRotationZ = findEdge(mCubeRotationZ);
 			if (resetPoint) {
 				rotationZ = 0;
@@ -373,28 +386,14 @@ public class Die {
 	private float findEdge(float point) {
 
 		resetPoint = false;
-		if (Math.abs(point)%90 < 30) {
+		if (Math.abs(point)%90 <= 10) {
 
-			if (point > 0) {
-
-				point = (float)Math.floor(point/90)*90;
-			}
-			else {
-
-				point = (float)Math.floor(Math.abs(point)/90)*-90;
-			}
+			point = (float)Math.floor(point/90)*90;
 			resetPoint = true;
 		}
-		else if (Math.abs(point)%90 > 60) {
+		else if (Math.abs(point)%90 >= 80) {
 
-			if (point > 0) {
-
-				point = (float)Math.floor(point/90)*90 + 90;
-			}
-			else {
-
-				point = (float)Math.floor(point/90)*90 - 90;
-			}
+			point = (float)(Math.floor(point/90)+1)*90;
 			resetPoint = true;
 		}
 		return point;
