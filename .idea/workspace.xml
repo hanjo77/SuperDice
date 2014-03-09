@@ -12,18 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fabfe62-49b7-42f3-94f2-f6eb64780319" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes.dex" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/resources.ap_" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/SuperDice.apk" afterPath="$PROJECT_DIR$/bin/SuperDice.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/dexedLibs/android-support-v4-46f9d0810f52b25730b731089567d2f7.jar" afterPath="$PROJECT_DIR$/bin/dexedLibs/android-support-v4-46f9d0810f52b25730b731089567d2f7.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oldschool/superdice/DiceRenderer.java" afterPath="$PROJECT_DIR$/src/oldschool/superdice/DiceRenderer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oldschool/superdice/Die.java" afterPath="$PROJECT_DIR$/src/oldschool/superdice/Die.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oldschool/superdice/MainActivity.java" afterPath="$PROJECT_DIR$/src/oldschool/superdice/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/results.csv" afterPath="$PROJECT_DIR$/src/results.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SuperDice.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -108,11 +97,7 @@
         <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="59" column="9" selection-start="1541" selection-end="1541" vertical-scroll-proportion="0.0" vertical-offset="755" max-vertical-offset="1890">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1645#2292#0" expanded="true" />
-                <element signature="e#2287#2288#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -120,11 +105,8 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="40" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
-              <folding>
-                <element signature="e#413#431#0" expanded="true" />
-                <element signature="e#578#596#0" expanded="true" />
-              </folding>
+            <state line="8" column="40" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="510">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -132,10 +114,8 @@
       <file leaf-file-name="DiceRenderer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceRenderer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="38" selection-start="482" selection-end="482" vertical-scroll-proportion="-5.4545455" vertical-offset="0" max-vertical-offset="2580">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="16" column="38" selection-start="482" selection-end="482" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="2580">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -143,7 +123,7 @@
       <file leaf-file-name="results.csv" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/results.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="62" selection-start="4544" selection-end="4544" vertical-scroll-proportion="-17.454546" vertical-offset="0" max-vertical-offset="1050">
+            <state line="64" column="62" selection-start="4544" selection-end="4544" vertical-scroll-proportion="0.0" vertical-offset="960" max-vertical-offset="1050">
               <folding />
             </state>
           </provider>
@@ -152,10 +132,8 @@
       <file leaf-file-name="main.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/menu/main.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="49" selection-start="244" selection-end="244" vertical-scroll-proportion="-3.6" vertical-offset="0" max-vertical-offset="225">
-              <folding>
-                <element signature="e#217#242#0" expanded="false" />
-              </folding>
+            <state line="6" column="49" selection-start="244" selection-end="244" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="225">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -163,14 +141,8 @@
       <file leaf-file-name="activity_main.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/activity_main.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="38" selection-start="1007" selection-end="1007" vertical-scroll-proportion="-1.7307693" vertical-offset="225" max-vertical-offset="735">
-              <folding>
-                <element signature="e#279#312#0" expanded="true" />
-                <element signature="e#337#372#0" expanded="true" />
-                <element signature="e#398#433#0" expanded="true" />
-                <element signature="e#457#490#0" expanded="true" />
-                <element signature="e#1692#1706#0" expanded="true" />
-              </folding>
+            <state line="21" column="38" selection-start="1007" selection-end="1007" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="735">
+              <folding />
             </state>
           </provider>
           <provider editor-type-id="android-designer">
@@ -181,7 +153,7 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="13" selection-start="214" selection-end="214" vertical-scroll-proportion="0.3089245" vertical-offset="0" max-vertical-offset="645">
+            <state line="17" column="0" selection-start="395" selection-end="395" vertical-scroll-proportion="0.5808656" vertical-offset="0" max-vertical-offset="615">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -192,7 +164,7 @@
       <file leaf-file-name="ZygoteInit.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/android-sdks/sources/android-19/com/android/internal/os/ZygoteInit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="594" column="0" selection-start="20952" selection-end="20952" vertical-scroll-proportion="0.0" vertical-offset="8097" max-vertical-offset="11325">
+            <state line="594" column="0" selection-start="20952" selection-end="20952" vertical-scroll-proportion="0.0" vertical-offset="8910" max-vertical-offset="11985">
               <folding />
             </state>
           </provider>
@@ -201,10 +173,8 @@
       <file leaf-file-name="Die.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/Die.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="431" column="5" selection-start="9298" selection-end="9298" vertical-scroll-proportion="-151.96153" vertical-offset="2469" max-vertical-offset="6630">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="431" column="5" selection-start="9298" selection-end="9298" vertical-scroll-proportion="0.0" vertical-offset="6465" max-vertical-offset="6810">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -229,8 +199,8 @@
         <option value="$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java" />
         <option value="$PROJECT_DIR$/src/oldschool/superdice/DiceRenderer.java" />
         <option value="$PROJECT_DIR$/src/results.csv" />
-        <option value="$PROJECT_DIR$/src/oldschool/superdice/MainActivity.java" />
         <option value="$PROJECT_DIR$/src/oldschool/superdice/Die.java" />
+        <option value="$PROJECT_DIR$/src/oldschool/superdice/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -266,6 +236,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -423,7 +394,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -440,6 +410,10 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../BFH/ThisAndThat" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="LayoutCode.rearrangeEntriesJava" value="false" />
+    <property name="options.lastSelected" value="copyright" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -481,6 +455,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -506,19 +493,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -641,17 +615,15 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32964602" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997253" sideWeight="0.54050076" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32967034" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32876712" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32967034" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32876712" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -662,7 +634,9 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32964602" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -689,31 +663,90 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="21" selection-start="1666" selection-end="1666" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1425">
+        <state line="59" column="9" selection-start="1541" selection-end="1541" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1890">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="40" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="510">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="38" selection-start="482" selection-end="482" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="2580">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/results.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="62" selection-start="4544" selection-end="4544" vertical-scroll-proportion="0.0" vertical-offset="960" max-vertical-offset="1050">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/menu/main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="49" selection-start="244" selection-end="244" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="225">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="38" selection-start="1007" selection-end="1007" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="735">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="13" selection-start="214" selection-end="214" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="645">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1645#2292#0" expanded="true" />
-            <element signature="e#2287#2288#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/android-sdks/sources/android-19/com/android/internal/os/ZygoteInit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="594" column="0" selection-start="20952" selection-end="20952" vertical-scroll-proportion="0.0" vertical-offset="8910" max-vertical-offset="11985">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/Die.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="431" column="5" selection-start="9298" selection-end="9298" vertical-scroll-proportion="0.0" vertical-offset="6465" max-vertical-offset="6810">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="21" selection-start="1666" selection-end="1666" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1425">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="32" selection-start="851" selection-end="851" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="510">
-          <folding>
-            <element signature="e#413#431#0" expanded="true" />
-            <element signature="e#578#596#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="25" column="16" selection-start="697" selection-end="697" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="3930">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -726,15 +759,15 @@
     </entry>
     <entry file="file://$USER_HOME$/android-sdks/sources/android-19/android/opengl/GLSurfaceView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1239" column="0" selection-start="47900" selection-end="47900" vertical-scroll-proportion="0.0" vertical-offset="18585" max-vertical-offset="29190">
-          <folding />
-        </state>
+        <state line="1239" column="0" selection-start="47900" selection-end="47900" vertical-scroll-proportion="0.0" vertical-offset="18585" max-vertical-offset="29190" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="26" column="0" selection-start="641" selection-end="641" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="555">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -757,9 +790,7 @@
     </entry>
     <entry file="file://$USER_HOME$/android-sdks/sources/android-19/java/lang/reflect/Method.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="514" column="0" selection-start="18559" selection-end="18559" vertical-scroll-proportion="0.0" vertical-offset="7710" max-vertical-offset="8895">
-          <folding />
-        </state>
+        <state line="514" column="0" selection-start="18559" selection-end="18559" vertical-scroll-proportion="0.0" vertical-offset="7710" max-vertical-offset="8895" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/Die.java">
@@ -771,9 +802,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/project.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="17" selection-start="562" selection-end="562" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
-          <folding />
-        </state>
+        <state line="13" column="17" selection-start="562" selection-end="562" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SuperDice.iml">
@@ -783,16 +812,12 @@
     </entry>
     <entry file="file://$USER_HOME$/android-sdks/sources/android-19/java/lang/reflect/Method.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="514" column="0" selection-start="18559" selection-end="18559" vertical-scroll-proportion="0.0" vertical-offset="6969" max-vertical-offset="8190">
-          <folding />
-        </state>
+        <state line="514" column="0" selection-start="18559" selection-end="18559" vertical-scroll-proportion="0.0" vertical-offset="6969" max-vertical-offset="8190" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/android-sdks/sources/android-19/android/opengl/GLSurfaceView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1239" column="0" selection-start="47900" selection-end="47900" vertical-scroll-proportion="0.0" vertical-offset="17795" max-vertical-offset="28545">
-          <folding />
-        </state>
+        <state line="1239" column="0" selection-start="47900" selection-end="47900" vertical-scroll-proportion="0.0" vertical-offset="17795" max-vertical-offset="28545" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
@@ -804,9 +829,7 @@
     </entry>
     <entry file="file://$USER_HOME$/android-sdks/sources/android-19/android/os/Binder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="403" column="0" selection-start="14389" selection-end="14389" vertical-scroll-proportion="0.0" vertical-offset="5532" max-vertical-offset="7290">
-          <folding />
-        </state>
+        <state line="403" column="0" selection-start="14389" selection-end="14389" vertical-scroll-proportion="0.0" vertical-offset="5532" max-vertical-offset="7290" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/android-sdks/sources/android-19/com/android/internal/os/ZygoteInit.java">
@@ -818,33 +841,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/res/menu/main.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="49" selection-start="244" selection-end="244" vertical-scroll-proportion="-3.6" vertical-offset="0" max-vertical-offset="225">
-          <folding>
-            <element signature="e#217#242#0" expanded="false" />
-          </folding>
+        <state line="6" column="49" selection-start="244" selection-end="244" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="225">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="40" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
-          <folding>
-            <element signature="e#413#431#0" expanded="true" />
-            <element signature="e#578#596#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/activity_main.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="38" selection-start="1007" selection-end="1007" vertical-scroll-proportion="-1.7307693" vertical-offset="225" max-vertical-offset="735">
-          <folding>
-            <element signature="e#279#312#0" expanded="true" />
-            <element signature="e#337#372#0" expanded="true" />
-            <element signature="e#398#433#0" expanded="true" />
-            <element signature="e#457#490#0" expanded="true" />
-            <element signature="e#1692#1706#0" expanded="true" />
-          </folding>
+        <state line="21" column="38" selection-start="1007" selection-end="1007" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="735">
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer">
@@ -854,42 +866,34 @@
     <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="59" column="9" selection-start="1541" selection-end="1541" vertical-scroll-proportion="0.0" vertical-offset="575" max-vertical-offset="1890">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1645#2292#0" expanded="true" />
-            <element signature="e#2287#2288#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/results.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="62" selection-start="4544" selection-end="4544" vertical-scroll-proportion="-17.454546" vertical-offset="0" max-vertical-offset="1050">
+        <state line="64" column="62" selection-start="4544" selection-end="4544" vertical-scroll-proportion="0.0" vertical-offset="960" max-vertical-offset="1050">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="38" selection-start="482" selection-end="482" vertical-scroll-proportion="-5.4545455" vertical-offset="0" max-vertical-offset="2580">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="16" column="38" selection-start="482" selection-end="482" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="2580">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/Die.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="431" column="5" selection-start="9298" selection-end="9298" vertical-scroll-proportion="-151.96153" vertical-offset="2469" max-vertical-offset="6630">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="431" column="5" selection-start="9298" selection-end="9298" vertical-scroll-proportion="0.0" vertical-offset="6465" max-vertical-offset="6810">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="13" selection-start="214" selection-end="214" vertical-scroll-proportion="0.3089245" vertical-offset="0" max-vertical-offset="645">
+        <state line="17" column="0" selection-start="395" selection-end="395" vertical-scroll-proportion="0.5808656" vertical-offset="0" max-vertical-offset="615">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
