@@ -10,11 +10,12 @@ import java.util.ArrayList;
 
 class DiceRenderer implements GLSurfaceView.Renderer
 {
-
 	private DiceAnimationActivity context;
 	private ArrayList<Die> mDice = new ArrayList<Die>();
 	private int[] number;
 	final int dist = 4;
+	private boolean isFinished = true;
+	private boolean doUpdateToast = false;
 
 	public DiceRenderer(Context context)
 	{
@@ -53,7 +54,7 @@ class DiceRenderer implements GLSurfaceView.Renderer
 			posY = -1 * (dist / 4);
 		}
 
-		boolean isFinished = true;
+		isFinished = true;
 
 		gl.glTranslatef(0.0f, posY, ((mDice.size() - 1) * -5) - 10.0f);
 
@@ -81,13 +82,13 @@ class DiceRenderer implements GLSurfaceView.Renderer
 			gl.glPopMatrix();
 		}
 
-		if (isFinished)
+		if (isFinished && doUpdateToast)
 		{
-
 			context.toastNumber();
+			doUpdateToast = false;
 			for (int i = 0; i < mDice.size(); i++)
 			{
-				mDice.get(i).setReady(false);
+				mDice.get(i).setReady(true);
 			}
 		}
 
@@ -151,11 +152,16 @@ class DiceRenderer implements GLSurfaceView.Renderer
 
 	public void rollDice(float[] dirs)
 	{
-		for (int i = 0; i < mDice.size(); i++)
+		if (isFinished)
 		{
-			Die die = mDice.get(i);
-			die.rotate(dirs[(i % 3)], dirs[(i + 1) % 3], dirs[(i + 2) % 3]);
-			die.setRolling(true);
+			doUpdateToast = true;
+			for (int i = 0; i < mDice.size(); i++)
+			{
+				Die die = mDice.get(i);
+				die.rotate(dirs[(i % 3)], dirs[(i + 1) % 3], dirs[(i + 2) % 3]);
+				die.setRolling(true);
+				die.setReady(false);
+			}
 		}
 	}
 }

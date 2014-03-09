@@ -37,8 +37,10 @@ public class Die
 	 */
 	private float mCubeRotationX, mCubeRotationY, mCubeRotationZ, rotationX, rotationY, rotationZ;
 	private boolean resetPoint = false;
-	private boolean ready = false;
+	private boolean ready = true;
 	final float friction = 0.99f;
+	final float minRotationSpeed = 0.3f;
+	final float snapPoint = 20;
 
 	/**
 	 * Our texture pointer
@@ -260,7 +262,7 @@ public class Die
 
 		if (Math.abs(rotationX) > 0)
 		{
-			if (Math.abs(rotationX) > 0.2f)
+			if (Math.abs(rotationX) > minRotationSpeed)
 			{
 				rotationX *= friction;
 			}
@@ -268,7 +270,7 @@ public class Die
 		}
 		if (Math.abs(rotationY) > 0)
 		{
-			if (Math.abs(rotationY) > 0.2f)
+			if (Math.abs(rotationY) > minRotationSpeed)
 			{
 				rotationY *= friction;
 			}
@@ -276,14 +278,14 @@ public class Die
 		}
 		if (Math.abs(rotationZ) > 0)
 		{
-			if (Math.abs(rotationZ) > 0.2f)
+			if (Math.abs(rotationZ) > minRotationSpeed)
 			{
 				rotationZ *= friction;
 			}
 			mCubeRotationZ += rotationZ;
 		}
 
-		if (Math.abs(rotationX) <= 0.2f)
+		if (Math.abs(rotationX) <= minRotationSpeed)
 		{
 			mCubeRotationX = findEdge(mCubeRotationX);
 			if (resetPoint)
@@ -291,7 +293,7 @@ public class Die
 				rotationX = 0;
 			}
 		}
-		if (Math.abs(rotationY) <= 0.2f)
+		if (Math.abs(rotationY) <= minRotationSpeed)
 		{
 			mCubeRotationY = findEdge(mCubeRotationY);
 			if (resetPoint)
@@ -299,7 +301,7 @@ public class Die
 				rotationY = 0;
 			}
 		}
-		if (Math.abs(rotationZ) <= 0.2f)
+		if (Math.abs(rotationZ) <= minRotationSpeed)
 		{
 			mCubeRotationZ = findEdge(mCubeRotationZ);
 			if (resetPoint)
@@ -308,6 +310,18 @@ public class Die
 			}
 		}
 
+		evaluateNumber();
+
+		if (isRolling && rotationX == 0 && rotationY == 0 && rotationZ == 0)
+		{
+
+			isRolling = false;
+			ready = true;
+		}
+	}
+
+	private void evaluateNumber()
+	{
 		int rotX = (int) (mCubeRotationX % 360) / 90;
 		int rotY = (int) (mCubeRotationY % 360) / 90;
 		int rotZ = (int) (mCubeRotationZ % 360) / 90;
@@ -324,106 +338,63 @@ public class Die
 			rotZ += 4;
 		}
 
-		if ((rotX == 0 && rotY == 0 && rotZ == 0) ||
-				(rotX == 0 && rotY == 0 && rotZ == 1) ||
-				(rotX == 0 && rotY == 0 && rotZ == 2) ||
-				(rotX == 0 && rotY == 0 && rotZ == 3) ||
-				(rotX == 2 && rotY == 2 && rotZ == 0) ||
-				(rotX == 2 && rotY == 2 && rotZ == 1) ||
-				(rotX == 2 && rotY == 2 && rotZ == 2) ||
-				(rotX == 2 && rotY == 2 && rotZ == 3))
+		if ((rotX == 0 && rotY == 0) ||
+			(rotX == 2 && rotY == 2))
 		{
 			number = 1;
 		}
 		else if ((rotX == 0 && rotY == 1 && rotZ == 2) ||
 				(rotX == 0 && rotY == 3 && rotZ == 0) ||
-				(rotX == 1 && rotY == 0 && rotZ == 1) ||
-				(rotX == 1 && rotY == 1 && rotZ == 1) ||
-				(rotX == 1 && rotY == 2 && rotZ == 1) ||
-				(rotX == 1 && rotY == 3 && rotZ == 1) ||
 				(rotX == 2 && rotY == 1 && rotZ == 0) ||
 				(rotX == 2 && rotY == 3 && rotZ == 2) ||
-				(rotX == 3 && rotY == 0 && rotZ == 3) ||
-				(rotX == 3 && rotY == 1 && rotZ == 3) ||
-				(rotX == 3 && rotY == 2 && rotZ == 3) ||
-				(rotX == 3 && rotY == 3 && rotZ == 3))
+				(rotX == 1 && rotZ == 1) ||
+				(rotX == 3 && rotZ == 3))
 		{
 
 			number = 2;
 		}
-		else if ((rotX == 0 && rotY == 2 && rotZ == 0) ||
-				(rotX == 0 && rotY == 2 && rotZ == 1) ||
-				(rotX == 0 && rotY == 2 && rotZ == 2) ||
-				(rotX == 0 && rotY == 2 && rotZ == 3) ||
-				(rotX == 2 && rotY == 0 && rotZ == 0) ||
-				(rotX == 2 && rotY == 0 && rotZ == 1) ||
-				(rotX == 2 && rotY == 0 && rotZ == 2) ||
-				(rotX == 2 && rotY == 0 && rotZ == 3))
+		else if ((rotX == 0 && rotY == 2) ||
+				(rotX == 2 && rotY == 0))
 		{
 
 			number = 3;
 		}
 		else if ((rotX == 0 && rotY == 1 && rotZ == 0) ||
 				(rotX == 0 && rotY == 3 && rotZ == 2) ||
-				(rotX == 1 && rotY == 0 && rotZ == 3) ||
-				(rotX == 1 && rotY == 1 && rotZ == 3) ||
-				(rotX == 1 && rotY == 2 && rotZ == 3) ||
-				(rotX == 1 && rotY == 3 && rotZ == 3) ||
 				(rotX == 2 && rotY == 1 && rotZ == 2) ||
 				(rotX == 2 && rotY == 3 && rotZ == 0) ||
-				(rotX == 3 && rotY == 0 && rotZ == 1) ||
-				(rotX == 3 && rotY == 1 && rotZ == 1) ||
-				(rotX == 3 && rotY == 2 && rotZ == 1) ||
-				(rotX == 3 && rotY == 3 && rotZ == 1))
+				(rotX == 1 && rotZ == 3) ||
+				(rotX == 3 && rotZ == 1))
 		{
 
 			number = 4;
 		}
 		else if ((rotX == 0 && rotY == 1 && rotZ == 3) ||
 				(rotX == 0 && rotY == 3 && rotZ == 1) ||
-				(rotX == 1 && rotY == 0 && rotZ == 2) ||
-				(rotX == 1 && rotY == 1 && rotZ == 2) ||
-				(rotX == 1 && rotY == 2 && rotZ == 2) ||
-				(rotX == 1 && rotY == 3 && rotZ == 2) ||
 				(rotX == 2 && rotY == 1 && rotZ == 1) ||
 				(rotX == 2 && rotY == 3 && rotZ == 3) ||
-				(rotX == 3 && rotY == 0 && rotZ == 0) ||
-				(rotX == 3 && rotY == 1 && rotZ == 0) ||
-				(rotX == 3 && rotY == 2 && rotZ == 0) ||
-				(rotX == 3 && rotY == 3 && rotZ == 0))
+				(rotX == 1 && rotZ == 2) ||
+				(rotX == 3 && rotZ == 0))
 		{
 
 			number = 5;
 		}
 		else if ((rotX == 0 && rotY == 1 && rotZ == 1) ||
 				(rotX == 0 && rotY == 3 && rotZ == 3) ||
-				(rotX == 1 && rotY == 0 && rotZ == 0) ||
-				(rotX == 1 && rotY == 1 && rotZ == 0) ||
-				(rotX == 1 && rotY == 2 && rotZ == 0) ||
-				(rotX == 1 && rotY == 3 && rotZ == 0) ||
 				(rotX == 2 && rotY == 1 && rotZ == 3) ||
 				(rotX == 2 && rotY == 3 && rotZ == 1) ||
-				(rotX == 3 && rotY == 0 && rotZ == 2) ||
-				(rotX == 3 && rotY == 1 && rotZ == 2) ||
-				(rotX == 3 && rotY == 2 && rotZ == 2) ||
-				(rotX == 3 && rotY == 3 && rotZ == 2))
+				(rotX == 1 && rotZ == 0) ||
+				(rotX == 3 && rotZ == 2))
 		{
 
 			number = 6;
-		}
-
-		if (isRolling && rotationX == 0 && rotationY == 0 && rotationZ == 0)
-		{
-
-			isRolling = false;
-			ready = true;
 		}
 	}
 
 	private float findEdge(float point)
 	{
 		resetPoint = false;
-		if (Math.abs(point) % 90 <= 10)
+		if (Math.abs(point) % 90 <= snapPoint)
 		{
 			if (point >= 0)
 			{
@@ -435,7 +406,7 @@ public class Die
 			}
 			resetPoint = true;
 		}
-		else if (Math.abs(point) % 90 >= 80)
+		else if (Math.abs(point) % 90 >= (90-snapPoint))
 		{
 			if (point >= 0)
 			{
@@ -458,16 +429,6 @@ public class Die
 	public float[] getRotation()
 	{
 		return new float[]{mCubeRotationX, mCubeRotationY, mCubeRotationZ};
-	}
-
-	public void setNumber(int number)
-	{
-		this.number = number;
-	}
-
-	public boolean isRolling()
-	{
-		return isRolling;
 	}
 
 	public void setRolling(boolean rolling)
