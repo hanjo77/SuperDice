@@ -38,18 +38,18 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-		// Set up the dice renderer
-		mDiceRenderer = new DiceRenderer(this, 2);
-		GLSurfaceView view = new GLSurfaceView(this);
-		view.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
-		view.getHolder().setFormat(PixelFormat.TRANSLUCENT);
-		view.setRenderer(mDiceRenderer);
+		// Prepare view
 		setContentView(R.layout.activity_dice_animation);
-		RelativeLayout layout = (RelativeLayout) findViewById(R.id.renderContainer);
-		mScoreTextView = (TextView) findViewById(R.id.scoreText);
-		layout.addView(view);
 		TextView textView = (TextView) findViewById(R.id.titleText);
 		textView.setText("Shake it, baby!");
+		mScoreTextView = (TextView) findViewById(R.id.scoreText);
+
+		// Set up the dice renderer and add to it's placeholder
+		mDiceRenderer = new DiceRenderer(this, 2);
+		GLSurfaceView view = new GLSurfaceView(this);
+		view.setRenderer(mDiceRenderer);
+		RelativeLayout layout = (RelativeLayout) findViewById(R.id.renderContainer);
+		layout.addView(view);
 
 		// Init sensor
 		mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
@@ -113,8 +113,10 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 				int[] numbers = mDiceRenderer.getNumber();
 				if (numbers.length == 2 && numbers[0] == numbers[1])
 				{
+					total += 2*numbers[0];
 					number = "double " + numbers[0] + "!";
-				} else
+				}
+				else
 				{
 					for (int i = 0; i < numbers.length; i++)
 					{

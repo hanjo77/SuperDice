@@ -31,7 +31,7 @@ class DiceRenderer implements GLSurfaceView.Renderer
 	/**
 	 * The distance between the dice.
 	 */
-	final int dist = 4;
+	final float dist = 3.5f;
 	/**
 	 * Defines if a dice roll is finished.
 	 */
