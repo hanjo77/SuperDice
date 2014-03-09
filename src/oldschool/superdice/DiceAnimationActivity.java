@@ -11,9 +11,14 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+/**
+ * The dice animation activity displaying and controlling the OpenGL animation
+ * 
+ * @author Hansjürg Jaggi, Stephan Menzi & Satesh Paramasamy
+ */
+
 public class DiceAnimationActivity extends Activity implements SensorEventListener
 {
-
 	private SensorManager mSensorManager;
 	private DiceRenderer mDiceRenderer;
 
@@ -27,6 +32,7 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+		// Set up the dice renderer
 		mDiceRenderer = new DiceRenderer(this, 2);
 		GLSurfaceView view = new GLSurfaceView(this);
 		view.setRenderer(mDiceRenderer);
@@ -39,29 +45,50 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 	@Override
 	public void onSensorChanged(SensorEvent event)
 	{
+		// Check if the device got shaken and if yes, ask the renderer to roll the dice!
 		if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER)
 		{
-			getAccelerometer(event);
+			float[] values = event.values;
+
+			float x = values[0];
+			float y = values[1];
+			float z = values[2];
+
+			float accelationSquareRoot = (x * x + y * y + z * z)
+					/ (SensorManager.GRAVITY_EARTH * SensorManager.GRAVITY_EARTH);
+			if (accelationSquareRoot >= 4) //
+			{
+				mDiceRenderer.rollDice(new float[]{x, y, z});
+			}
 		}
 
 	}
 
-	private void getAccelerometer(SensorEvent event)
+	@Override
+	public void onAccuracyChanged(Sensor sensor, int accuracy)
 	{
-		float[] values = event.values;
 
-		float x = values[0];
-		float y = values[1];
-		float z = values[2];
-
-		float accelationSquareRoot = (x * x + y * y + z * z)
-				/ (SensorManager.GRAVITY_EARTH * SensorManager.GRAVITY_EARTH);
-		if (accelationSquareRoot >= 4) //
-		{
-			mDiceRenderer.rollDice(new float[]{x, y, z});
-		}
 	}
 
+	@Override
+	protected void onResume()
+	{
+		super.onResume();
+		mSensorManager.registerListener(this,
+				mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
+				SensorManager.SENSOR_DELAY_NORMAL);
+	}
+
+	@Override
+	protected void onPause()
+	{
+		super.onPause();
+		mSensorManager.unregisterListener(this);
+	}
+
+	/**
+	 * Display the toast message with the current result thrown.
+	 */
 	public void toastNumber()
 	{
 		runOnUiThread(new Runnable()
@@ -95,27 +122,5 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 				Toast.makeText(getApplicationContext(), "You've thrown a " + number, Toast.LENGTH_SHORT).show();
 			}
 		});
-	}
-
-	@Override
-	public void onAccuracyChanged(Sensor sensor, int accuracy)
-	{
-
-	}
-
-	@Override
-	protected void onResume()
-	{
-		super.onResume();
-		mSensorManager.registerListener(this,
-				mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
-				SensorManager.SENSOR_DELAY_NORMAL);
-	}
-
-	@Override
-	protected void onPause()
-	{
-		super.onPause();
-		mSensorManager.unregisterListener(this);
 	}
 }

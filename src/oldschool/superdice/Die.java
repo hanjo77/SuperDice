@@ -10,6 +10,12 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 
+/**
+ * The dice object. A simple textured box with additional properties like the result shown.
+ * 
+ * @author Hansjürg Jaggi, Stephan Menzi & Satesh Paramasamy
+ */
+
 public class Die
 {
 	/**
@@ -36,10 +42,25 @@ public class Die
 	 * Rotation values *
 	 */
 	private float mCubeRotationX, mCubeRotationY, mCubeRotationZ, rotationX, rotationY, rotationZ;
+	/**
+	 * Used to define whether a rotation shall be reset to zero.
+	 */
 	private boolean resetPoint = false;
+	/**
+	 * Defines whether the die is ready (not rolling)
+	 */
 	private boolean ready = true;
+	/**
+	 * Friction defines how slowly the speed of the animation decreases, the closer to 1, the slower the decrease.
+	 */
 	final float friction = 0.99f;
+	/**
+	 * The minimal rotation speed, if this speed is reached, the die will try to snap to the next best side.
+	 */
 	final float minRotationSpeed = 0.3f;
+	/**
+	 * the snapping limit angle - when below this angle the die will fall to the corresponding side.
+	 */
 	final float snapPoint = 20;
 
 	/**
@@ -151,7 +172,6 @@ public class Die
 
 	/**
 	 * The Cube constructor.
-	 * <p/>
 	 * Initiate the buffers.
 	 */
 	public Die()
@@ -178,7 +198,7 @@ public class Die
 	 * Called from the renderer to redraw this instance
 	 * with possible changes in values.
 	 *
-	 * @param gl - The GL Context
+	 * @param gl The GL Context
 	 */
 	public void draw(GL10 gl)
 	{
@@ -215,8 +235,8 @@ public class Die
 	/**
 	 * Load the textures
 	 *
-	 * @param gl      - The GL Context
-	 * @param context - The Activity context
+	 * @param gl      The GL Context
+	 * @param context The Activity context
 	 */
 	public void loadGLTexture(GL10 gl, Context context)
 	{
@@ -249,11 +269,21 @@ public class Die
 		}
 	}
 
+	/**
+	 * Rotates the die around it's private rotation angles
+	 */
 	public void rotate()
 	{
 		rotate(rotationX, rotationY, rotationZ);
 	}
 
+	/**
+	 * Rotates the die around any rotation angle
+	 * 
+	 * @param x rotation angle around x axis
+	 * @param y	rotation angle around y axis
+	 * @param z	rotation angle around z axis
+	 */
 	public void rotate(float x, float y, float z)
 	{
 		rotationX = x;
@@ -320,6 +350,9 @@ public class Die
 		}
 	}
 
+	/**
+	 * Reads the currently thrown number according to the rotation angles.
+	 */
 	private void evaluateNumber()
 	{
 		int rotX = (int) (mCubeRotationX % 360) / 90;
@@ -391,56 +424,87 @@ public class Die
 		}
 	}
 
-	private float findEdge(float point)
+	/**
+	 * Finds if the die should fall on a side.
+	 * 
+	 * @param angle the angle to be checked
+	 * @return new angle
+	 */
+	private float findEdge(float angle)
 	{
 		resetPoint = false;
-		if (Math.abs(point) % 90 <= snapPoint)
+		if (Math.abs(angle) % 90 <= snapPoint)
 		{
-			if (point >= 0)
+			if (angle >= 0)
 			{
-				point = (float) Math.floor(point / 90) * 90;
+				angle = (float) Math.floor(angle / 90) * 90;
 			}
 			else
 			{
-				point = (float) Math.ceil(point / 90) * 90;
+				angle = (float) Math.ceil(angle / 90) * 90;
 			}
 			resetPoint = true;
 		}
-		else if (Math.abs(point) % 90 >= (90-snapPoint))
+		else if (Math.abs(angle) % 90 >= (90-snapPoint))
 		{
-			if (point >= 0)
+			if (angle >= 0)
 			{
-				point = (float) (Math.floor(point / 90) + 1) * 90;
+				angle = (float) (Math.floor(angle / 90) + 1) * 90;
 			}
 			else
 			{
-				point = (float) (Math.floor(point / 90)) * 90;
+				angle = (float) (Math.floor(angle / 90)) * 90;
 			}
 			resetPoint = true;
 		}
-		return point;
+		return angle;
 	}
 
+	/**
+	 * Returns the thrown number of this die.
+	 * 
+	 * @return number
+	 */
 	public int getNumber()
 	{
 		return number;
 	}
 
+	/**
+	 * Gets the current rotation.
+	 * 
+	 * @return float Array of x, y and z axis rotation angles
+	 */
 	public float[] getRotation()
 	{
 		return new float[]{mCubeRotationX, mCubeRotationY, mCubeRotationZ};
 	}
 
+	/**
+	 * Define whether die is rolling or not.
+	 * 
+	 * @param rolling true for rolling, false for not.
+	 */
 	public void setRolling(boolean rolling)
 	{
 		isRolling = rolling;
 	}
 
+	/**
+	 * Returns if the die is ready and not rolling.
+	 * 
+	 * @return ball is ready or not.
+	 */
 	public boolean isReady()
 	{
 		return ready;
 	}
 
+	/**
+	 * Set the dice ready state.
+	 * 
+	 * @param ready true for ready, false for not.
+	 */
 	public void setReady(boolean ready)
 	{
 		this.ready = ready;

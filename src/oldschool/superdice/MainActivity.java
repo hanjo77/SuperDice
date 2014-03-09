@@ -7,9 +7,14 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
+/**
+ * The title activity called when the app is started up.
+ * 
+ * @author Hansjürg Jaggi, Stephan Menzi & Satesh Paramasamy
+ */
+
 public class MainActivity extends Activity
 {
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -27,9 +32,13 @@ public class MainActivity extends Activity
 		return true;
 	}
 
+	/**
+	 * Starts the dice animation activity, called by the "play" button.
+	 * 
+	 * @param view
+	 */
 	public void startDiceAnimation(View view)
 	{
-
 		Intent intent = new Intent(this, DiceAnimationActivity.class);
 		startActivity(intent);
 	}

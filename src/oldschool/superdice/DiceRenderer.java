@@ -8,15 +8,44 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 import java.util.ArrayList;
 
+/**
+ * The dice renderer that controls the OpenGL animation logic.
+ * 
+ * @author Hansjürg Jaggi, Stephan Menzi & Satesh Paramasamy
+ */
+
 class DiceRenderer implements GLSurfaceView.Renderer
 {
+	/**
+	 * The parent activity.
+	 */
 	private DiceAnimationActivity context;
+	/**
+	 * An ArrayList of all the dice used.
+	 */
 	private ArrayList<Die> mDice = new ArrayList<Die>();
+	/**
+	 * The Array of thrown results.
+	 */
 	private int[] number;
+	/**
+	 * The distance between the dice.
+	 */
 	final int dist = 4;
+	/**
+	 * Defines if a dice roll is finished.
+	 */
 	private boolean isFinished = true;
+	/**
+	 * Defines whether the toase message on the parent activity shall be updated.
+	 */
 	private boolean doUpdateToast = false;
 
+	/**
+	 * Instantiates a dice renderer object with one die
+	 * 
+	 * @param context
+	 */
 	public DiceRenderer(Context context)
 	{
 
@@ -24,6 +53,12 @@ class DiceRenderer implements GLSurfaceView.Renderer
 		this.setDice(1);
 	}
 
+	/**
+	 * Instantiates a dice renderer object with multiple dice
+	 * 
+	 * @param context
+	 * @param diceCount Number of dice
+	 */
 	public DiceRenderer(Context context, int diceCount)
 	{
 
@@ -31,6 +66,11 @@ class DiceRenderer implements GLSurfaceView.Renderer
 		this.setDice(diceCount);
 	}
 
+	/**
+	 * Initializes the dice ArrayList
+	 * 
+	 * @param count number of dice
+	 */
 	private void setDice(int count)
 	{
 		for (int i = 0; i < count; i++)
@@ -42,6 +82,7 @@ class DiceRenderer implements GLSurfaceView.Renderer
 	@Override
 	public void onDrawFrame(GL10 gl)
 	{
+		// Update the scene
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
 		gl.glLoadIdentity();
 		gl.glEnable(GL10.GL_TEXTURE_2D);
@@ -60,10 +101,8 @@ class DiceRenderer implements GLSurfaceView.Renderer
 
 		for (int i = 0; i < mDice.size(); i++)
 		{
-
 			gl.glPushMatrix();
 			Die die = mDice.get(i);
-			float[] diceRotation = die.getRotation();
 			die.rotate();
 			gl.glTranslatef(0.0f, posY, 0.0f);
 			die.draw(gl);
@@ -82,6 +121,7 @@ class DiceRenderer implements GLSurfaceView.Renderer
 			gl.glPopMatrix();
 		}
 
+		// If all the dice are ready, the result should be sent to the activity.
 		if (isFinished && doUpdateToast)
 		{
 			context.toastNumber();
@@ -98,6 +138,7 @@ class DiceRenderer implements GLSurfaceView.Renderer
 	@Override
 	public void onSurfaceCreated(GL10 gl, EGLConfig config)
 	{
+		// Initialize the scene
 		gl.glClearColor(0.0f, 0.0f, 0.0f, 0.5f);
 
 		gl.glMatrixMode(GL10.GL_PROJECTION);
@@ -130,6 +171,7 @@ class DiceRenderer implements GLSurfaceView.Renderer
 	@Override
 	public void onSurfaceChanged(GL10 gl, int width, int height)
 	{
+		// Handles device rotation, possibly used again later...
 		gl.glViewport(0, 0, width, height);
 		gl.glMatrixMode(GL10.GL_PROJECTION);
 		gl.glLoadIdentity();
@@ -140,6 +182,11 @@ class DiceRenderer implements GLSurfaceView.Renderer
 		gl.glLoadIdentity();
 	}
 
+	/**
+	 * Gets the array of results thrown
+	 * 
+	 * @return int Array of results thrown.
+	 */
 	public int[] getNumber()
 	{
 		number = new int[mDice.size()];
@@ -150,6 +197,11 @@ class DiceRenderer implements GLSurfaceView.Renderer
 		return number;
 	}
 
+	/**
+	 * Triggers the actual dice rolling animation.
+	 * 
+	 * @param dirs Array of float values for x, y and z axis rotation angles
+	 */
 	public void rollDice(float[] dirs)
 	{
 		if (isFinished)
