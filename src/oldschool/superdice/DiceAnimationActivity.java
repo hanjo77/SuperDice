@@ -1,14 +1,18 @@
 package oldschool.superdice;
 
 import android.app.Activity;
+import android.graphics.PixelFormat;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -21,6 +25,8 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 {
 	private SensorManager mSensorManager;
 	private DiceRenderer mDiceRenderer;
+	private TextView mScoreTextView;
+	private int score = 0;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState)
@@ -35,8 +41,15 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 		// Set up the dice renderer
 		mDiceRenderer = new DiceRenderer(this, 2);
 		GLSurfaceView view = new GLSurfaceView(this);
+		view.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
+		view.getHolder().setFormat(PixelFormat.TRANSLUCENT);
 		view.setRenderer(mDiceRenderer);
-		setContentView(view);
+		setContentView(R.layout.activity_dice_animation);
+		RelativeLayout layout = (RelativeLayout) findViewById(R.id.renderContainer);
+		mScoreTextView = (TextView) findViewById(R.id.scoreText);
+		layout.addView(view);
+		TextView textView = (TextView) findViewById(R.id.titleText);
+		textView.setText("Shake it, baby!");
 
 		// Init sensor
 		mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
@@ -95,23 +108,23 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 		{
 			public void run()
 			{
+				int total = 0;
 				String number = "";
 				int[] numbers = mDiceRenderer.getNumber();
 				if (numbers.length == 2 && numbers[0] == numbers[1])
 				{
 					number = "double " + numbers[0] + "!";
-				}
-				else
+				} else
 				{
 					for (int i = 0; i < numbers.length; i++)
 					{
+						total += numbers[i];
 						if (i > 0)
 						{
 							if (i < numbers.length - 1)
 							{
 								number += ", a ";
-							}
-							else if (i == numbers.length - 1)
+							} else if (i == numbers.length - 1)
 							{
 								number += " and a ";
 							}
@@ -120,6 +133,8 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 					}
 				}
 				Toast.makeText(getApplicationContext(), "You've thrown a " + number, Toast.LENGTH_SHORT).show();
+				score += total;
+				mScoreTextView.setText("Score: " + (score));
 			}
 		});
 	}

@@ -55,7 +55,7 @@ class DiceRenderer implements GLSurfaceView.Renderer
 
 	/**
 	 * Instantiates a dice renderer object with multiple dice
-	 * 
+	 *
 	 * @param context
 	 * @param diceCount Number of dice
 	 */
@@ -82,6 +82,16 @@ class DiceRenderer implements GLSurfaceView.Renderer
 	@Override
 	public void onDrawFrame(GL10 gl)
 	{
+		// Set background transparent
+		gl.glDisable(GL10.GL_DITHER);
+		gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT,
+				GL10.GL_FASTEST);
+
+		gl.glClearColor(0,0,0,0);
+		gl.glEnable(GL10.GL_CULL_FACE);
+		gl.glShadeModel(GL10.GL_SMOOTH);
+		gl.glEnable(GL10.GL_DEPTH_TEST);
+
 		// Update the scene
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
 		gl.glLoadIdentity();
@@ -97,7 +107,7 @@ class DiceRenderer implements GLSurfaceView.Renderer
 
 		isFinished = true;
 
-		gl.glTranslatef(0.0f, posY, ((mDice.size() - 1) * -5) - 10.0f);
+		gl.glTranslatef(0.0f, posY, -10.0f);
 
 		for (int i = 0; i < mDice.size(); i++)
 		{
