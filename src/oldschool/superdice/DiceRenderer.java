@@ -31,7 +31,7 @@ class DiceRenderer implements GLSurfaceView.Renderer
 	/**
 	 * The distance between the dice.
 	 */
-	final float dist = 3.5f;
+	final float dist = 3.3f;
 	/**
 	 * Defines if a dice roll is finished.
 	 */
@@ -82,16 +82,6 @@ class DiceRenderer implements GLSurfaceView.Renderer
 	@Override
 	public void onDrawFrame(GL10 gl)
 	{
-		// Set background transparent
-		gl.glDisable(GL10.GL_DITHER);
-		gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT,
-				GL10.GL_FASTEST);
-
-		gl.glClearColor(0,0,0,0);
-		gl.glEnable(GL10.GL_CULL_FACE);
-		gl.glShadeModel(GL10.GL_SMOOTH);
-		gl.glEnable(GL10.GL_DEPTH_TEST);
-
 		// Update the scene
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
 		gl.glLoadIdentity();
@@ -102,7 +92,7 @@ class DiceRenderer implements GLSurfaceView.Renderer
 		if (mDice.size() == 2)
 		{
 
-			posY = -1 * (dist / 4);
+			posY = dist/-4.5f;
 		}
 
 		isFinished = true;

@@ -1,16 +1,13 @@
 package oldschool.superdice;
 
 import android.app.Activity;
-import android.graphics.PixelFormat;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.view.Window;
-import android.view.WindowManager;
+import android.view.*;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,11 +18,12 @@ import android.widget.Toast;
  * @author Hansjürg Jaggi, Stephan Menzi & Satesh Paramasamy
  */
 
-public class DiceAnimationActivity extends Activity implements SensorEventListener
+public class DiceAnimationActivity extends Activity implements SensorEventListener, GestureDetector.OnGestureListener
 {
 	private SensorManager mSensorManager;
 	private DiceRenderer mDiceRenderer;
 	private TextView mScoreTextView;
+	private GestureDetector mGestureDetector;
 	private int score = 0;
 
 	@Override
@@ -33,15 +31,10 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 	{
 		super.onCreate(savedInstanceState);
 
-		// Go fullscreen
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-				WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
 		// Prepare view
 		setContentView(R.layout.activity_dice_animation);
 		TextView textView = (TextView) findViewById(R.id.titleText);
-		textView.setText("Shake it, baby!");
+		textView.setText("Shake or fling!");
 		mScoreTextView = (TextView) findViewById(R.id.scoreText);
 
 		// Set up the dice renderer and add to it's placeholder
@@ -50,6 +43,9 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 		view.setRenderer(mDiceRenderer);
 		RelativeLayout layout = (RelativeLayout) findViewById(R.id.renderContainer);
 		layout.addView(view);
+
+		// Set up gesture controls for non-shaky people
+		mGestureDetector = new GestureDetector(this);
 
 		// Init sensor
 		mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
@@ -139,5 +135,52 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 				mScoreTextView.setText("Score: " + (score));
 			}
 		});
+	}
+
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		return mGestureDetector.onTouchEvent(event);
+	}
+
+	@Override
+	public boolean onDown(MotionEvent e)
+	{
+		return false;
+	}
+
+	@Override
+	public void onShowPress(MotionEvent e)
+	{
+
+	}
+
+	@Override
+	public boolean onSingleTapUp(MotionEvent e)
+	{
+		return false;
+	}
+
+	@Override
+	public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY)
+	{
+		return false;
+	}
+
+	@Override
+	public void onLongPress(MotionEvent e)
+	{
+
+	}
+
+	@Override
+	public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY)
+	{
+		float[] firstTouch = { e1.getX(), e1.getY() };
+		float[] lastTouch = { e2.getX(), e2.getY() };
+		float[] dist = { lastTouch[0]-firstTouch[0], lastTouch[1]-firstTouch[1] };
+		if ((Math.abs(dist[0]) > 10) || (Math.abs(dist[1]) > 10)) {
+			mDiceRenderer.rollDice(new float[]{ dist[0]/7, dist[1]/7, dist[0]/7 });
+		}
+		return false;
 	}
 }
