@@ -13,7 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9fabfe62-49b7-42f3-94f2-f6eb64780319" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java" afterPath="$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oldschool/superdice/DiceRenderer.java" afterPath="$PROJECT_DIR$/src/oldschool/superdice/DiceRenderer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SuperDice.iws" />
@@ -98,10 +97,30 @@
       <file leaf-file-name="DiceAnimationActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="66" selection-start="1430" selection-end="1430" vertical-scroll-proportion="0.60640734" vertical-offset="380" max-vertical-offset="2805">
+            <state line="48" column="82" selection-start="1597" selection-end="1597" vertical-scroll-proportion="0.812357" vertical-offset="365" max-vertical-offset="2145">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DiceGestureListener.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceGestureListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="46" column="0" selection-start="1318" selection-end="1318" vertical-scroll-proportion="0.0" vertical-offset="13" max-vertical-offset="960">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="View.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/android-sdks/sources/android-19/android/view/View.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18483" column="16" selection-start="719906" selection-end="719906" vertical-scroll-proportion="0.0" vertical-offset="274044" max-vertical-offset="290595">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -112,18 +131,6 @@
             <state line="403" column="0" selection-start="14389" selection-end="14389" vertical-scroll-proportion="0.0" vertical-offset="6103" max-vertical-offset="7290">
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_dice_animation.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/activity_dice_animation.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="56" selection-start="1010" selection-end="1053" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="630">
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
           </provider>
         </entry>
       </file>
@@ -169,7 +176,7 @@
       <file leaf-file-name="ZygoteInit.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/android-sdks/sources/android-19/com/android/internal/os/ZygoteInit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="594" column="0" selection-start="20952" selection-end="20952" vertical-scroll-proportion="0.0" vertical-offset="8910" max-vertical-offset="11985">
+            <state line="594" column="0" selection-start="20952" selection-end="20952" vertical-scroll-proportion="0.0" vertical-offset="8105" max-vertical-offset="11325">
               <folding />
             </state>
           </provider>
@@ -208,6 +215,7 @@
         <option value="$PROJECT_DIR$/res/layout/activity_dice_animation.xml" />
         <option value="$PROJECT_DIR$/src/oldschool/superdice/DiceRenderer.java" />
         <option value="$PROJECT_DIR$/src/oldschool/superdice/OnSwipeTouchListener.java" />
+        <option value="$PROJECT_DIR$/src/oldschool/superdice/DiceGestureListener.java" />
         <option value="$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java" />
       </list>
     </option>
@@ -914,13 +922,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/android-sdks/sources/android-19/com/android/internal/os/ZygoteInit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="594" column="0" selection-start="20952" selection-end="20952" vertical-scroll-proportion="0.0" vertical-offset="8114" max-vertical-offset="11325">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/menu/main.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="49" selection-start="244" selection-end="244" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="225">
@@ -997,9 +998,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/android-sdks/sources/android-19/com/android/internal/os/ZygoteInit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="594" column="0" selection-start="20952" selection-end="20952" vertical-scroll-proportion="0.0" vertical-offset="8114" max-vertical-offset="11325">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/android-sdks/sources/android-19/android/view/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18483" column="16" selection-start="719906" selection-end="719906" vertical-scroll-proportion="0.0" vertical-offset="274044" max-vertical-offset="290595">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceGestureListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="0" selection-start="1318" selection-end="1318" vertical-scroll-proportion="0.0" vertical-offset="13" max-vertical-offset="960">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="66" selection-start="1430" selection-end="1430" vertical-scroll-proportion="0.60640734" vertical-offset="380" max-vertical-offset="2805">
+        <state line="48" column="82" selection-start="1597" selection-end="1597" vertical-scroll-proportion="0.812357" vertical-offset="365" max-vertical-offset="2145">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

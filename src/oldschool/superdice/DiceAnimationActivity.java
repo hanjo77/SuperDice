@@ -1,6 +1,7 @@
 package oldschool.superdice;
 
 import android.app.Activity;
+import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -18,7 +19,7 @@ import android.widget.Toast;
  * @author Hansjürg Jaggi, Stephan Menzi & Satesh Paramasamy
  */
 
-public class DiceAnimationActivity extends Activity implements SensorEventListener, GestureDetector.OnGestureListener
+public class DiceAnimationActivity extends Activity implements SensorEventListener
 {
 	private SensorManager mSensorManager;
 	private DiceRenderer mDiceRenderer;
@@ -45,7 +46,7 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 		layout.addView(view);
 
 		// Set up gesture controls for non-shaky people
-		mGestureDetector = new GestureDetector(this);
+		view.setOnTouchListener(new DiceGestureListener(DiceAnimationActivity.this));
 
 		// Init sensor
 		mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
@@ -137,50 +138,8 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 		});
 	}
 
-	@Override
-	public boolean onTouchEvent(MotionEvent event) {
-		return mGestureDetector.onTouchEvent(event);
-	}
-
-	@Override
-	public boolean onDown(MotionEvent e)
+	public DiceRenderer getDiceRenderer()
 	{
-		return false;
-	}
-
-	@Override
-	public void onShowPress(MotionEvent e)
-	{
-
-	}
-
-	@Override
-	public boolean onSingleTapUp(MotionEvent e)
-	{
-		return false;
-	}
-
-	@Override
-	public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY)
-	{
-		return false;
-	}
-
-	@Override
-	public void onLongPress(MotionEvent e)
-	{
-
-	}
-
-	@Override
-	public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY)
-	{
-		float[] firstTouch = { e1.getX(), e1.getY() };
-		float[] lastTouch = { e2.getX(), e2.getY() };
-		float[] dist = { lastTouch[0]-firstTouch[0], lastTouch[1]-firstTouch[1] };
-		if ((Math.abs(dist[0]) > 10) || (Math.abs(dist[1]) > 10)) {
-			mDiceRenderer.rollDice(new float[]{ dist[0]/7, dist[1]/7, dist[0]/7 });
-		}
-		return false;
+		return mDiceRenderer;
 	}
 }
