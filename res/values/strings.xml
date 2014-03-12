@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Super Dice</string>
+	<string name="app_name">Super Dice!</string>
     <string name="action_settings">Settings</string>
-    <string name="play">Play!</string>
+	<string name="game_title">Shake or fling!</string>
+	<string name="you_thrown_a">You\'ve thrown a</string>
+	<string name="play">Play!</string>
+	<string name="score">Score</string>
 
 </resources>

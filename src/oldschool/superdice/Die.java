@@ -53,15 +53,15 @@ public class Die
 	/**
 	 * Friction defines how slowly the speed of the animation decreases, the closer to 1, the slower the decrease.
 	 */
-	final float friction = 0.99f;
+	final float friction = 0.98f;
 	/**
 	 * The minimal rotation speed, if this speed is reached, the die will try to snap to the next best side.
 	 */
-	final float minRotationSpeed = 0.3f;
+	final float minRotationSpeed = 1.0f;
 	/**
 	 * the snapping limit angle - when below this angle the die will fall to the corresponding side.
 	 */
-	final float snapPoint = 20;
+	final float snapPoint = 5;
 
 	/**
 	 * Our texture pointer
@@ -79,96 +79,6 @@ public class Die
 			R.drawable.side5,
 			R.drawable.side6};
 
-	/**
-	 * The initial vertex definition
-	 * <p/>
-	 * Note that each face is defined, even
-	 * if indices are available, because
-	 * of the texturing we want to achieve
-	 */
-	private float vertices[] = {
-			//Vertices according to faces
-			-1.0f, -1.0f, 1.0f, //Vertex 0
-			1.0f, -1.0f, 1.0f,  //v1
-			-1.0f, 1.0f, 1.0f,  //v2
-			1.0f, 1.0f, 1.0f,   //v3
-
-			1.0f, -1.0f, 1.0f,  //...
-			1.0f, -1.0f, -1.0f,
-			1.0f, 1.0f, 1.0f,
-			1.0f, 1.0f, -1.0f,
-
-			1.0f, -1.0f, -1.0f,
-			-1.0f, -1.0f, -1.0f,
-			1.0f, 1.0f, -1.0f,
-			-1.0f, 1.0f, -1.0f,
-
-			-1.0f, -1.0f, -1.0f,
-			-1.0f, -1.0f, 1.0f,
-			-1.0f, 1.0f, -1.0f,
-			-1.0f, 1.0f, 1.0f,
-
-			-1.0f, -1.0f, -1.0f,
-			1.0f, -1.0f, -1.0f,
-			-1.0f, -1.0f, 1.0f,
-			1.0f, -1.0f, 1.0f,
-
-			-1.0f, 1.0f, 1.0f,
-			1.0f, 1.0f, 1.0f,
-			-1.0f, 1.0f, -1.0f,
-			1.0f, 1.0f, -1.0f,
-	};
-
-	/**
-	 * The initial texture coordinates (u, v)
-	 */
-	private float texture[] = {
-			//Mapping coordinates for the vertices
-
-			0.0f, 1.0f,
-			1.0f, 1.0f,
-			0.0f, 0.0f,
-			1.0f, 0.0f,
-
-			0.0f, 1.0f,
-			1.0f, 1.0f,
-			0.0f, 0.0f,
-			1.0f, 0.0f,
-
-			0.0f, 1.0f,
-			1.0f, 1.0f,
-			0.0f, 0.0f,
-			1.0f, 0.0f,
-
-			0.0f, 1.0f,
-			1.0f, 1.0f,
-			0.0f, 0.0f,
-			1.0f, 0.0f,
-
-			0.0f, 1.0f,
-			1.0f, 1.0f,
-			0.0f, 0.0f,
-			1.0f, 0.0f,
-
-			0.0f, 1.0f,
-			1.0f, 1.0f,
-			0.0f, 0.0f,
-			1.0f, 0.0f,
-
-	};
-
-	/**
-	 * The initial indices definition
-	 */
-	private byte indices[] = {
-			//Faces definition
-			0, 1, 3, 0, 3, 2,           //Face front
-			4, 5, 7, 4, 7, 6,           //Face right
-			8, 9, 11, 8, 11, 10,        //...
-			12, 13, 15, 12, 15, 14,
-			16, 17, 19, 16, 19, 18,
-			20, 21, 23, 20, 23, 22,
-	};
 
 	/**
 	 * The Cube constructor.
@@ -176,6 +86,97 @@ public class Die
 	 */
 	public Die()
 	{
+		/**
+		 * The initial vertex definition
+		 * <p/>
+		 * Note that each face is defined, even
+		 * if indices are available, because
+		 * of the texturing we want to achieve
+		 */
+		float vertices[] = {
+				//Vertices according to faces
+				-1.0f, -1.0f, 1.0f, //Vertex 0
+				1.0f, -1.0f, 1.0f,  //v1
+				-1.0f, 1.0f, 1.0f,  //v2
+				1.0f, 1.0f, 1.0f,   //v3
+
+				1.0f, -1.0f, 1.0f,  //...
+				1.0f, -1.0f, -1.0f,
+				1.0f, 1.0f, 1.0f,
+				1.0f, 1.0f, -1.0f,
+
+				1.0f, -1.0f, -1.0f,
+				-1.0f, -1.0f, -1.0f,
+				1.0f, 1.0f, -1.0f,
+				-1.0f, 1.0f, -1.0f,
+
+				-1.0f, -1.0f, -1.0f,
+				-1.0f, -1.0f, 1.0f,
+				-1.0f, 1.0f, -1.0f,
+				-1.0f, 1.0f, 1.0f,
+
+				-1.0f, -1.0f, -1.0f,
+				1.0f, -1.0f, -1.0f,
+				-1.0f, -1.0f, 1.0f,
+				1.0f, -1.0f, 1.0f,
+
+				-1.0f, 1.0f, 1.0f,
+				1.0f, 1.0f, 1.0f,
+				-1.0f, 1.0f, -1.0f,
+				1.0f, 1.0f, -1.0f,
+		};
+
+		/**
+		 * The initial texture coordinates (u, v)
+		 */
+		float texture[] = {
+				//Mapping coordinates for the vertices
+
+				0.0f, 1.0f,
+				1.0f, 1.0f,
+				0.0f, 0.0f,
+				1.0f, 0.0f,
+
+				0.0f, 1.0f,
+				1.0f, 1.0f,
+				0.0f, 0.0f,
+				1.0f, 0.0f,
+
+				0.0f, 1.0f,
+				1.0f, 1.0f,
+				0.0f, 0.0f,
+				1.0f, 0.0f,
+
+				0.0f, 1.0f,
+				1.0f, 1.0f,
+				0.0f, 0.0f,
+				1.0f, 0.0f,
+
+				0.0f, 1.0f,
+				1.0f, 1.0f,
+				0.0f, 0.0f,
+				1.0f, 0.0f,
+
+				0.0f, 1.0f,
+				1.0f, 1.0f,
+				0.0f, 0.0f,
+				1.0f, 0.0f,
+
+		};
+
+		/**
+		 * The initial indices definition
+		 */
+		byte indices[] = {
+				//Faces definition
+				0, 1, 3, 0, 3, 2,           //Face front
+				4, 5, 7, 4, 7, 6,           //Face right
+				8, 9, 11, 8, 11, 10,        //...
+				12, 13, 15, 12, 15, 14,
+				16, 17, 19, 16, 19, 18,
+				20, 21, 23, 20, 23, 22,
+		};
+
 		ByteBuffer byteBuf = ByteBuffer.allocateDirect(vertices.length * 4);
 		byteBuf.order(ByteOrder.nativeOrder());
 		vertexBuffer = byteBuf.asFloatBuffer();
@@ -243,12 +244,10 @@ public class Die
 		//Generate a 6 texture pointer...
 		gl.glGenTextures(6, textures, 0);
 
-		Bitmap bitmap = null;
-
 		for (int i = 0; i < 6; i++)
 		{
 			// Create a bitmap
-			bitmap = BitmapFactory.decodeResource(context.getResources(), resourceIds[i]);
+			Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), resourceIds[i]);
 
 			//...and bind it to our array
 			gl.glBindTexture(GL10.GL_TEXTURE_2D, textures[i]);
@@ -263,9 +262,6 @@ public class Die
 
 			//Use the Android GLUtils to specify a two-dimensional texture image from our bitmap
 			GLUtils.texImage2D(GL10.GL_TEXTURE_2D, 0, bitmap, 0);
-
-			//Clean up
-			bitmap = null;
 		}
 	}
 
@@ -491,16 +487,6 @@ public class Die
 	}
 
 	/**
-	 * Returns if the die is ready and not rolling.
-	 * 
-	 * @return ball is ready or not.
-	 */
-	public boolean isReady()
-	{
-		return ready;
-	}
-
-	/**
 	 * Set the dice ready state.
 	 * 
 	 * @param ready true for ready, false for not.
@@ -509,4 +495,13 @@ public class Die
 	{
 		this.ready = ready;
 	}
-}
+
+	/**
+	 * Returns if the die is not ready.
+	 *
+	 * @return true if ball is not ready.
+	 */
+	public boolean isNotReady()
+	{
+		return !ready;
+	}}

@@ -1,14 +1,12 @@
 package oldschool.superdice;
 
 import android.app.Activity;
-import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
-import android.view.*;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,7 +22,6 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 	private SensorManager mSensorManager;
 	private DiceRenderer mDiceRenderer;
 	private TextView mScoreTextView;
-	private GestureDetector mGestureDetector;
 	private int score = 0;
 
 	@Override
@@ -35,7 +32,7 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 		// Prepare view
 		setContentView(R.layout.activity_dice_animation);
 		TextView textView = (TextView) findViewById(R.id.titleText);
-		textView.setText("Shake or fling!");
+		textView.setText(getResources().getString(R.string.game_title));
 		mScoreTextView = (TextView) findViewById(R.id.scoreText);
 
 		// Set up the dice renderer and add to it's placeholder
@@ -64,9 +61,9 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 			float y = values[1];
 			float z = values[2];
 
-			float accelationSquareRoot = (x * x + y * y + z * z)
+			float accelerationSquareRoot = (x * x + y * y + z * z)
 					/ (SensorManager.GRAVITY_EARTH * SensorManager.GRAVITY_EARTH);
-			if (accelationSquareRoot >= 4) //
+			if (accelerationSquareRoot >= 4) //
 			{
 				mDiceRenderer.rollDice(new float[]{x, y, z});
 			}
@@ -131,9 +128,12 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 						number += numbers[i];
 					}
 				}
-				Toast.makeText(getApplicationContext(), "You've thrown a " + number, Toast.LENGTH_SHORT).show();
+				if (getApplicationContext() != null) {
+
+					Toast.makeText(getApplicationContext(), getResources().getText(R.string.you_thrown_a) + " " + number, Toast.LENGTH_SHORT).show();
+				}
 				score += total;
-				mScoreTextView.setText("Score: " + (score));
+				mScoreTextView.setText(score+"");
 			}
 		});
 	}
