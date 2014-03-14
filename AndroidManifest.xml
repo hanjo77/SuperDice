@@ -5,8 +5,8 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="14"
-        android:targetSdkVersion="18" />
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
 
     <application
         android:allowBackup="true"
@@ -22,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-	    <activity android:name="oldschool.superdice.DiceAnimationActivity" android:screenOrientation="portrait"></activity>
+	    <activity android:name="oldschool.superdice.DiceAnimationActivity" android:screenOrientation="portrait" />
     </application>
 
 </manifest>

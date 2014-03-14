@@ -35,7 +35,7 @@ public class MainActivity extends Activity
 	/**
 	 * Starts the dice animation activity, called by the "play" button.
 	 * 
-	 * @param view
+	 * @param view The view
 	 */
 	public void startDiceAnimation(View view)
 	{

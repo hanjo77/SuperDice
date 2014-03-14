@@ -14,7 +14,6 @@ public class DiceGestureListener implements View.OnTouchListener
 {
 	private GestureDetector mGestureDetector;
 	private DiceRenderer mDiceRenderer;
-	private float divisor = 6;
 
 	public DiceGestureListener (Context context)
 	{
@@ -34,7 +33,6 @@ public class DiceGestureListener implements View.OnTouchListener
 
 		@Override
 		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-			boolean result = false;
 			try {
 				float diffY = e2.getY() - e1.getY();
 				float diffX = e2.getX() - e1.getX();
@@ -42,11 +40,12 @@ public class DiceGestureListener implements View.OnTouchListener
 			} catch (Exception exception) {
 				exception.printStackTrace();
 			}
-			return result;
+			return false;
 		}
 
 		private float[] generateDirections(float diffX, float diffY) {
 
+			float divisor = 20;
 			return new float[]{ diffX/divisor, diffY/divisor, ((diffX+diffY)/2)/divisor };
 		}
 	}

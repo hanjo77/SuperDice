@@ -25,10 +25,6 @@ class DiceRenderer implements GLSurfaceView.Renderer
 	 */
 	private ArrayList<Die> mDice = new ArrayList<Die>();
 	/**
-	 * The Array of thrown results.
-	 */
-	private int[] number;
-	/**
 	 * The distance between the dice.
 	 */
 	final float dist = 3.3f;
@@ -37,14 +33,14 @@ class DiceRenderer implements GLSurfaceView.Renderer
 	 */
 	private boolean isFinished = true;
 	/**
-	 * Defines whether the toase message on the parent activity shall be updated.
+	 * Defines whether the toast message on the parent activity shall be updated.
 	 */
 	private boolean doUpdateToast = false;
 
 	/**
 	 * Instantiates a dice renderer object with one die
 	 * 
-	 * @param context
+	 * @param context The context
 	 */
 	public DiceRenderer(Context context)
 	{
@@ -56,7 +52,7 @@ class DiceRenderer implements GLSurfaceView.Renderer
 	/**
 	 * Instantiates a dice renderer object with multiple dice
 	 *
-	 * @param context
+	 * @param context The context
 	 * @param diceCount Number of dice
 	 */
 	public DiceRenderer(Context context, int diceCount)
@@ -91,13 +87,12 @@ class DiceRenderer implements GLSurfaceView.Renderer
 
 		if (mDice.size() == 2)
 		{
-
-			posY = dist/-4.5f;
+			posY = dist/-3.8f;
 		}
 
 		isFinished = true;
 
-		gl.glTranslatef(0.0f, posY, -10.0f);
+		gl.glTranslatef(0.0f, posY, -8.5f);
 
 		for (int i = 0; i < mDice.size(); i++)
 		{
@@ -107,7 +102,7 @@ class DiceRenderer implements GLSurfaceView.Renderer
 			gl.glTranslatef(0.0f, posY, 0.0f);
 			die.draw(gl);
 
-			if (!die.isReady())
+			if (die.isNotReady())
 			{
 				isFinished = false;
 			}
@@ -126,9 +121,9 @@ class DiceRenderer implements GLSurfaceView.Renderer
 		{
 			context.toastNumber();
 			doUpdateToast = false;
-			for (int i = 0; i < mDice.size(); i++)
+			for (Die die : mDice)
 			{
-				mDice.get(i).setReady(true);
+				die.setReady(true);
 			}
 		}
 
@@ -153,9 +148,8 @@ class DiceRenderer implements GLSurfaceView.Renderer
 		gl.glLightfv(GL10.GL_LIGHT1, GL10.GL_SPOT_DIRECTION, direction, 0);
 		gl.glLightf(GL10.GL_LIGHT1, GL10.GL_SPOT_CUTOFF, 30.0f);
 
-		for (int i = 0; i < mDice.size(); i++)
+		for (Die die : mDice)
 		{
-			Die die = mDice.get(i);
 			die.loadGLTexture(gl, context);
 		}
 
@@ -189,7 +183,7 @@ class DiceRenderer implements GLSurfaceView.Renderer
 	 */
 	public int[] getNumber()
 	{
-		number = new int[mDice.size()];
+		int[] number = new int[mDice.size()];
 		for (int i = 0; i < mDice.size(); i++)
 		{
 			number[i] = mDice.get(i).getNumber();
