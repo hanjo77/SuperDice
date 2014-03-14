@@ -8,4 +8,8 @@
 	<string name="play">Play!</string>
 	<string name="score">Score</string>
 
+	<string name="user_selection_title">Choose and add players:</string>
+	<string name="input_name_default_text">Name</string>
+	<string name="button_add_text">+</string>
+
 </resources>
