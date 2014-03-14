@@ -87,7 +87,6 @@ class DiceRenderer implements GLSurfaceView.Renderer
 
 		if (mDice.size() == 2)
 		{
-
 			posY = dist/-3.8f;
 		}
 
