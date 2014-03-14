@@ -31,7 +31,7 @@ class DiceRenderer implements GLSurfaceView.Renderer
 	/**
 	 * The distance between the dice.
 	 */
-	final int dist = 4;
+	final float dist = 3.3f;
 	/**
 	 * Defines if a dice roll is finished.
 	 */
@@ -55,7 +55,7 @@ class DiceRenderer implements GLSurfaceView.Renderer
 
 	/**
 	 * Instantiates a dice renderer object with multiple dice
-	 * 
+	 *
 	 * @param context
 	 * @param diceCount Number of dice
 	 */
@@ -92,12 +92,12 @@ class DiceRenderer implements GLSurfaceView.Renderer
 		if (mDice.size() == 2)
 		{
 
-			posY = -1 * (dist / 4);
+			posY = dist/-4.5f;
 		}
 
 		isFinished = true;
 
-		gl.glTranslatef(0.0f, posY, ((mDice.size() - 1) * -5) - 10.0f);
+		gl.glTranslatef(0.0f, posY, -10.0f);
 
 		for (int i = 0; i < mDice.size(); i++)
 		{

@@ -1,14 +1,16 @@
 package oldschool.superdice;
 
 import android.app.Activity;
+import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
-import android.view.Window;
-import android.view.WindowManager;
+import android.view.*;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -21,22 +23,30 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 {
 	private SensorManager mSensorManager;
 	private DiceRenderer mDiceRenderer;
+	private TextView mScoreTextView;
+	private GestureDetector mGestureDetector;
+	private int score = 0;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 
-		// Go fullscreen
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-				WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		// Prepare view
+		setContentView(R.layout.activity_dice_animation);
+		TextView textView = (TextView) findViewById(R.id.titleText);
+		textView.setText("Shake or fling!");
+		mScoreTextView = (TextView) findViewById(R.id.scoreText);
 
-		// Set up the dice renderer
+		// Set up the dice renderer and add to it's placeholder
 		mDiceRenderer = new DiceRenderer(this, 2);
 		GLSurfaceView view = new GLSurfaceView(this);
 		view.setRenderer(mDiceRenderer);
-		setContentView(view);
+		RelativeLayout layout = (RelativeLayout) findViewById(R.id.renderContainer);
+		layout.addView(view);
+
+		// Set up gesture controls for non-shaky people
+		view.setOnTouchListener(new DiceGestureListener(DiceAnimationActivity.this));
 
 		// Init sensor
 		mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
@@ -95,23 +105,25 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 		{
 			public void run()
 			{
+				int total = 0;
 				String number = "";
 				int[] numbers = mDiceRenderer.getNumber();
 				if (numbers.length == 2 && numbers[0] == numbers[1])
 				{
+					total += 2*numbers[0];
 					number = "double " + numbers[0] + "!";
 				}
 				else
 				{
 					for (int i = 0; i < numbers.length; i++)
 					{
+						total += numbers[i];
 						if (i > 0)
 						{
 							if (i < numbers.length - 1)
 							{
 								number += ", a ";
-							}
-							else if (i == numbers.length - 1)
+							} else if (i == numbers.length - 1)
 							{
 								number += " and a ";
 							}
@@ -120,7 +132,14 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 					}
 				}
 				Toast.makeText(getApplicationContext(), "You've thrown a " + number, Toast.LENGTH_SHORT).show();
+				score += total;
+				mScoreTextView.setText("Score: " + (score));
 			}
 		});
+	}
+
+	public DiceRenderer getDiceRenderer()
+	{
+		return mDiceRenderer;
 	}
 }
