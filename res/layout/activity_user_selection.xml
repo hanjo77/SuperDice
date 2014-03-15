@@ -48,19 +48,41 @@
 			android:layout_alignParentEnd="true"/>
 
 	<ListView
+			android:layout_width="match_parent"
+			android:layout_height="fill_parent"
+			android:layout_marginLeft="@dimen/activity_vertical_margin"
+			android:layout_marginRight="@dimen/activity_vertical_margin"
+			android:layout_marginBottom="@dimen/activity_vertical_margin"
+			android:layout_below="@+id/editUserName"
+			android:layout_above="@+id/buttonContainer"
 			android:id="@+id/userListView"
 			android:paddingLeft="@dimen/input_vertical_padding"
 			android:paddingRight="@dimen/input_vertical_padding"
-			android:layout_centerVertical="true"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_below="@+id/editUserName"
-			android:layout_alignParentLeft="true"
-			android:layout_margin="@dimen/activity_vertical_margin"
-			android:layout_marginTop="0dp"
+			android:layout_marginTop="0pt"
 			android:layout_alignParentStart="false"
 			android:choiceMode="multipleChoiceModal"
-			android:textAlignment="center"
-			android:stackFromBottom="false"/>
+			android:textAlignment="center" />
+
+
+	<LinearLayout
+			android:id="@+id/buttonContainer"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true"
+			android:layout_alignParentBottom="true">
+
+		<Button
+				android:id="@+id/userBackButton"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/button_back_text" />
+
+		<Button
+				android:id="@+id/userConfirmButton"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/button_confirm_text" />
+
+	</LinearLayout>
 
 </RelativeLayout>

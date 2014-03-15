@@ -11,5 +11,22 @@
 	<string name="user_selection_title">Choose and add players:</string>
 	<string name="input_name_default_text">Name</string>
 	<string name="button_add_text">+</string>
+	<string name="button_back_text">Back</string>
+	<string name="button_confirm_text">Confirm</string>
+	<string name="button_sync_text">Synchronize result online</string>
+	<string name="button_exit_text">Exit</string>
+	<string name="button_again_text">Play again</string>
+
+	<string name="target_score_title">Choose target score:</string>
+	<string name="target_score_default">40</string>
+	<string name="target_score_text">
+		You will play in rounds to achieve a target score.\n\n
+		If the player throws a one, the score of the current round will be eliminated and the die is passed to the next player.\n\n
+		The first player who reaches this score will win the game.\n\n
+		After each throw, the player has the option to add the thrown number to his total score or risk to throw the dice again.\n\n
+	</string>
+
+	<string name="game_over_title">Choose target score:</string>
+	<string name="won_the_game">won the game</string>
 
 </resources>

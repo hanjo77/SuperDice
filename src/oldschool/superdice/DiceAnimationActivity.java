@@ -36,7 +36,7 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 		mScoreTextView = (TextView) findViewById(R.id.scoreText);
 
 		// Set up the dice renderer and add to it's placeholder
-		mDiceRenderer = new DiceRenderer(this, 2);
+		mDiceRenderer = new DiceRenderer(this);
 		GLSurfaceView view = new GLSurfaceView(this);
 		view.setRenderer(mDiceRenderer);
 		RelativeLayout layout = (RelativeLayout) findViewById(R.id.renderContainer);
