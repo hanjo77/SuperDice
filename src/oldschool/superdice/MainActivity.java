@@ -13,7 +13,7 @@ import android.widget.TextView;
  * @author Hansjürg Jaggi, Stephan Menzi & Satesh Paramasamy
  */
 
-public class MainActivity extends Activity
+public class MainActivity extends BaseActivity
 {
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -40,6 +40,7 @@ public class MainActivity extends Activity
 	public void startDiceAnimation(View view)
 	{
 		Intent intent = new Intent(this, DiceAnimationActivity.class);
+		stopService(getIntent());
 		startActivity(intent);
 	}
 

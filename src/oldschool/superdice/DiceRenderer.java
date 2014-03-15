@@ -71,7 +71,7 @@ class DiceRenderer implements GLSurfaceView.Renderer
 	{
 		for (int i = 0; i < count; i++)
 		{
-			mDice.add(new Die());
+			mDice.add(new Die(context));
 		}
 	}
 
@@ -80,6 +80,8 @@ class DiceRenderer implements GLSurfaceView.Renderer
 	{
 		// Update the scene
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
+		gl.glEnable(GL10.GL_BLEND);
+		gl.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
 		gl.glLoadIdentity();
 		gl.glEnable(GL10.GL_TEXTURE_2D);
 
@@ -127,39 +129,25 @@ class DiceRenderer implements GLSurfaceView.Renderer
 			}
 		}
 
-		gl.glLoadIdentity();
+		gl.glDisable(GL10.GL_BLEND);
 	}
 
 	@Override
 	public void onSurfaceCreated(GL10 gl, EGLConfig config)
 	{
 		// Initialize the scene
-		gl.glClearColor(0.0f, 0.0f, 0.0f, 0.5f);
+		gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT,
+				GL10.GL_FASTEST);
 
-		gl.glMatrixMode(GL10.GL_PROJECTION);
-
-		float[] ambient = {0.1f, 1, 1, 1};
-		float[] position = {0, 0, 0, -10};
-		float[] direction = {0, 1, 0};
-
-		gl.glEnable(GL10.GL_LIGHT1);
-		gl.glLightfv(GL10.GL_LIGHT1, GL10.GL_AMBIENT, ambient, 0);
-		gl.glLightfv(GL10.GL_LIGHT1, GL10.GL_POSITION, position, 0);
-		gl.glLightfv(GL10.GL_LIGHT1, GL10.GL_SPOT_DIRECTION, direction, 0);
-		gl.glLightf(GL10.GL_LIGHT1, GL10.GL_SPOT_CUTOFF, 30.0f);
+		gl.glClearColor(0, 0, 0, 0);
+		gl.glEnable(GL10.GL_CULL_FACE);
+		gl.glShadeModel(GL10.GL_SMOOTH);
+		gl.glEnable(GL10.GL_DEPTH_TEST);
 
 		for (Die die : mDice)
 		{
 			die.loadGLTexture(gl, context);
 		}
-
-		gl.glClearDepthf(1.0f);
-		gl.glEnable(GL10.GL_DEPTH_TEST);
-		gl.glDepthFunc(GL10.GL_LEQUAL);
-
-
-		gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT,
-				GL10.GL_NICEST);
 	}
 
 	@Override

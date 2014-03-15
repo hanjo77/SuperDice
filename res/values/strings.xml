@@ -2,9 +2,11 @@
 <resources>
 
 	<string name="app_name">Super Dice!</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Options</string>
 	<string name="game_title">Shake or fling!</string>
-	<string name="you_thrown_a">You\'ve thrown a</string>
+	<string name="you_rolled_a">You rolled a</string>
+	<string name="roll_again_text">Roll again or pass to next player?</string>
+	<string name="round_finished_text">Pass to next player.</string>
 	<string name="play">Play!</string>
 	<string name="score">Score</string>
 
@@ -16,6 +18,8 @@
 	<string name="button_sync_text">Synchronize result online</string>
 	<string name="button_exit_text">Exit</string>
 	<string name="button_again_text">Play again</string>
+	<string name="button_roll_again_text">Again</string>
+	<string name="button_pass_text">Pass</string>
 
 	<string name="target_score_title">Choose target score:</string>
 	<string name="target_score_default">40</string>

@@ -1,12 +1,20 @@
 package oldschool.superdice;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.pm.ActivityInfo;
+import android.graphics.PixelFormat;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,12 +25,13 @@ import android.widget.Toast;
  * @author Hansjürg Jaggi, Stephan Menzi & Satesh Paramasamy
  */
 
-public class DiceAnimationActivity extends Activity implements SensorEventListener
+public class DiceAnimationActivity extends BaseActivity implements SensorEventListener
 {
 	private SensorManager mSensorManager;
 	private DiceRenderer mDiceRenderer;
 	private TextView mScoreTextView;
 	private int score = 0;
+	private int total = 0;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState)
@@ -38,6 +47,9 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 		// Set up the dice renderer and add to it's placeholder
 		mDiceRenderer = new DiceRenderer(this);
 		GLSurfaceView view = new GLSurfaceView(this);
+		view.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
+		view.getHolder().setFormat(PixelFormat.TRANSLUCENT);
+		view.setZOrderOnTop(true);
 		view.setRenderer(mDiceRenderer);
 		RelativeLayout layout = (RelativeLayout) findViewById(R.id.renderContainer);
 		layout.addView(view);
@@ -47,6 +59,13 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 
 		// Init sensor
 		mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.main, menu);
+		return true;
 	}
 
 	@Override
@@ -102,6 +121,8 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 		{
 			public void run()
 			{
+				/*
+
 				int total = 0;
 				String number = "";
 				int[] numbers = mDiceRenderer.getNumber();
@@ -130,13 +151,77 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 				}
 				if (getApplicationContext() != null) {
 
-					Toast.makeText(getApplicationContext(), getResources().getText(R.string.you_thrown_a) + " " + number, Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), getResources().getText(R.string.you_rolled_a) + " " + number, Toast.LENGTH_SHORT).show();
 				}
-				score += total;
-				mScoreTextView.setText(score+"");
+				*/
+				int number = mDiceRenderer.getNumber()[0];
+				askForNextThrow(number);
 			}
 		});
 	}
+
+	public void askForNextThrow(int number) {
+
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(DiceAnimationActivity.this);
+
+		// set title
+		alertDialogBuilder.setTitle(getResources().getText(R.string.you_rolled_a) + " " + number);
+
+		if (number > 1) {
+			score += number;
+			// set dialog message for successful round
+			alertDialogBuilder.setMessage(getResources().getText(R.string.roll_again_text));
+			alertDialogBuilder.setCancelable(false);
+			alertDialogBuilder.setPositiveButton(getResources().getText(R.string.button_roll_again_text), new DialogInterface.OnClickListener()
+			{
+				public void onClick(DialogInterface dialog, int id)
+				{
+					dialog.cancel();
+				}
+			});
+			alertDialogBuilder.setNegativeButton(getResources().getText(R.string.button_pass_text), new DialogInterface.OnClickListener()
+			{
+				public void onClick(DialogInterface dialog, int id)
+				{
+
+					total += score;
+					score = 0;
+					// finish();
+				}
+			});
+			mScoreTextView.setText((total+score)+"");
+		}
+		else {
+			score = 0;
+			// set dialog message for successful round
+			alertDialogBuilder.setMessage(getResources().getText(R.string.round_finished_text));
+			alertDialogBuilder.setCancelable(false);
+			alertDialogBuilder.setPositiveButton(getResources().getText(R.string.button_confirm_text), new DialogInterface.OnClickListener()
+			{
+				public void onClick(DialogInterface dialog, int id)
+				{
+					dialog.cancel();
+				}
+			});
+			mScoreTextView.setText(total+"");
+		}
+
+
+		// create alert dialog
+		AlertDialog alertDialog = alertDialogBuilder.create();
+
+		// show it
+		alertDialog.show();
+
+		// Must call show() prior to fetching text view
+		TextView titleView = (TextView)alertDialog.findViewById(getResources().getIdentifier("alertTitle", "id", "android"));
+		if (titleView != null) {
+			titleView.setGravity(Gravity.CENTER);
+		}
+		TextView messageView = (TextView)alertDialog.findViewById(android.R.id.message);
+		messageView.setGravity(Gravity.CENTER);
+	}
+
 
 	public DiceRenderer getDiceRenderer()
 	{

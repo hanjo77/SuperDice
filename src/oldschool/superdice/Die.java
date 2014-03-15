@@ -1,6 +1,7 @@
 package oldschool.superdice;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.opengl.GLUtils;
@@ -18,6 +19,10 @@ import java.nio.FloatBuffer;
 
 public class Die
 {
+	/**
+	 * Current context, used for issues with default device orientation and textures
+	 */
+	private Context context;
 	/**
 	 * The buffer holding the vertices
 	 */
@@ -84,7 +89,7 @@ public class Die
 	 * The Cube constructor.
 	 * Initiate the buffers.
 	 */
-	public Die()
+	public Die(Context context)
 	{
 		/**
 		 * The initial vertex definition
@@ -132,10 +137,39 @@ public class Die
 		float texture[] = {
 				//Mapping coordinates for the vertices
 
-				0.0f, 1.0f,
-				1.0f, 1.0f,
-				0.0f, 0.0f,
+// Tablet coordinates
+
+				2.0f, 0.0f,
 				1.0f, 0.0f,
+				1.0f, 1.0f,
+				0.0f, 1.0f,
+
+				2.0f, 0.0f,
+				1.0f, 0.0f,
+				1.0f, 1.0f,
+				0.0f, 1.0f,
+
+				2.0f, 0.0f,
+				1.0f, 0.0f,
+				1.0f, 1.0f,
+				0.0f, 1.0f,
+
+				2.0f, 0.0f,
+				1.0f, 0.0f,
+				1.0f, 1.0f,
+				0.0f, 1.0f,
+
+				2.0f, 0.0f,
+				1.0f, 0.0f,
+				1.0f, 1.0f,
+				0.0f, 1.0f,
+
+				2.0f, 0.0f,
+				1.0f, 0.0f,
+				1.0f, 1.0f,
+				0.0f, 1.0f,
+
+// phone coordinates, starting with index 8 * 6 = 48
 
 				0.0f, 1.0f,
 				1.0f, 1.0f,
@@ -162,6 +196,10 @@ public class Die
 				0.0f, 0.0f,
 				1.0f, 0.0f,
 
+				0.0f, 1.0f,
+				1.0f, 1.0f,
+				0.0f, 0.0f,
+				1.0f, 0.0f,
 		};
 
 		/**
@@ -187,11 +225,26 @@ public class Die
 		byteBuf.order(ByteOrder.nativeOrder());
 		textureBuffer = byteBuf.asFloatBuffer();
 		textureBuffer.put(texture);
-		textureBuffer.position(0);
+
+		if (isTablet(context)) {
+
+			textureBuffer.position(0);
+		}
+		else {
+
+			textureBuffer.position(48);
+		}
 
 		indexBuffer = ByteBuffer.allocateDirect(indices.length);
 		indexBuffer.put(indices);
 		indexBuffer.position(0);
+		this.context = context;
+	}
+
+	public boolean isTablet(Context context) {
+		boolean xlarge = ((context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == 4);
+		boolean large = ((context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_LARGE);
+		return (xlarge || large);
 	}
 
 	/**
