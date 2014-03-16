@@ -16,7 +16,7 @@ import android.widget.TextView;
 public class MainActivity extends BaseActivity
 {
 	@Override
-	protected void onCreate(Bundle savedInstanceState)
+	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
@@ -34,7 +34,7 @@ public class MainActivity extends BaseActivity
 
 	/**
 	 * Starts the dice animation activity, called by the "play" button.
-	 * 
+	 *
 	 * @param view The view
 	 */
 	public void startDiceAnimation(View view)
