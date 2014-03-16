@@ -2,7 +2,7 @@
 <resources>
 
 	<string name="app_name">Super Dice!</string>
-    <string name="action_settings">Options</string>
+    <string name="action_settings">Current scores</string>
 	<string name="game_title">[NAME]\'s turn!</string>
 	<string name="you_rolled_a">You rolled a</string>
 	<string name="roll_again_text">Roll again or pass to [NAME]?</string>
@@ -32,5 +32,7 @@
 
 	<string name="game_over_title">Choose target score:</string>
 	<string name="won_the_game">won the game</string>
+
+	<string name="round_scores_title">Current scores:</string>
 
 </resources>

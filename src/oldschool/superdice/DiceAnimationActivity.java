@@ -2,15 +2,15 @@ package oldschool.superdice;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.PixelFormat;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.Menu;
-import android.view.MenuInflater;
+import android.view.*;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -36,6 +36,16 @@ public class DiceAnimationActivity extends BaseActivity implements SensorEventLi
 	{
 		super.onCreate(savedInstanceState);
 
+		if (android.os.Build.VERSION.SDK_INT <= 14 || ViewConfiguration.get(this).hasPermanentMenuKey())
+		{
+			// We hide the menu
+			//set up notitle
+			requestWindowFeature(Window.FEATURE_NO_TITLE);
+			//set up full screen
+			getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+					WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		}
+
 		users = new ArrayList<User>();
 		users.add(new User("Hanjo", 0, 0, 0));
 		users.add(new User("Steff", 0, 0, 0));
@@ -52,6 +62,7 @@ public class DiceAnimationActivity extends BaseActivity implements SensorEventLi
 		mDiceRenderer = new DiceRenderer(this);
 		GLSurfaceView view = new GLSurfaceView(this);
 		view.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
+		view.getHolder().setFormat(PixelFormat.TRANSLUCENT);
 		view.setZOrderOnTop(true);
 		view.setRenderer(mDiceRenderer);
 		RelativeLayout layout = (RelativeLayout) findViewById(R.id.renderContainer);
@@ -68,6 +79,17 @@ public class DiceAnimationActivity extends BaseActivity implements SensorEventLi
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.main, menu);
+		menu.getItem(0).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener()
+		{
+			@Override
+			public boolean onMenuItemClick(MenuItem item)
+			{
+				Intent intent = new Intent(DiceAnimationActivity.this, RoundScoresActivity.class);
+				intent.putExtra("users", users);
+				startActivity(intent);
+				return false;
+			}
+		});
 		return true;
 	}
 

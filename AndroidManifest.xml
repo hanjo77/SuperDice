@@ -23,7 +23,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-	    <activity android:name="oldschool.superdice.DiceAnimationActivity" />
+	    <activity android:name="oldschool.superdice.DiceAnimationActivity"
+	              android:theme="@style/AppTheme" />
+	    <activity android:name="oldschool.superdice.RoundScoresActivity" />
     </application>
 
 </manifest>

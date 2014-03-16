@@ -16,7 +16,6 @@
 	          android:textSize="@dimen/title_font_size"
 	          android:layout_centerHorizontal="true"
 	          android:gravity="center"
-	          android:textColor="@android:color/primary_text_dark"
 	          android:layout_margin="@dimen/activity_vertical_margin" />
 
 	<EditText android:id="@+id/editTargetScore"
@@ -29,7 +28,7 @@
 	          android:ems="2"
 	          android:layout_below="@+id/titleText"
 	          android:layout_centerHorizontal="true"
-	          android:background="@android:color/darker_gray" />
+	          android:background="@color/input_background_color" />
 
 	<ScrollView
 			android:layout_width="match_parent"

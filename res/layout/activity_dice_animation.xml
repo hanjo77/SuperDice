@@ -14,8 +14,7 @@
 	          android:layout_width="wrap_content"
 	          android:layout_height="wrap_content"
 	          android:textSize="@dimen/title_font_size"
-	          android:layout_centerHorizontal="true"
-	          android:textColor="@android:color/primary_text_dark" />
+	          android:layout_centerHorizontal="true" />
 
 	<RelativeLayout android:id="@+id/renderContainer"
 	                android:layout_width="match_parent"
@@ -29,14 +28,13 @@
 	          android:textSize="@dimen/title_font_size"
 	          android:layout_marginLeft="@dimen/activity_horizontal_margin"
 	          android:layout_centerHorizontal="true"
-	          android:textColor="@android:color/primary_text_dark"
 	          android:layout_alignParentBottom="true"/>
 	<TextView android:id="@+id/scoreTitle"
 	          android:layout_width="wrap_content"
 	          android:layout_height="wrap_content"
-	          android:textSize="12pt"
+	          android:textSize="@dimen/small_font_size"
 	          android:text="@string/score"
-	          android:textColor="@android:color/secondary_text_dark"
+	          android:textColor="@color/text_color_light"
 	          android:layout_alignBaseline="@+id/scoreText"
 	          android:layout_toLeftOf="@+id/scoreText"/>
 

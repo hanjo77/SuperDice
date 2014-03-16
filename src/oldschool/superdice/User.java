@@ -1,12 +1,14 @@
 package oldschool.superdice;
 
+import java.io.Serializable;
+
 /**
  * The user model.
  *
  * @author Hansjürg Jaggi, Stephan Menzi & Satesh Paramasamy
  */
 
-public class User
+public class User implements Serializable
 {
 	private String name;
 	private int roundScore;

@@ -26,7 +26,6 @@
 	          android:textStyle=""
 	          android:text="@string/app_name"
 	          android:textAlignment="center"
-	          android:textColor="@android:color/white"
 	          android:gravity="center_horizontal"
 	          android:layout_alignParentTop="true"
 	          android:layout_alignParentLeft="true"
