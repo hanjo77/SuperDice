@@ -1,21 +1,11 @@
 package oldschool.superdice;
 
 import android.content.Context;
-import android.content.res.Configuration;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.opengl.ETC1;
 import android.opengl.ETC1Util;
-import android.opengl.GLES10;
-import android.opengl.GLUtils;
-import android.util.Log;
 
 import javax.microedition.khronos.opengles.GL10;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
@@ -28,10 +18,6 @@ import java.nio.FloatBuffer;
 
 public class Die
 {
-	/**
-	 * Current context, used for issues with default device orientation and textures
-	 */
-	private Context context;
 	/**
 	 * The buffer holding the vertices
 	 */
@@ -76,8 +62,6 @@ public class Die
 	 * the snapping limit angle - when below this angle the die will fall to the corresponding side.
 	 */
 	final float snapPoint = 5;
-	final int textureWidth = 512;
-	final int textureHeight = 512;
 
 	/**
 	 * Our texture pointer
@@ -100,7 +84,7 @@ public class Die
 	 * The Cube constructor.
 	 * Initiate the buffers.
 	 */
-	public Die(Context context)
+	public Die()
 	{
 		/**
 		 * The initial vertex definition
@@ -206,13 +190,6 @@ public class Die
 		indexBuffer = ByteBuffer.allocateDirect(indices.length);
 		indexBuffer.put(indices);
 		indexBuffer.position(0);
-		this.context = context;
-	}
-
-	public boolean isTablet(Context context) {
-		boolean xlarge = ((context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == 4);
-		boolean large = ((context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_LARGE);
-		return (xlarge || large);
 	}
 
 	/**
@@ -503,16 +480,6 @@ public class Die
 	public int getNumber()
 	{
 		return number;
-	}
-
-	/**
-	 * Gets the current rotation.
-	 * 
-	 * @return float Array of x, y and z axis rotation angles
-	 */
-	public float[] getRotation()
-	{
-		return new float[]{mCubeRotationX, mCubeRotationY, mCubeRotationZ};
 	}
 
 	/**

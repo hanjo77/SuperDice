@@ -1,10 +1,7 @@
 package oldschool.superdice;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.pm.ActivityInfo;
-import android.graphics.PixelFormat;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -14,10 +11,10 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import java.util.ArrayList;
 
 /**
  * The dice animation activity displaying and controlling the OpenGL animation
@@ -27,28 +24,34 @@ import android.widget.Toast;
 
 public class DiceAnimationActivity extends BaseActivity implements SensorEventListener
 {
+	private ArrayList<User> users = new ArrayList<User>();
 	private SensorManager mSensorManager;
 	private DiceRenderer mDiceRenderer;
 	private TextView mScoreTextView;
-	private int score = 0;
-	private int total = 0;
+	private User currentUser;
+	private int currentUserIndex = 0;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 
+		users = new ArrayList<User>();
+		users.add(new User("Hanjo", 0, 0, 0));
+		users.add(new User("Steff", 0, 0, 0));
+		users.add(new User("Sädu", 0, 0, 0));
+		currentUser = users.get(currentUserIndex);
+
 		// Prepare view
 		setContentView(R.layout.activity_dice_animation);
 		TextView textView = (TextView) findViewById(R.id.titleText);
-		textView.setText(getResources().getString(R.string.game_title));
+		textView.setText(getResources().getString(R.string.game_title).replace("[NAME]", currentUser.getName()));
 		mScoreTextView = (TextView) findViewById(R.id.scoreText);
 
 		// Set up the dice renderer and add to it's placeholder
 		mDiceRenderer = new DiceRenderer(this);
 		GLSurfaceView view = new GLSurfaceView(this);
 		view.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
-		view.getHolder().setFormat(PixelFormat.TRANSLUCENT);
 		view.setZOrderOnTop(true);
 		view.setRenderer(mDiceRenderer);
 		RelativeLayout layout = (RelativeLayout) findViewById(R.id.renderContainer);
@@ -82,7 +85,7 @@ public class DiceAnimationActivity extends BaseActivity implements SensorEventLi
 
 			float accelerationSquareRoot = (x * x + y * y + z * z)
 					/ (SensorManager.GRAVITY_EARTH * SensorManager.GRAVITY_EARTH);
-			if (accelerationSquareRoot >= 4) //
+			if (accelerationSquareRoot >= 2) //
 			{
 				mDiceRenderer.rollDice(new float[]{x, y, z});
 			}
@@ -166,11 +169,20 @@ public class DiceAnimationActivity extends BaseActivity implements SensorEventLi
 
 		// set title
 		alertDialogBuilder.setTitle(getResources().getText(R.string.you_rolled_a) + " " + number);
+		User nextUser;
+		if (currentUserIndex >= users.size()-1) {
+
+			nextUser = users.get(0);
+		}
+		else {
+
+			nextUser = users.get(currentUserIndex+1);
+		}
 
 		if (number > 1) {
-			score += number;
+			currentUser.setRoundScore(currentUser.getRoundScore()+number);
 			// set dialog message for successful round
-			alertDialogBuilder.setMessage(getResources().getText(R.string.roll_again_text));
+			alertDialogBuilder.setMessage(getResources().getText(R.string.roll_again_text).toString().replace("[NAME]", nextUser.getName()));
 			alertDialogBuilder.setCancelable(false);
 			alertDialogBuilder.setPositiveButton(getResources().getText(R.string.button_roll_again_text), new DialogInterface.OnClickListener()
 			{
@@ -184,17 +196,17 @@ public class DiceAnimationActivity extends BaseActivity implements SensorEventLi
 				public void onClick(DialogInterface dialog, int id)
 				{
 
-					total += score;
-					score = 0;
-					// finish();
+					currentUser.setTotalScore(currentUser.getTotalScore() + currentUser.getRoundScore());
+					currentUser.setRoundScore(0);
+					switchUser();
 				}
 			});
-			mScoreTextView.setText((total+score)+"");
+			mScoreTextView.setText((currentUser.getTotalScore() + currentUser.getRoundScore()) + "");
 		}
 		else {
-			score = 0;
+			currentUser.setRoundScore(0);
 			// set dialog message for successful round
-			alertDialogBuilder.setMessage(getResources().getText(R.string.round_finished_text));
+			alertDialogBuilder.setMessage(getResources().getText(R.string.round_finished_text).toString().replace("[NAME]", nextUser.getName()));
 			alertDialogBuilder.setCancelable(false);
 			alertDialogBuilder.setPositiveButton(getResources().getText(R.string.button_confirm_text), new DialogInterface.OnClickListener()
 			{
@@ -203,7 +215,7 @@ public class DiceAnimationActivity extends BaseActivity implements SensorEventLi
 					dialog.cancel();
 				}
 			});
-			mScoreTextView.setText(total+"");
+			switchUser();
 		}
 
 
@@ -220,6 +232,18 @@ public class DiceAnimationActivity extends BaseActivity implements SensorEventLi
 		}
 		TextView messageView = (TextView)alertDialog.findViewById(android.R.id.message);
 		messageView.setGravity(Gravity.CENTER);
+	}
+	
+	private void switchUser() {
+
+		currentUserIndex++;
+		if (currentUserIndex >= users.size()) {
+			currentUserIndex = 0;
+		}
+		currentUser = users.get(currentUserIndex);
+		TextView textView = (TextView) findViewById(R.id.titleText);
+		textView.setText(getResources().getString(R.string.game_title).replace("[NAME]", currentUser.getName()));
+		mScoreTextView.setText((currentUser.getTotalScore()+currentUser.getRoundScore())+"");
 	}
 
 

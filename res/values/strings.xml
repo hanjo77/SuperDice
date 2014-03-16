@@ -3,10 +3,10 @@
 
 	<string name="app_name">Super Dice!</string>
     <string name="action_settings">Options</string>
-	<string name="game_title">Shake or fling!</string>
+	<string name="game_title">[NAME]\'s turn!</string>
 	<string name="you_rolled_a">You rolled a</string>
-	<string name="roll_again_text">Roll again or pass to next player?</string>
-	<string name="round_finished_text">Pass to next player.</string>
+	<string name="roll_again_text">Roll again or pass to [NAME]?</string>
+	<string name="round_finished_text">Pass to [NAME].</string>
 	<string name="play">Play!</string>
 	<string name="score">Score</string>
 

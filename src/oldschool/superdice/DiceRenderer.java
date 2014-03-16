@@ -71,7 +71,7 @@ class DiceRenderer implements GLSurfaceView.Renderer
 	{
 		for (int i = 0; i < count; i++)
 		{
-			mDice.add(new Die(context));
+			mDice.add(new Die());
 		}
 	}
 
