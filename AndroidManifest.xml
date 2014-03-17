@@ -26,6 +26,7 @@
 	    <activity android:name="oldschool.superdice.DiceAnimationActivity"
 	              android:theme="@style/AppTheme" />
 	    <activity android:name="oldschool.superdice.RoundScoresActivity" />
+	    <activity android:name="oldschool.superdice.GameOverActivity" />
     </application>
 
 </manifest>

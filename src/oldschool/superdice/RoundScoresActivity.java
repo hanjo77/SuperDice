@@ -1,19 +1,12 @@
 package oldschool.superdice;
 
-import android.app.ActionBar;
-import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.view.Gravity;
-import android.view.Menu;
 import android.view.View;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import org.w3c.dom.Text;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -31,7 +24,7 @@ public class RoundScoresActivity extends BaseActivity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_round_scores);
-		mTableLayout = (TableLayout) findViewById(R.id.toundScoreTable);
+		mTableLayout = (TableLayout) findViewById(R.id.roundScoreTable);
 		populateUserTable();
 	}
 

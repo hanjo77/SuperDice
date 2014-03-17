@@ -24,17 +24,21 @@ import java.util.ArrayList;
 
 public class DiceAnimationActivity extends BaseActivity implements SensorEventListener
 {
-	private ArrayList<User> users = new ArrayList<User>();
+	private ArrayList<User> users;
 	private SensorManager mSensorManager;
 	private DiceRenderer mDiceRenderer;
 	private TextView mScoreTextView;
 	private User currentUser;
 	private int currentUserIndex = 0;
+	private int targetScore;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
+
+		users = (ArrayList<User>) getIntent().getSerializableExtra("users");
+		targetScore = getIntent().getIntExtra("targetscore", 10);
 
 		if (android.os.Build.VERSION.SDK_INT <= 14 || ViewConfiguration.get(this).hasPermanentMenuKey())
 		{
@@ -46,10 +50,6 @@ public class DiceAnimationActivity extends BaseActivity implements SensorEventLi
 					WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		}
 
-		users = new ArrayList<User>();
-		users.add(new User("Hanjo", 0, 0, 0));
-		users.add(new User("Steff", 0, 0, 0));
-		users.add(new User("Sädu", 0, 0, 0));
 		currentUser = users.get(currentUserIndex);
 
 		// Prepare view
@@ -57,6 +57,7 @@ public class DiceAnimationActivity extends BaseActivity implements SensorEventLi
 		TextView textView = (TextView) findViewById(R.id.titleText);
 		textView.setText(getResources().getString(R.string.game_title).replace("[NAME]", currentUser.getName()));
 		mScoreTextView = (TextView) findViewById(R.id.scoreText);
+		mScoreTextView.setText((currentUser.getTotalScore()+currentUser.getRoundScore())+"");
 
 		// Set up the dice renderer and add to it's placeholder
 		mDiceRenderer = new DiceRenderer(this);
@@ -203,27 +204,39 @@ public class DiceAnimationActivity extends BaseActivity implements SensorEventLi
 
 		if (number > 1) {
 			currentUser.setRoundScore(currentUser.getRoundScore()+number);
-			// set dialog message for successful round
-			alertDialogBuilder.setMessage(getResources().getText(R.string.roll_again_text).toString().replace("[NAME]", nextUser.getName()));
-			alertDialogBuilder.setCancelable(false);
-			alertDialogBuilder.setPositiveButton(getResources().getText(R.string.button_roll_again_text), new DialogInterface.OnClickListener()
+			if (currentUser.getTotalScore() + currentUser.getRoundScore() >= targetScore)
 			{
-				public void onClick(DialogInterface dialog, int id)
-				{
-					dialog.cancel();
-				}
-			});
-			alertDialogBuilder.setNegativeButton(getResources().getText(R.string.button_pass_text), new DialogInterface.OnClickListener()
+				currentUser.setTotalScore(currentUser.getTotalScore() + currentUser.getRoundScore());
+				Intent intent = new Intent(DiceAnimationActivity.this, GameOverActivity.class);
+				intent.putExtra("users", users);
+				intent.putExtra("targetscore", targetScore);
+				startActivity(intent);
+				finish();
+			}
+			else
 			{
-				public void onClick(DialogInterface dialog, int id)
+				// set dialog message for successful round
+				alertDialogBuilder.setMessage(getResources().getText(R.string.roll_again_text).toString().replace("[NAME]", nextUser.getName()));
+				alertDialogBuilder.setCancelable(false);
+				alertDialogBuilder.setPositiveButton(getResources().getText(R.string.button_roll_again_text), new DialogInterface.OnClickListener()
 				{
+					public void onClick(DialogInterface dialog, int id)
+					{
+						dialog.cancel();
+					}
+				});
+				alertDialogBuilder.setNegativeButton(getResources().getText(R.string.button_pass_text), new DialogInterface.OnClickListener()
+				{
+					public void onClick(DialogInterface dialog, int id)
+					{
 
-					currentUser.setTotalScore(currentUser.getTotalScore() + currentUser.getRoundScore());
-					currentUser.setRoundScore(0);
-					switchUser();
-				}
-			});
-			mScoreTextView.setText((currentUser.getTotalScore() + currentUser.getRoundScore()) + "");
+						currentUser.setTotalScore(currentUser.getTotalScore() + currentUser.getRoundScore());
+						currentUser.setRoundScore(0);
+						switchUser();
+					}
+				});
+				mScoreTextView.setText((currentUser.getTotalScore() + currentUser.getRoundScore()) + "");
+			}
 		}
 		else {
 			currentUser.setRoundScore(0);
@@ -253,7 +266,10 @@ public class DiceAnimationActivity extends BaseActivity implements SensorEventLi
 			titleView.setGravity(Gravity.CENTER);
 		}
 		TextView messageView = (TextView)alertDialog.findViewById(android.R.id.message);
-		messageView.setGravity(Gravity.CENTER);
+		if (messageView != null)
+		{
+			messageView.setGravity(Gravity.CENTER);
+		}
 	}
 	
 	private void switchUser() {

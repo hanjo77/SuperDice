@@ -94,7 +94,7 @@ class DiceRenderer implements GLSurfaceView.Renderer
 
 		isFinished = true;
 
-		gl.glTranslatef(0.0f, posY, -8.5f);
+		gl.glTranslatef(0.0f, posY, -6.0f);
 
 		for (int i = 0; i < mDice.size(); i++)
 		{

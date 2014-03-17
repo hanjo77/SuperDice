@@ -24,7 +24,7 @@
 			android:layout_below="@+id/titleText"
 			android:layout_above="@+id/buttonContainer">
 
-		<TableLayout android:id="@+id/toundScoreTable"
+		<TableLayout android:id="@+id/roundScoreTable"
 		             android:layout_width="wrap_content"
 		             android:layout_height="wrap_content"
 		             android:gravity="center_vertical"

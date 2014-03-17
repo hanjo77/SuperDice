@@ -30,7 +30,7 @@
 		After each throw, the player has the option to add the thrown number to his total score or risk to throw the dice again.\n\n
 	</string>
 
-	<string name="game_over_title">Choose target score:</string>
+	<string name="game_over_title">Game over!</string>
 	<string name="won_the_game">won the game</string>
 
 	<string name="round_scores_title">Current scores:</string>

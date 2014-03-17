@@ -6,6 +6,8 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 /**
  * The title activity called when the app is started up.
  * 
@@ -39,6 +41,12 @@ public class MainActivity extends BaseActivity
 	public void startDiceAnimation(View view)
 	{
 		Intent intent = new Intent(this, DiceAnimationActivity.class);
+		ArrayList<User> users = new ArrayList<User>();
+		users.add(new User("Hanjo"));
+		users.add(new User("Steff"));
+		users.add(new User("Sädu"));
+		intent.putExtra("users", users);
+		intent.putExtra("targetscore", 20);
 		stopService(getIntent());
 		startActivity(intent);
 	}

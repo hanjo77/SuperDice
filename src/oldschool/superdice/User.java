@@ -19,6 +19,19 @@ public class User implements Serializable
 	 * Constructor for a new user
 	 *
 	 * @param name The user name
+	 */
+	public User(String name) {
+
+		this.name = name;
+		this.roundScore = 0;
+		this.totalScore = 0;
+		this.gamesWon = 0;
+	}
+
+	/**
+	 * Constructor for a user
+	 *
+	 * @param name The user name
 	 * @param roundScore Score of the current round
 	 * @param totalScore Score of the current game
 	 * @param gamesWon Number of games won
