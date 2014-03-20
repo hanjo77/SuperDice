@@ -121,7 +121,7 @@ class DiceRenderer implements GLSurfaceView.Renderer
 		// If all the dice are ready, the result should be sent to the activity.
 		if (isFinished && doUpdateToast)
 		{
-			context.toastNumber();
+			context.finishRoll();
 			doUpdateToast = false;
 			for (Die die : mDice)
 			{
@@ -197,5 +197,26 @@ class DiceRenderer implements GLSurfaceView.Renderer
 				die.setReady(false);
 			}
 		}
+	}
+
+	public void setDiceRotations(float[][] rotations)
+	{
+		for (int i = 0; i < mDice.size(); i++)
+		{
+			float[] rotation = rotations[i];
+			Die die = mDice.get(i);
+			die.setRotation(rotation);
+		}
+	}
+
+	public float[][] getDiceRotations()
+	{
+		float[][] rotations = new float[mDice.size()][3];
+		for (int i = 0; i < mDice.size(); i++)
+		{
+			Die die = mDice.get(i);
+			rotations[i] = die.getRotations();
+		}
+		return rotations;
 	}
 }

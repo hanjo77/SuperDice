@@ -79,6 +79,11 @@ public class Die
 			R.raw.side5,
 			R.raw.side6};
 
+	private float[] rotation = new float[]{
+			(float) Math.floor(Math.random()*4)*90,
+			(float) Math.floor(Math.random()*4)*90,
+			(float) Math.floor(Math.random()*4)*90
+	};
 
 	/**
 	 * The Cube constructor.
@@ -190,6 +195,9 @@ public class Die
 		indexBuffer = ByteBuffer.allocateDirect(indices.length);
 		indexBuffer.put(indices);
 		indexBuffer.position(0);
+
+		setRotation(rotation);
+
 	}
 
 	/**
@@ -359,6 +367,7 @@ public class Die
 
 			isRolling = false;
 			ready = true;
+			rotation = new float[]{ mCubeRotationX, mCubeRotationY, mCubeRotationZ };
 		}
 	}
 
@@ -510,5 +519,18 @@ public class Die
 	public boolean isNotReady()
 	{
 		return !ready;
+	}
+
+	public float[] getRotations()
+	{
+		return rotation;
+	}
+
+	public void setRotation(float[] rotation)
+	{
+		mCubeRotationX = rotation[0];
+		mCubeRotationY = rotation[1];
+		mCubeRotationZ = rotation[2];
+		evaluateNumber();
 	}
 }

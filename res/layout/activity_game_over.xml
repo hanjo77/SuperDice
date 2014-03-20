@@ -24,7 +24,6 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_below="@id/titleText"
-			android:layout_above="@id/buttonContainer"
 			android:layout_marginLeft="@dimen/activity_vertical_margin"
 			android:layout_marginRight="@dimen/activity_vertical_margin"
 			>
