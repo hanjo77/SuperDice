@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidConfiguredLogFilters">
+    <filters>
+      <filter>
+        <option name="name" value="app: oldschool.superdice" />
+        <option name="packageNamePattern" value="oldschool.superdice" />
+      </filter>
+    </filters>
+  </component>
   <component name="AndroidLayoutPreviewToolWindow">
     <option name="state">
-      <GlobalState />
+      <GlobalState>
+        <option name="visible" value="false" />
+      </GlobalState>
     </option>
   </component>
   <component name="AndroidLayouts">
@@ -10,8 +20,53 @@
       <config />
     </shared>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="DEBUG" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: oldschool.superdice" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="9fabfe62-49b7-42f3-94f2-f6eb64780319" name="Default" comment="" />
+    <list default="true" id="9fabfe62-49b7-42f3-94f2-f6eb64780319" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/background.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/screens/choose_target_score.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/screens/current_scores.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/screens/game.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/screens/game_option.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/screens/game_over.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/screens/pass.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/screens/roll_again.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/screenplay.vsdx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/raw/side1.pkm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/raw/side2.pkm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/raw/side3.pkm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/raw/side4.pkm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/raw/side5.pkm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/raw/side6.pkm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/screens/start.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/screens/user_selection.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/oldschool/superdice/BaseActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/oldschool/superdice/GameOverActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/oldschool/superdice/RoundScoresActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/oldschool/superdice/User.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/activity_game_over.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/activity_round_scores.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/activity_target_score_selection.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/values/colors.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/raw/die.psd" afterPath="$PROJECT_DIR$/raw/die.psd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java" afterPath="$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oldschool/superdice/DiceRenderer.java" afterPath="$PROJECT_DIR$/src/oldschool/superdice/DiceRenderer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oldschool/superdice/Die.java" afterPath="$PROJECT_DIR$/src/oldschool/superdice/Die.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oldschool/superdice/MainActivity.java" afterPath="$PROJECT_DIR$/src/oldschool/superdice/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_dice_animation.xml" afterPath="$PROJECT_DIR$/res/layout/activity_dice_animation.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/res/layout/activity_main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_user_selection.xml" afterPath="$PROJECT_DIR$/res/layout/activity_user_selection.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/dimens.xml" afterPath="$PROJECT_DIR$/res/values/dimens.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/menu/main.xml" afterPath="$PROJECT_DIR$/res/menu/main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/styles.xml" afterPath="$PROJECT_DIR$/res/values/styles.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="SuperDice.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,7 +83,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
+    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true" converted="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
         <option name="NOTIFY_UNCAUGHT" value="true" />
@@ -64,17 +119,114 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
-    <breakpoint_rules />
-    <ui_properties />
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" converted="true" />
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" converted="true">
+      <breakpoint url="file://$PROJECT_DIR$/src/oldschool/superdice/GameOverActivity.java" line="50" class="oldschool.superdice.GameOverActivity" package="oldschool.superdice">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
+    <breakpoint_rules converted="true" />
+    <ui_properties converted="true" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="SuperDice" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="406" max-vertical-offset="918">
+              <caret line="42" column="66" selection-start-line="42" selection-start-column="66" selection-end-line="42" selection-end-column="66" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_main.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/activity_main.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.6153846" vertical-offset="372" max-vertical-offset="884">
+              <caret line="36" column="35" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/BaseActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SelectTargetScoreActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/SelectTargetScoreActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="612">
+              <caret line="36" column="1" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
+              <folding>
+                <element signature="e#891#897#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DiceAnimationActivity.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.8301486" vertical-offset="1586" max-vertical-offset="4301">
+              <caret line="165" column="27" selection-start-line="165" selection-start-column="27" selection-end-line="165" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_target_score_selection.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/activity_target_score_selection.xml">
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.48" vertical-offset="214" max-vertical-offset="1309">
+              <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+              <folding>
+                <element signature="e#1246#1276#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameOverActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/GameOverActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="2074">
+              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -92,19 +244,33 @@
         <option value="$PROJECT_DIR$/src/oldschool/superdice/MyGLSurfaceView.java" />
         <option value="$PROJECT_DIR$/src/oldschool/superdice/OnSwipeTouchListener.java" />
         <option value="$PROJECT_DIR$/res/values/settings.xml" />
-        <option value="$PROJECT_DIR$/src/oldschool/superdice/MainActivity.java" />
         <option value="$PROJECT_DIR$/src/oldschool/superdice/DiceGestureListener.java" />
         <option value="$PROJECT_DIR$/bin/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/src/oldschool/superdice/Die.java" />
-        <option value="$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java" />
-        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/src/oldschool/superdice/DiceRenderer.java" />
-        <option value="$PROJECT_DIR$/res/layout/activity_dice_animation.xml" />
-        <option value="$PROJECT_DIR$/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/res/values/styles.xml" />
-        <option value="$PROJECT_DIR$/res/values/dimens.xml" />
+        <option value="$PROJECT_DIR$/res/layout/buttons_back_confirm.xml" />
+        <option value="$PROJECT_DIR$/src/oldschool/superdice/BaseActivity.java" />
+        <option value="$PROJECT_DIR$/res/layout/activity_round_scores.xml" />
+        <option value="$PROJECT_DIR$/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/res/layout/activity_user_selection.xml" />
+        <option value="$PROJECT_DIR$/res/layout/activity_choose_target_score.xml" />
+        <option value="$PROJECT_DIR$/res/layout/activity_dice_animation.xml" />
+        <option value="$PROJECT_DIR$/res/values/dimens.xml" />
+        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/oldschool/superdice/DiceUtil.java" />
+        <option value="$PROJECT_DIR$/src/oldschool/superdice/RoundScoresActivity.java" />
+        <option value="$PROJECT_DIR$/src/oldschool/superdice/GameOverActivity.java" />
+        <option value="$PROJECT_DIR$/res/layout/activity_game_over.xml" />
+        <option value="$PROJECT_DIR$/res/menu/main.xml" />
+        <option value="$PROJECT_DIR$/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/src/oldschool/superdice/User.java" />
+        <option value="$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java" />
+        <option value="$PROJECT_DIR$/src/oldschool/superdice/DiceRenderer.java" />
+        <option value="$PROJECT_DIR$/src/oldschool/superdice/Die.java" />
+        <option value="$PROJECT_DIR$/src/oldschool/superdice/SelectTargetScore.java" />
+        <option value="$PROJECT_DIR$/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/src/oldschool/superdice/MainActivity.java" />
+        <option value="$PROJECT_DIR$/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/res/layout/activity_target_score_selection.xml" />
+        <option value="$PROJECT_DIR$/src/oldschool/superdice/SelectTargetScoreActivity.java" />
       </list>
     </option>
   </component>
@@ -128,7 +294,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -140,7 +306,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -194,6 +359,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -207,24 +373,34 @@
     <property name="SearchEverywhereHistory" value="" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../BFH/ThisAndThat" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../BFH/FragmentDemo" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="LayoutCode.rearrangeEntriesJava" value="false" />
-    <property name="options.lastSelected" value="preferences.sourceCode.XML" />
+    <property name="options.lastSelected" value="editor.preferences.import" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="AndroidTargetDevices" value="333538CCDDB800EC" />
     <property name="FullScreen" value="false" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="049115513089eb81" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexu5" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="oldschool.superdice" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/res/layout" />
       <recent name="$PROJECT_DIR$/res/drawable-ldpi" />
       <recent name="$PROJECT_DIR$/res/values" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/res/raw" />
+      <recent name="$PROJECT_DIR$/res/font" />
+    </key>
   </component>
   <component name="RunManager" selected="Android Application.SuperDice">
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin" singleton="true">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
@@ -248,6 +424,7 @@
       <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
@@ -256,6 +433,19 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -283,19 +473,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -349,6 +526,7 @@
       <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
     <configuration default="false" name="SuperDice" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -357,7 +535,7 @@
       <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="USB_DEVICE" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
       <option name="USE_COMMAND_LINE" value="true" />
@@ -368,6 +546,7 @@
       <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
       <RunnerSettings RunnerId="AndroidDebugRunner" />
       <ConfigurationWrapper RunnerId="AndroidDebugRunner" />
       <method />
@@ -386,22 +565,8 @@
       <AnalysisUIOptions />
     </option>
   </component>
-  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
-    <option name="USER" value="" />
-    <option name="PASSWORD" value="" />
-    <option name="mySSHConnectionTimeout" value="30000" />
-    <option name="mySSHReadTimeout" value="30000" />
-    <option name="LAST_MERGED_REVISION" />
-    <option name="MERGE_DRY_RUN" value="false" />
-    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
-    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
-    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
-    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
-    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
-    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
-    <option name="FORCE_UPDATE" value="false" />
-    <option name="IGNORE_EXTERNALS" value="false" />
-    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  <component name="SvnConfiguration" myUseAcceleration="nothing" SSL_PROTOCOLS="sslv3">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -413,38 +578,69 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32904884" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32964602" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997253" sideWeight="0.6921944" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11497326" sideWeight="0.3078056" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293011" sideWeight="0.34832904" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.73269516" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32795697" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2983871" sideWeight="0.7323009" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24967907" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24871466" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293011" sideWeight="0.65167093" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3997253" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.26696166" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2488746" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293011" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32964602" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997253" sideWeight="0.6921944" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2983871" sideWeight="0.7323009" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3997253" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
       <collection />
     </option>
   </component>
@@ -464,358 +660,412 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/values-sw720dp-land/dimens.xml">
+    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="63" selection-start="85" selection-end="85" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="255">
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="2580">
+          <caret line="16" column="38" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+    <entry file="file://$PROJECT_DIR$/src/results.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="26" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="255">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="113" selection-start="933" selection-end="933" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="510" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="32" selection-start="577" selection-end="577" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="435">
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="960" max-vertical-offset="1050">
+          <caret line="64" column="62" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/menu/main.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="49" selection-start="244" selection-end="244" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="225">
+        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="225">
+          <caret line="6" column="49" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="38" selection-start="1007" selection-end="1007" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="735">
+        <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="735">
+          <caret line="21" column="38" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="481" selection-end="523" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="780">
+        <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="645">
+          <caret line="9" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/android-sdks/sources/android-19/com/android/internal/os/ZygoteInit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="594" column="0" selection-start="20952" selection-end="20952" vertical-scroll-proportion="0.0" vertical-offset="8910" max-vertical-offset="11985" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="8910" max-vertical-offset="11985">
+          <caret line="594" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/Die.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="496" column="5" selection-start="10844" selection-end="10844" vertical-scroll-proportion="0.0" vertical-offset="7440" max-vertical-offset="7770">
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="6465" max-vertical-offset="6810">
+          <caret line="431" column="5" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="9" selection-start="1541" selection-end="1541" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1890">
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1425">
+          <caret line="63" column="21" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="40" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="510">
+        <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="510">
+          <caret line="24" column="32" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="38" selection-start="482" selection-end="482" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="2580">
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="3930">
+          <caret line="25" column="16" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/results.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="62" selection-start="4544" selection-end="4544" vertical-scroll-proportion="0.0" vertical-offset="960" max-vertical-offset="1050" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/menu/main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="49" selection-start="244" selection-end="244" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="225">
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="960" max-vertical-offset="1050">
+          <caret line="64" column="7" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="38" selection-start="1007" selection-end="1007" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="735">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="13" selection-start="214" selection-end="214" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="645">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/android-sdks/sources/android-19/com/android/internal/os/ZygoteInit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="594" column="0" selection-start="20952" selection-end="20952" vertical-scroll-proportion="0.0" vertical-offset="8910" max-vertical-offset="11985" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/Die.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="431" column="5" selection-start="9298" selection-end="9298" vertical-scroll-proportion="0.0" vertical-offset="6465" max-vertical-offset="6810">
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="21" selection-start="1666" selection-end="1666" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1425">
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="32" selection-start="851" selection-end="851" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="510">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="16" selection-start="697" selection-end="697" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="3930">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/results.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="7" selection-start="520" selection-end="520" vertical-scroll-proportion="0.0" vertical-offset="960" max-vertical-offset="1050" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/android-sdks/sources/android-19/android/opengl/GLSurfaceView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1239" column="0" selection-start="47900" selection-end="47900" vertical-scroll-proportion="0.0" vertical-offset="18585" max-vertical-offset="29190" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="18585" max-vertical-offset="29190">
+          <caret line="1239" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="0" selection-start="641" selection-end="641" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="555">
+        <state vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="555">
+          <caret line="26" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="49" selection-start="665" selection-end="665" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="330">
+        <state vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="330">
+          <caret line="13" column="49" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="50" selection-start="203" selection-end="203" vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="210">
+        <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="210">
+          <caret line="5" column="50" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/android-sdks/sources/android-19/java/lang/reflect/Method.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="514" column="0" selection-start="18559" selection-end="18559" vertical-scroll-proportion="0.0" vertical-offset="7710" max-vertical-offset="8895" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="7710" max-vertical-offset="8895">
+          <caret line="514" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/Die.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="198" column="0" selection-start="4481" selection-end="4481" vertical-scroll-proportion="0.0" vertical-offset="2734" max-vertical-offset="3330">
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="2734" max-vertical-offset="3330">
+          <caret line="198" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SuperDice.iml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="702" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="702">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/android-sdks/sources/android-19/android/opengl/GLSurfaceView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1239" column="0" selection-start="47900" selection-end="47900" vertical-scroll-proportion="0.0" vertical-offset="17795" max-vertical-offset="28545" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="17795" max-vertical-offset="28545">
+          <caret line="1239" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/results.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="62" selection-start="4544" selection-end="4544" vertical-scroll-proportion="0.0" vertical-offset="960" max-vertical-offset="1050" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/android-sdks/sources/android-19/java/lang/reflect/Method.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="514" column="0" selection-start="18559" selection-end="18559" vertical-scroll-proportion="0.0" vertical-offset="6579" max-vertical-offset="8190" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/android-sdks/sources/android-19/android/os/Binder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="403" column="0" selection-start="14389" selection-end="14389" vertical-scroll-proportion="0.0" vertical-offset="6103" max-vertical-offset="7290" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/android-sdks/sources/android-19/com/android/internal/os/ZygoteInit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="594" column="0" selection-start="20952" selection-end="20952" vertical-scroll-proportion="0.0" vertical-offset="8114" max-vertical-offset="11325" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="960" max-vertical-offset="1050">
+          <caret line="64" column="62" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/android-sdks/sources/android-19/android/view/View.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18483" column="16" selection-start="719906" selection-end="719906" vertical-scroll-proportion="0.0" vertical-offset="274044" max-vertical-offset="290595" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="274044" max-vertical-offset="290595">
+          <caret line="18483" column="16" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4362416" vertical-offset="0" max-vertical-offset="447">
+          <caret line="13" column="17" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values-sw720dp-land/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10663507" vertical-offset="0" max-vertical-offset="422">
+          <caret line="3" column="63" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="113" selection-start="933" selection-end="933" vertical-scroll-proportion="0.0" vertical-offset="73" max-vertical-offset="510" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="73" max-vertical-offset="510">
+          <caret line="24" column="113" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java">
+    <entry file="file://$PROJECT_DIR$/gen/oldschool/superdice/BuildConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="23" selection-start="2078" selection-end="2078" vertical-scroll-proportion="0.0" vertical-offset="1333" max-vertical-offset="2145">
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.1768868" vertical-offset="0" max-vertical-offset="424">
+          <caret line="5" column="19" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/android-sdks/sources/android-19/com/android/internal/os/ZygoteInit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3318078" vertical-offset="8180" max-vertical-offset="11325">
+          <caret line="599" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceGestureListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="463" max-vertical-offset="900">
+          <caret line="35" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values-v11/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="461">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values-v14/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="461">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_game_over.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1139" max-vertical-offset="1785">
+          <caret line="67" column="42" selection-start-line="67" selection-start-column="42" selection-end-line="67" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/android-sdks/sources/android-19/android/os/Binder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="6851" max-vertical-offset="8670">
+          <caret line="403" column="0" selection-start-line="403" selection-start-column="0" selection-end-line="403" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_dice_animation.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="493" max-vertical-offset="799">
+          <caret line="29" column="44" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/android-sdks/sources/android-19/java/lang/reflect/Method.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33183858" vertical-offset="6857" max-vertical-offset="8190">
+          <caret line="514" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.5490196" vertical-offset="1716" max-vertical-offset="3315">
+          <caret line="73" column="30" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/Die.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1343" max-vertical-offset="8772">
+          <caret line="87" column="7" selection-start-line="87" selection-start-column="7" selection-end-line="87" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="74" selection-start="893" selection-end="930" vertical-scroll-proportion="0.65675056" vertical-offset="73" max-vertical-offset="510">
+        <state vertical-scroll-proportion="0.65587044" vertical-offset="152" max-vertical-offset="646">
+          <caret line="28" column="68" selection-start-line="28" selection-start-column="68" selection-end-line="28" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/passwords-and-stuff.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="494">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34412956" vertical-offset="0" max-vertical-offset="1156">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_user_selection.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="493" max-vertical-offset="1581">
+          <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/android-sdks/sources/android-19/android/app/Activity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.08097166" vertical-offset="13300" max-vertical-offset="89148">
+          <caret line="884" column="19" selection-start-line="884" selection-start-column="19" selection-end-line="884" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/menu/main.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="49" selection-start="244" selection-end="244" vertical-scroll-proportion="-3.6" vertical-offset="0" max-vertical-offset="225">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="36" selection-start="489" selection-end="489" vertical-scroll-proportion="0.49861497" vertical-offset="0" max-vertical-offset="361">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_dice_animation.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="37" selection-start="733" selection-end="783" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="884">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values-sw720dp-land/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="63" selection-start="85" selection-end="85" vertical-scroll-proportion="0.086440675" vertical-offset="0" max-vertical-offset="590">
+        <state vertical-scroll-proportion="0.14498934" vertical-offset="0" max-vertical-offset="469">
+          <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="52" selection-start="856" selection-end="856" vertical-scroll-proportion="0.5564648" vertical-offset="0" max-vertical-offset="611">
+        <state vertical-scroll-proportion="0.7991453" vertical-offset="85" max-vertical-offset="578">
+          <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.6153846" vertical-offset="372" max-vertical-offset="884">
+          <caret line="36" column="35" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/GameOverActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1377" max-vertical-offset="2074">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/BaseActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="406" max-vertical-offset="918">
+          <caret line="42" column="66" selection-start-line="42" selection-start-column="66" selection-end-line="42" selection-end-column="66" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/values/dimens.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="389" selection-end="389" vertical-scroll-proportion="0.30605564" vertical-offset="0" max-vertical-offset="611">
+        <state vertical-scroll-proportion="-4.76" vertical-offset="0" max-vertical-offset="306">
+          <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project.properties">
+    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="17" selection-start="562" selection-end="562" vertical-scroll-proportion="0.3474843" vertical-offset="0" max-vertical-offset="636">
+        <state vertical-scroll-proportion="0.678487" vertical-offset="121" max-vertical-offset="748">
+          <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gen/oldschool/superdice/BuildConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="19" selection-start="180" selection-end="180" vertical-scroll-proportion="0.1336478" vertical-offset="0" max-vertical-offset="636">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="43" selection-start="434" selection-end="434" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3180">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="27" selection-start="930" selection-end="930" vertical-scroll-proportion="0.5990566" vertical-offset="163" max-vertical-offset="799">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/Die.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="483" column="27" selection-start="10703" selection-end="10703" vertical-scroll-proportion="8.286163" vertical-offset="2754" max-vertical-offset="8432">
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_target_score_selection.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.48" vertical-offset="214" max-vertical-offset="1309">
+          <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="e#1246#1276#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/SelectTargetScoreActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="612">
+          <caret line="36" column="1" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
+          <folding>
+            <element signature="e#891#897#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceGestureListener.java">
+    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="0" selection-start="1015" selection-end="1015" vertical-scroll-proportion="0.25157234" vertical-offset="384" max-vertical-offset="1020">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="40" selection-start="206" selection-end="206" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="867">
+        <state vertical-scroll-proportion="1.8301486" vertical-offset="1586" max-vertical-offset="4301">
+          <caret line="165" column="27" selection-start-line="165" selection-start-column="27" selection-end-line="165" selection-end-column="27" />
           <folding />
         </state>
       </provider>

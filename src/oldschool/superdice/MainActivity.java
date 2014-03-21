@@ -2,10 +2,11 @@ package oldschool.superdice;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 /**
  * The title activity called when the app is started up.
@@ -13,10 +14,10 @@ import android.widget.TextView;
  * @author Hansjürg Jaggi, Stephan Menzi & Satesh Paramasamy
  */
 
-public class MainActivity extends Activity
+public class MainActivity extends BaseActivity
 {
 	@Override
-	protected void onCreate(Bundle savedInstanceState)
+	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
@@ -34,12 +35,19 @@ public class MainActivity extends Activity
 
 	/**
 	 * Starts the dice animation activity, called by the "play" button.
-	 * 
-	 * @param view The view
-	 */
-	public void startDiceAnimation(View view)
+	 *
+     * @param view The view
+     */
+	public void startSelectTargetScore(View view)
 	{
-		Intent intent = new Intent(this, DiceAnimationActivity.class);
+		Intent intent = new Intent(this, SelectTargetScoreActivity.class);
+//		ArrayList<User> users = new ArrayList<User>();
+//		users.add(new User("Hanjo"));
+//		users.add(new User("Steff"));
+//		users.add(new User("Sädu"));
+//		intent.putExtra("users", users);
+//		intent.putExtra("targetscore", 20);
+    	stopService(getIntent());
 		startActivity(intent);
 	}
 

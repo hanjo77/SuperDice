@@ -1,11 +1,11 @@
 package oldschool.superdice;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.opengl.GLUtils;
+import android.opengl.ETC1Util;
 
 import javax.microedition.khronos.opengles.GL10;
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
@@ -72,13 +72,18 @@ public class Die
 	 * Textures
 	 */
 	private int[] resourceIds = new int[]{
-			R.drawable.side1,
-			R.drawable.side2,
-			R.drawable.side3,
-			R.drawable.side4,
-			R.drawable.side5,
-			R.drawable.side6};
+			R.raw.side1,
+			R.raw.side2,
+			R.raw.side3,
+			R.raw.side4,
+			R.raw.side5,
+			R.raw.side6};
 
+	private float[] rotation = new float[]{
+			(float) Math.floor(Math.random()*4)*90,
+			(float) Math.floor(Math.random()*4)*90,
+			(float) Math.floor(Math.random()*4)*90
+	};
 
 	/**
 	 * The Cube constructor.
@@ -161,7 +166,6 @@ public class Die
 				1.0f, 1.0f,
 				0.0f, 0.0f,
 				1.0f, 0.0f,
-
 		};
 
 		/**
@@ -188,10 +192,12 @@ public class Die
 		textureBuffer = byteBuf.asFloatBuffer();
 		textureBuffer.put(texture);
 		textureBuffer.position(0);
-
 		indexBuffer = ByteBuffer.allocateDirect(indices.length);
 		indexBuffer.put(indices);
 		indexBuffer.position(0);
+
+		setRotation(rotation);
+
 	}
 
 	/**
@@ -215,7 +221,7 @@ public class Die
 		gl.glRotatef(mCubeRotationY, 0, 1.0f, 0);
 		gl.glRotatef(mCubeRotationZ, 0, 0, 1.0f);
 
-		//Enable the vertex and texture state
+ 		//Enable the vertex and texture state
 		gl.glVertexPointer(3, GL10.GL_FLOAT, 0, vertexBuffer);
 		gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, textureBuffer);
 
@@ -224,6 +230,7 @@ public class Die
 			//Bind our only previously generated texture in this case
 			gl.glBindTexture(GL10.GL_TEXTURE_2D, textures[i]);
 			indexBuffer.position(6 * i);
+			// gl.glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 			//Draw the vertices as triangles, based on the Index Buffer information
 			gl.glDrawElements(GL10.GL_TRIANGLES, 6, GL10.GL_UNSIGNED_BYTE, indexBuffer);
 		}
@@ -247,7 +254,9 @@ public class Die
 		for (int i = 0; i < 6; i++)
 		{
 			// Create a bitmap
-			Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), resourceIds[i]);
+			// Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), resourceIds[i]);
+			InputStream input = context.getResources().openRawResource(resourceIds[i]);
+
 
 			//...and bind it to our array
 			gl.glBindTexture(GL10.GL_TEXTURE_2D, textures[i]);
@@ -261,7 +270,22 @@ public class Die
 			gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_T, GL10.GL_REPEAT);
 
 			//Use the Android GLUtils to specify a two-dimensional texture image from our bitmap
-			GLUtils.texImage2D(GL10.GL_TEXTURE_2D, 0, bitmap, 0);
+			// GLUtils.texImage2D(GL10.GL_TEXTURE_2D, 0, bitmap, 0);
+
+			//Load compressed texture
+			try{
+				ETC1Util.loadTexture(GL10.GL_TEXTURE_2D, 0, 0,GL10.GL_RGB, GL10.GL_UNSIGNED_SHORT_5_6_5, input);
+			}
+			catch(IOException e){
+				System.out.println("DEBUG! IOException"+e.getMessage());
+			}
+			finally{
+				try {
+					input.close();
+				} catch (IOException e) {
+					// ignore exception thrown from close.
+				}
+			}
 		}
 	}
 
@@ -343,6 +367,7 @@ public class Die
 
 			isRolling = false;
 			ready = true;
+			rotation = new float[]{ mCubeRotationX, mCubeRotationY, mCubeRotationZ };
 		}
 	}
 
@@ -467,16 +492,6 @@ public class Die
 	}
 
 	/**
-	 * Gets the current rotation.
-	 * 
-	 * @return float Array of x, y and z axis rotation angles
-	 */
-	public float[] getRotation()
-	{
-		return new float[]{mCubeRotationX, mCubeRotationY, mCubeRotationZ};
-	}
-
-	/**
 	 * Define whether die is rolling or not.
 	 * 
 	 * @param rolling true for rolling, false for not.
@@ -504,4 +519,18 @@ public class Die
 	public boolean isNotReady()
 	{
 		return !ready;
-	}}
+	}
+
+	public float[] getRotations()
+	{
+		return rotation;
+	}
+
+	public void setRotation(float[] rotation)
+	{
+		mCubeRotationX = rotation[0];
+		mCubeRotationY = rotation[1];
+		mCubeRotationZ = rotation[2];
+		evaluateNumber();
+	}
+}
