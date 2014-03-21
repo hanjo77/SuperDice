@@ -16,62 +16,19 @@ import java.nio.FloatBuffer;
  * @author Hansjürg Jaggi, Stephan Menzi & Satesh Paramasamy
  */
 
-public class Die
+class Die
 {
-	/**
-	 * The buffer holding the vertices
-	 */
-	private FloatBuffer vertexBuffer;
-	/**
-	 * The buffer holding the texture coordinates
-	 */
-	private FloatBuffer textureBuffer;
-	/**
-	 * The buffer holding the indices
-	 */
-	private ByteBuffer indexBuffer;
-	/**
-	 * The thrown number
-	 */
-	private int number;
-	/**
-	 * Indicates if the dice is rolling *
-	 */
-	private boolean isRolling;
-	/**
-	 * Rotation values *
-	 */
-	private float mCubeRotationX, mCubeRotationY, mCubeRotationZ, rotationX, rotationY, rotationZ;
-	/**
-	 * Used to define whether a rotation shall be reset to zero.
-	 */
-	private boolean resetPoint = false;
-	/**
-	 * Defines whether the die is ready (not rolling)
-	 */
-	private boolean ready = true;
-	/**
-	 * Friction defines how slowly the speed of the animation decreases, the closer to 1, the slower the decrease.
-	 */
-	final float friction = 0.98f;
-	/**
-	 * The minimal rotation speed, if this speed is reached, the die will try to snap to the next best side.
-	 */
-	final float minRotationSpeed = 1.0f;
-	/**
-	 * the snapping limit angle - when below this angle the die will fall to the corresponding side.
-	 */
-	final float snapPoint = 5;
+	private FloatBuffer mVertexBuffer;
+	private FloatBuffer mTextureBuffer;
+	private ByteBuffer mIndexBuffer;
+	private int mNumber;
+	private float mCubeRotationX, mCubeRotationY, mCubeRotationZ, mRotationX, mRotationY, mRotationZ;
+	private boolean mIsRolling;
+	private boolean mDoReset = false;
+	private boolean mIsReady = true;
+	private int[] mTextures = new int[6];
 
-	/**
-	 * Our texture pointer
-	 */
-	private int[] textures = new int[6];
-
-	/**
-	 * Textures
-	 */
-	private int[] resourceIds = new int[]{
+	private int[] mResourceIds = new int[]{
 			R.raw.side1,
 			R.raw.side2,
 			R.raw.side3,
@@ -79,7 +36,7 @@ public class Die
 			R.raw.side5,
 			R.raw.side6};
 
-	private float[] rotation = new float[]{
+	private float[] mRotation = new float[]{
 			(float) Math.floor(Math.random()*4)*90,
 			(float) Math.floor(Math.random()*4)*90,
 			(float) Math.floor(Math.random()*4)*90
@@ -88,12 +45,14 @@ public class Die
 	/**
 	 * The Cube constructor.
 	 * Initiate the buffers.
+	 *
+	 * @param rotation Array of the x, y and z rotation angles in degrees
 	 */
-	public Die()
+	public Die(float[] rotation)
 	{
 		/**
 		 * The initial vertex definition
-		 * <p/>
+		 * 
 		 * Note that each face is defined, even
 		 * if indices are available, because
 		 * of the texturing we want to achieve
@@ -183,21 +142,24 @@ public class Die
 
 		ByteBuffer byteBuf = ByteBuffer.allocateDirect(vertices.length * 4);
 		byteBuf.order(ByteOrder.nativeOrder());
-		vertexBuffer = byteBuf.asFloatBuffer();
-		vertexBuffer.put(vertices);
-		vertexBuffer.position(0);
+		mVertexBuffer = byteBuf.asFloatBuffer();
+		mVertexBuffer.put(vertices);
+		mVertexBuffer.position(0);
 
 		byteBuf = ByteBuffer.allocateDirect(texture.length * 4);
 		byteBuf.order(ByteOrder.nativeOrder());
-		textureBuffer = byteBuf.asFloatBuffer();
-		textureBuffer.put(texture);
-		textureBuffer.position(0);
-		indexBuffer = ByteBuffer.allocateDirect(indices.length);
-		indexBuffer.put(indices);
-		indexBuffer.position(0);
+		mTextureBuffer = byteBuf.asFloatBuffer();
+		mTextureBuffer.put(texture);
+		mTextureBuffer.position(0);
+		mIndexBuffer = ByteBuffer.allocateDirect(indices.length);
+		mIndexBuffer.put(indices);
+		mIndexBuffer.position(0);
 
-		setRotation(rotation);
-
+		if (rotation.length == 3)
+		{
+			mRotation = rotation;
+		}
+		setRotation(mRotation);
 	}
 
 	/**
@@ -222,17 +184,17 @@ public class Die
 		gl.glRotatef(mCubeRotationZ, 0, 0, 1.0f);
 
  		//Enable the vertex and texture state
-		gl.glVertexPointer(3, GL10.GL_FLOAT, 0, vertexBuffer);
-		gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, textureBuffer);
+		gl.glVertexPointer(3, GL10.GL_FLOAT, 0, mVertexBuffer);
+		gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, mTextureBuffer);
 
 		for (int i = 0; i < 6; i++)
 		{
 			//Bind our only previously generated texture in this case
-			gl.glBindTexture(GL10.GL_TEXTURE_2D, textures[i]);
-			indexBuffer.position(6 * i);
+			gl.glBindTexture(GL10.GL_TEXTURE_2D, mTextures[i]);
+			mIndexBuffer.position(6 * i);
 			// gl.glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 			//Draw the vertices as triangles, based on the Index Buffer information
-			gl.glDrawElements(GL10.GL_TRIANGLES, 6, GL10.GL_UNSIGNED_BYTE, indexBuffer);
+			gl.glDrawElements(GL10.GL_TRIANGLES, 6, GL10.GL_UNSIGNED_BYTE, mIndexBuffer);
 		}
 
 		//Disable the client state before leaving
@@ -243,23 +205,23 @@ public class Die
 	/**
 	 * Load the textures
 	 *
-	 * @param gl      The GL Context
+	 * @param gl The GL Context
 	 * @param context The Activity context
 	 */
 	public void loadGLTexture(GL10 gl, Context context)
 	{
 		//Generate a 6 texture pointer...
-		gl.glGenTextures(6, textures, 0);
+		gl.glGenTextures(6, mTextures, 0);
 
 		for (int i = 0; i < 6; i++)
 		{
 			// Create a bitmap
-			// Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), resourceIds[i]);
-			InputStream input = context.getResources().openRawResource(resourceIds[i]);
+			// Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), mResourceIds[i]);
+			InputStream input = context.getResources().openRawResource(mResourceIds[i]);
 
 
 			//...and bind it to our array
-			gl.glBindTexture(GL10.GL_TEXTURE_2D, textures[i]);
+			gl.glBindTexture(GL10.GL_TEXTURE_2D, mTextures[i]);
 
 			//Create Nearest Filtered Texture
 			gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MIN_FILTER, GL10.GL_LINEAR);
@@ -294,7 +256,7 @@ public class Die
 	 */
 	public void rotate()
 	{
-		rotate(rotationX, rotationY, rotationZ);
+		rotate(mRotationX, mRotationY, mRotationZ);
 	}
 
 	/**
@@ -306,68 +268,75 @@ public class Die
 	 */
 	public void rotate(float x, float y, float z)
 	{
-		rotationX = x;
-		rotationY = y;
-		rotationZ = z;
+		/**
+		 * Defines how slowly the speed of the animation decreases, the closer to 1, the slower the decrease.
+		 */
+		float friction = 0.98f;
+		/**
+		 * The minimal rotation speed, if this speed is reached, the die will try to snap to the next best side.
+		 */
+		float minRotationSpeed = 1.0f;
+		mRotationX = x;
+		mRotationY = y;
+		mRotationZ = z;
 
-		if (Math.abs(rotationX) > 0)
+		if (Math.abs(mRotationX) > 0)
 		{
-			if (Math.abs(rotationX) > minRotationSpeed)
+			if (Math.abs(mRotationX) > minRotationSpeed)
 			{
-				rotationX *= friction;
+				mRotationX *= friction;
 			}
-			mCubeRotationX += rotationX;
+			mCubeRotationX += mRotationX;
 		}
-		if (Math.abs(rotationY) > 0)
+		if (Math.abs(mRotationY) > 0)
 		{
-			if (Math.abs(rotationY) > minRotationSpeed)
+			if (Math.abs(mRotationY) > minRotationSpeed)
 			{
-				rotationY *= friction;
+				mRotationY *= friction;
 			}
-			mCubeRotationY += rotationY;
+			mCubeRotationY += mRotationY;
 		}
-		if (Math.abs(rotationZ) > 0)
+		if (Math.abs(mRotationZ) > 0)
 		{
-			if (Math.abs(rotationZ) > minRotationSpeed)
+			if (Math.abs(mRotationZ) > minRotationSpeed)
 			{
-				rotationZ *= friction;
+				mRotationZ *= friction;
 			}
-			mCubeRotationZ += rotationZ;
+			mCubeRotationZ += mRotationZ;
 		}
 
-		if (Math.abs(rotationX) <= minRotationSpeed)
+		if (Math.abs(mRotationX) <= minRotationSpeed)
 		{
 			mCubeRotationX = findEdge(mCubeRotationX);
-			if (resetPoint)
+			if (mDoReset)
 			{
-				rotationX = 0;
+				mRotationX = 0;
 			}
 		}
-		if (Math.abs(rotationY) <= minRotationSpeed)
+		if (Math.abs(mRotationY) <= minRotationSpeed)
 		{
 			mCubeRotationY = findEdge(mCubeRotationY);
-			if (resetPoint)
+			if (mDoReset)
 			{
-				rotationY = 0;
+				mRotationY = 0;
 			}
 		}
-		if (Math.abs(rotationZ) <= minRotationSpeed)
+		if (Math.abs(mRotationZ) <= minRotationSpeed)
 		{
 			mCubeRotationZ = findEdge(mCubeRotationZ);
-			if (resetPoint)
+			if (mDoReset)
 			{
-				rotationZ = 0;
+				mRotationZ = 0;
 			}
 		}
 
 		evaluateNumber();
 
-		if (isRolling && rotationX == 0 && rotationY == 0 && rotationZ == 0)
+		if (mIsRolling && mRotationX == 0 && mRotationY == 0 && mRotationZ == 0)
 		{
-
-			isRolling = false;
-			ready = true;
-			rotation = new float[]{ mCubeRotationX, mCubeRotationY, mCubeRotationZ };
+			mIsRolling = false;
+			mIsReady = true;
+			mRotation = new float[]{ mCubeRotationX, mCubeRotationY, mCubeRotationZ };
 		}
 	}
 
@@ -395,7 +364,7 @@ public class Die
 		if ((rotX == 0 && rotY == 0) ||
 			(rotX == 2 && rotY == 2))
 		{
-			number = 1;
+			mNumber = 1;
 		}
 		else if ((rotX == 0 && rotY == 1 && rotZ == 2) ||
 				(rotX == 0 && rotY == 3 && rotZ == 0) ||
@@ -405,13 +374,13 @@ public class Die
 				(rotX == 3 && rotZ == 3))
 		{
 
-			number = 2;
+			mNumber = 2;
 		}
 		else if ((rotX == 0 && rotY == 2) ||
 				(rotX == 2 && rotY == 0))
 		{
 
-			number = 3;
+			mNumber = 3;
 		}
 		else if ((rotX == 0 && rotY == 1 && rotZ == 0) ||
 				(rotX == 0 && rotY == 3 && rotZ == 2) ||
@@ -421,7 +390,7 @@ public class Die
 				(rotX == 3 && rotZ == 1))
 		{
 
-			number = 4;
+			mNumber = 4;
 		}
 		else if ((rotX == 0 && rotY == 1 && rotZ == 3) ||
 				(rotX == 0 && rotY == 3 && rotZ == 1) ||
@@ -431,7 +400,7 @@ public class Die
 				(rotX == 3 && rotZ == 0))
 		{
 
-			number = 5;
+			mNumber = 5;
 		}
 		else if ((rotX == 0 && rotY == 1 && rotZ == 1) ||
 				(rotX == 0 && rotY == 3 && rotZ == 3) ||
@@ -441,7 +410,7 @@ public class Die
 				(rotX == 3 && rotZ == 2))
 		{
 
-			number = 6;
+			mNumber = 6;
 		}
 	}
 
@@ -453,7 +422,9 @@ public class Die
 	 */
 	private float findEdge(float angle)
 	{
-		resetPoint = false;
+		float snapPoint = 5;
+
+		mDoReset = false;
 		if (Math.abs(angle) % 90 <= snapPoint)
 		{
 			if (angle >= 0)
@@ -464,7 +435,7 @@ public class Die
 			{
 				angle = (float) Math.ceil(angle / 90) * 90;
 			}
-			resetPoint = true;
+			mDoReset = true;
 		}
 		else if (Math.abs(angle) % 90 >= (90-snapPoint))
 		{
@@ -476,7 +447,7 @@ public class Die
 			{
 				angle = (float) (Math.floor(angle / 90)) * 90;
 			}
-			resetPoint = true;
+			mDoReset = true;
 		}
 		return angle;
 	}
@@ -488,7 +459,7 @@ public class Die
 	 */
 	public int getNumber()
 	{
-		return number;
+		return mNumber;
 	}
 
 	/**
@@ -498,7 +469,7 @@ public class Die
 	 */
 	public void setRolling(boolean rolling)
 	{
-		isRolling = rolling;
+		mIsRolling = rolling;
 	}
 
 	/**
@@ -508,7 +479,7 @@ public class Die
 	 */
 	public void setReady(boolean ready)
 	{
-		this.ready = ready;
+		mIsReady = ready;
 	}
 
 	/**
@@ -518,14 +489,24 @@ public class Die
 	 */
 	public boolean isNotReady()
 	{
-		return !ready;
+		return !mIsReady;
 	}
 
+	/**
+	 * Returns the rotation angles
+	 *
+	 * @return Array of the x, y and z rotation angles in degrees
+	 */
 	public float[] getRotations()
 	{
-		return rotation;
+		return mRotation;
 	}
 
+	/**
+	 * Sets the rotation angles
+	 *
+	 * @param rotation Array of the x, y and z rotation angles in degrees
+	 */
 	public void setRotation(float[] rotation)
 	{
 		mCubeRotationX = rotation[0];

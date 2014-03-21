@@ -1,5 +1,6 @@
 package oldschool.superdice;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,11 +11,9 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.*;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -24,28 +23,32 @@ import java.util.ArrayList;
  * @author Hansjürg Jaggi, Stephan Menzi & Satesh Paramasamy
  */
 
-public class DiceAnimationActivity extends BaseActivity implements SensorEventListener
+public class DiceAnimationActivity extends Activity implements SensorEventListener
 {
-	private ArrayList<User> users;
+	private ArrayList<User> mUsers;
 	private SensorManager mSensorManager;
 	private DiceRenderer mDiceRenderer;
 	private TextView mScoreTextView;
-	private User currentUser;
-	private int currentUserIndex = 0;
-	private int targetScore;
-	private boolean canRollDice = true;
+	private User mCurrentUser;
+	private int mCurrentUserIndex = 0;
+	private int mTargetScore;
+	private boolean mCanRollDice = false;
+	private boolean mUserSwitched = true;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 
-		users = (ArrayList<User>) getIntent().getSerializableExtra("users");
-		targetScore = getIntent().getIntExtra("targetscore", 10);
+		mUsers = (ArrayList<User>) getIntent().getSerializableExtra("users");
+		mTargetScore = getIntent().getIntExtra("targetscore", 10);
+		float[][] diceRotations = new float[][]{{}};
 		if (savedInstanceState != null) {
 
-			currentUserIndex = savedInstanceState.getInt("currentUser", 0);
-			canRollDice = savedInstanceState.getBoolean("canRollDice", true);
+			mCurrentUserIndex = savedInstanceState.getInt("currentUser", 0);
+			mCanRollDice = savedInstanceState.getBoolean("canRollDice");
+			mUserSwitched = savedInstanceState.getBoolean("userSwitched");
+			diceRotations = new float[][]{savedInstanceState.getFloatArray("diceRotations")};
 		}
 
 		if (android.os.Build.VERSION.SDK_INT <= 14 || ViewConfiguration.get(this).hasPermanentMenuKey())
@@ -58,17 +61,17 @@ public class DiceAnimationActivity extends BaseActivity implements SensorEventLi
 					WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		}
 
-		currentUser = users.get(currentUserIndex);
+		mCurrentUser = mUsers.get(mCurrentUserIndex);
 
 		// Prepare view
 		setContentView(R.layout.activity_dice_animation);
 		TextView textView = (TextView) findViewById(R.id.titleText);
-		textView.setText(getResources().getString(R.string.game_title).replace("[NAME]", currentUser.getName()));
+		textView.setText(getResources().getString(R.string.game_title).replace("[NAME]", mCurrentUser.getName()));
 		mScoreTextView = (TextView) findViewById(R.id.scoreText);
-		mScoreTextView.setText((currentUser.getTotalScore()+currentUser.getRoundScore())+"");
+		mScoreTextView.setText((mCurrentUser.getTotalScore()+mCurrentUser.getRoundScore())+"");
 
 		// Set up the dice renderer and add to it's placeholder
-		mDiceRenderer = new DiceRenderer(this);
+		mDiceRenderer = new DiceRenderer(this, diceRotations);
 		GLSurfaceView view = new GLSurfaceView(this);
 		view.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
 		view.getHolder().setFormat(PixelFormat.TRANSLUCENT);
@@ -82,6 +85,7 @@ public class DiceAnimationActivity extends BaseActivity implements SensorEventLi
 
 		// Init sensor
 		mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+		askForStart();
 	}
 
 	@Override
@@ -95,7 +99,7 @@ public class DiceAnimationActivity extends BaseActivity implements SensorEventLi
 			public boolean onMenuItemClick(MenuItem item)
 			{
 				Intent intent = new Intent(DiceAnimationActivity.this, RoundScoresActivity.class);
-				intent.putExtra("users", users);
+				intent.putExtra("users", mUsers);
 				startActivity(intent);
 				return false;
 			}
@@ -117,7 +121,7 @@ public class DiceAnimationActivity extends BaseActivity implements SensorEventLi
 
 			float accelerationSquareRoot = (x * x + y * y + z * z)
 					/ (SensorManager.GRAVITY_EARTH * SensorManager.GRAVITY_EARTH);
-			if (accelerationSquareRoot >= 2 && canRollDice) //
+			if (accelerationSquareRoot >= 2 && mCanRollDice) //
 			{
 				mDiceRenderer.rollDice(new float[]{x, y, z});
 			}
@@ -151,21 +155,30 @@ public class DiceAnimationActivity extends BaseActivity implements SensorEventLi
 	protected void onSaveInstanceState(Bundle SavedInstanceState) {
 		super.onSaveInstanceState(SavedInstanceState);
 
-		SavedInstanceState.putInt("currentUser", currentUserIndex);
-		SavedInstanceState.putBoolean("canRollDice", canRollDice);
-		SavedInstanceState.putFloatArray("dicePositions", mDiceRenderer.getDiceRotations()[0]);
+		SavedInstanceState.putInt("currentUser", mCurrentUserIndex);
+		SavedInstanceState.putBoolean("canRollDice", mCanRollDice);
+		SavedInstanceState.putBoolean("userSwitched", mUserSwitched);
+		SavedInstanceState.putFloatArray("diceRotations", mDiceRenderer.getDiceRotations()[0]);
 	}
 
 	@Override
 	protected void onRestoreInstanceState(Bundle savedInstanceState) {
 		super.onRestoreInstanceState(savedInstanceState);
 
-		currentUserIndex = savedInstanceState.getInt("currentUser");
-		canRollDice = savedInstanceState.getBoolean("canRollDice");
-		mDiceRenderer.setDiceRotations(new float[][]{ savedInstanceState.getFloatArray("dicePositions") });
-		if (!canRollDice) {
-
-			finishRoll();
+		mCurrentUserIndex = savedInstanceState.getInt("currentUser");
+		mCanRollDice = savedInstanceState.getBoolean("canRollDice");
+		mUserSwitched = savedInstanceState.getBoolean("userSwitched");
+		mDiceRenderer.setDiceRotations(new float[][]{savedInstanceState.getFloatArray("diceRotations")});
+		if (!mCanRollDice)
+		{
+			if (mUserSwitched)
+			{
+				askForStart();
+			}
+			else
+			{
+				finishRoll();
+			}
 		}
 	}
 
@@ -174,7 +187,8 @@ public class DiceAnimationActivity extends BaseActivity implements SensorEventLi
 	 */
 	public void finishRoll()
 	{
-		canRollDice = false;
+		mCanRollDice = false;
+		mUserSwitched = false;
 		runOnUiThread(new Runnable()
 		{
 			public void run()
@@ -185,23 +199,23 @@ public class DiceAnimationActivity extends BaseActivity implements SensorEventLi
 				// set title
 				alertDialogBuilder.setTitle(getResources().getText(R.string.you_rolled_a) + " " + number);
 				User nextUser;
-				if (currentUserIndex >= users.size()-1) {
+				if (mCurrentUserIndex >= mUsers.size()-1) {
 
-					nextUser = users.get(0);
+					nextUser = mUsers.get(0);
 				}
 				else {
 
-					nextUser = users.get(currentUserIndex+1);
+					nextUser = mUsers.get(mCurrentUserIndex+1);
 				}
 
 				if (number > 1) {
-					currentUser.setRoundScore(currentUser.getRoundScore()+number);
-					if (currentUser.getTotalScore() + currentUser.getRoundScore() >= targetScore)
+					mCurrentUser.setRoundScore(mCurrentUser.getRoundScore()+number);
+					if (mCurrentUser.getTotalScore() + mCurrentUser.getRoundScore() >= mTargetScore)
 					{
-						currentUser.setTotalScore(currentUser.getTotalScore() + currentUser.getRoundScore());
+						mCurrentUser.setTotalScore(mCurrentUser.getTotalScore() + mCurrentUser.getRoundScore());
 						Intent intent = new Intent(DiceAnimationActivity.this, GameOverActivity.class);
-						intent.putExtra("users", users);
-						intent.putExtra("targetscore", targetScore);
+						intent.putExtra("users", mUsers);
+						intent.putExtra("targetscore", mTargetScore);
 						startActivity(intent);
 						finish();
 					}
@@ -215,24 +229,23 @@ public class DiceAnimationActivity extends BaseActivity implements SensorEventLi
 							public void onClick(DialogInterface dialog, int id)
 							{
 								dialog.cancel();
-								canRollDice = true;
+								mCanRollDice = true;
 							}
 						});
 						alertDialogBuilder.setNegativeButton(getResources().getText(R.string.button_pass_text), new DialogInterface.OnClickListener()
 						{
 							public void onClick(DialogInterface dialog, int id)
 							{
-								currentUser.setTotalScore(currentUser.getTotalScore() + currentUser.getRoundScore());
-								currentUser.setRoundScore(0);
+								mCurrentUser.setTotalScore(mCurrentUser.getTotalScore() + mCurrentUser.getRoundScore());
+								mCurrentUser.setRoundScore(0);
 								switchUser();
-								canRollDice = true;
 							}
 						});
-						mScoreTextView.setText((currentUser.getTotalScore() + currentUser.getRoundScore()) + "");
+						mScoreTextView.setText((mCurrentUser.getTotalScore() + mCurrentUser.getRoundScore()) + "");
 					}
 				}
 				else {
-					currentUser.setRoundScore(0);
+					mCurrentUser.setRoundScore(0);
 					// set dialog message for successful round
 					alertDialogBuilder.setMessage(getResources().getText(R.string.round_finished_text).toString().replace("[NAME]", nextUser.getName()));
 					alertDialogBuilder.setCancelable(false);
@@ -241,7 +254,6 @@ public class DiceAnimationActivity extends BaseActivity implements SensorEventLi
 						public void onClick(DialogInterface dialog, int id)
 						{
 							dialog.cancel();
-							canRollDice = true;
 						}
 					});
 					switchUser();
@@ -268,19 +280,72 @@ public class DiceAnimationActivity extends BaseActivity implements SensorEventLi
 		});
 	}
 
-	private void switchUser() {
+	/**
+	 * Opens a dialog to request the user to roll the die.
+	 */
+	private void askForStart()
+	{
+		runOnUiThread(new Runnable()
+		{
+			public void run()
+			{
+				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(DiceAnimationActivity.this);
 
-		currentUserIndex++;
-		if (currentUserIndex >= users.size()) {
-			currentUserIndex = 0;
-		}
-		currentUser = users.get(currentUserIndex);
-		TextView textView = (TextView) findViewById(R.id.titleText);
-		textView.setText(getResources().getString(R.string.game_title).replace("[NAME]", currentUser.getName()));
-		mScoreTextView.setText((currentUser.getTotalScore()+currentUser.getRoundScore())+"");
+				// set title
+				alertDialogBuilder.setTitle(getResources().getText(R.string.ask_for_start_title).toString().replace("[NAME]", mCurrentUser.getName()));
+				alertDialogBuilder.setMessage(getResources().getText(R.string.ask_for_start_text).toString());
+				alertDialogBuilder.setCancelable(false);
+				alertDialogBuilder.setPositiveButton(getResources().getText(R.string.button_confirm_text), new DialogInterface.OnClickListener()
+				{
+					public void onClick(DialogInterface dialog, int id)
+					{
+						dialog.cancel();
+						mCanRollDice = true;
+					}
+				});
+
+				// create alert dialog
+				AlertDialog alertDialog = alertDialogBuilder.create();
+
+				// show it
+				alertDialog.show();
+
+				// Must call show() prior to fetching text view
+				TextView titleView = (TextView)alertDialog.findViewById(getResources().getIdentifier("alertTitle", "id", "android"));
+				if (titleView != null) {
+					titleView.setGravity(Gravity.CENTER);
+				}
+				TextView messageView = (TextView)alertDialog.findViewById(android.R.id.message);
+				if (messageView != null)
+				{
+					messageView.setGravity(Gravity.CENTER);
+				}
+			}
+		});
 	}
 
+	/**
+	 * Switches to the nest user
+	 */
+	private void switchUser()
+	{
+		mCurrentUserIndex++;
+		if (mCurrentUserIndex >= mUsers.size()) {
+			mCurrentUserIndex = 0;
+		}
+		mCurrentUser = mUsers.get(mCurrentUserIndex);
+		TextView textView = (TextView) findViewById(R.id.titleText);
+		textView.setText(getResources().getString(R.string.game_title).replace("[NAME]", mCurrentUser.getName()));
+		mScoreTextView.setText((mCurrentUser.getTotalScore()+mCurrentUser.getRoundScore())+"");
+		mUserSwitched = true;
+		askForStart();
+	}
 
+	/**
+	 * Returns the DiceRenderer instance
+	 *
+	 * @return DiceRenderer instance
+	 */
 	public DiceRenderer getDiceRenderer()
 	{
 		return mDiceRenderer;

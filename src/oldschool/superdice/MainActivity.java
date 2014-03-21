@@ -1,5 +1,6 @@
 package oldschool.superdice;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
  * @author Hansjürg Jaggi, Stephan Menzi & Satesh Paramasamy
  */
 
-public class MainActivity extends BaseActivity
+public class MainActivity extends Activity
 {
 	@Override
 	public void onCreate(Bundle savedInstanceState)
