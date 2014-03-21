@@ -26,20 +26,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fabfe62-49b7-42f3-94f2-f6eb64780319" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/oldschool/superdice/BaseActivity.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java" afterPath="$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oldschool/superdice/DiceGestureListener.java" afterPath="$PROJECT_DIR$/src/oldschool/superdice/DiceGestureListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oldschool/superdice/DiceRenderer.java" afterPath="$PROJECT_DIR$/src/oldschool/superdice/DiceRenderer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oldschool/superdice/Die.java" afterPath="$PROJECT_DIR$/src/oldschool/superdice/Die.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oldschool/superdice/GameOverActivity.java" afterPath="$PROJECT_DIR$/src/oldschool/superdice/GameOverActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oldschool/superdice/MainActivity.java" afterPath="$PROJECT_DIR$/src/oldschool/superdice/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oldschool/superdice/RoundScoresActivity.java" afterPath="$PROJECT_DIR$/src/oldschool/superdice/RoundScoresActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oldschool/superdice/User.java" afterPath="$PROJECT_DIR$/src/oldschool/superdice/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_game_over.xml" afterPath="$PROJECT_DIR$/res/layout/activity_game_over.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_target_score_selection.xml" afterPath="$PROJECT_DIR$/res/layout/activity_target_score_selection.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SuperDice.iws" />
@@ -164,11 +152,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.1633987" vertical-offset="0" max-vertical-offset="555">
-              <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
+              <caret line="20" column="68" selection-start-line="20" selection-start-column="68" selection-end-line="20" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -248,14 +236,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameOverActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="GameOverActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/GameOverActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.0" vertical-offset="760" max-vertical-offset="1920">
-              <caret line="69" column="29" selection-start-line="69" selection-start-column="29" selection-end-line="69" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.8886139" vertical-offset="511" max-vertical-offset="1920">
+              <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
               <folding>
-                <element signature="e#1892#1953#0" expanded="true" />
-                <element signature="e#2719#2773#0" expanded="true" />
+                <element signature="e#1891#1952#0" expanded="true" />
+                <element signature="e#2718#2772#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -298,12 +286,12 @@
         <option value="$PROJECT_DIR$/res/layout/activity_target_score_selection.xml" />
         <option value="$PROJECT_DIR$/src/oldschool/superdice/RoundScoresActivity.java" />
         <option value="$PROJECT_DIR$/src/oldschool/superdice/DiceGestureListener.java" />
-        <option value="$PROJECT_DIR$/src/oldschool/superdice/GameOverActivity.java" />
         <option value="$PROJECT_DIR$/src/oldschool/superdice/User.java" />
         <option value="$PROJECT_DIR$/src/oldschool/superdice/DiceRenderer.java" />
         <option value="$PROJECT_DIR$/src/oldschool/superdice/Die.java" />
         <option value="$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/oldschool/superdice/GameOverActivity.java" />
       </list>
     </option>
   </component>
@@ -587,7 +575,7 @@
     <property name="options.searchVisible" value="true" />
     <property name="AndroidTargetDevices" value="333538CCDDB800EC" />
     <property name="FullScreen" value="false" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="049131104388b44d" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="333538CCDDB800EC" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="AVD_for_Galaxy_Young" />
   </component>
   <component name="RecentsManager">
@@ -1329,17 +1317,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/GameOverActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.0" vertical-offset="760" max-vertical-offset="1920">
-          <caret line="69" column="29" selection-start-line="69" selection-start-column="29" selection-end-line="69" selection-end-column="29" />
-          <folding>
-            <element signature="e#1892#1953#0" expanded="true" />
-            <element signature="e#2719#2773#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.9272727" vertical-offset="59" max-vertical-offset="5115">
@@ -1370,9 +1347,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1633987" vertical-offset="0" max-vertical-offset="555">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
+          <caret line="20" column="68" selection-start-line="20" selection-start-column="68" selection-end-line="20" selection-end-column="68" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/GameOverActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8886139" vertical-offset="511" max-vertical-offset="1920">
+          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+          <folding>
+            <element signature="e#1891#1952#0" expanded="true" />
+            <element signature="e#2718#2772#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

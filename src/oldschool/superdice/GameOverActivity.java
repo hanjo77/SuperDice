@@ -29,6 +29,7 @@ public class GameOverActivity extends Activity
 	{
 		super.onCreate(savedInstanceState);
 
+		mUsers = (ArrayList<User>) getIntent().getSerializableExtra("users");
 		mTargetScore = getIntent().getIntExtra("targetscore", 10);
 		User winner = getWinner();
 		winner.setGamesWon(winner.getGamesWon() + 1);
@@ -66,7 +67,6 @@ public class GameOverActivity extends Activity
 	{
 		try
 		{
-			mUsers = (ArrayList<User>) getIntent().getSerializableExtra("users");
 			for (User user : mUsers)
 			{
 				TableRow row= new TableRow(this);
