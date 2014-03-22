@@ -10,11 +10,14 @@
 	<string name="play">Play!</string>
 	<string name="score">Score</string>
 
+	<string name="ask_for_start_title">Get ready, [NAME]!</string>
+	<string name="ask_for_start_text">Press OK and shake or swipe your device to roll the die.</string>
+
 	<string name="user_selection_title">Choose and add players:</string>
 	<string name="input_name_default_text">Name</string>
 	<string name="button_add_text">+</string>
 	<string name="button_back_text">Back</string>
-	<string name="button_confirm_text">Confirm</string>
+	<string name="button_confirm_text">OK</string>
 	<string name="button_sync_text">Synchronize result online</string>
 	<string name="button_exit_text">Exit</string>
 	<string name="button_again_text">Play again</string>

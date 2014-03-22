@@ -10,10 +10,10 @@ import java.io.Serializable;
 
 public class User implements Serializable
 {
-	private String name;
-	private int roundScore;
-	private int totalScore;
-	private int gamesWon;
+	private String mName;
+	private int mRoundScore;
+	private int mTotalScore;
+	private int mGamesWon;
 
 	/**
 	 * Constructor for a new user
@@ -22,10 +22,10 @@ public class User implements Serializable
 	 */
 	public User(String name) {
 
-		this.name = name;
-		this.roundScore = 0;
-		this.totalScore = 0;
-		this.gamesWon = 0;
+		mName = name;
+		mRoundScore = 0;
+		mTotalScore = 0;
+		mGamesWon = 0;
 	}
 
 	/**
@@ -38,49 +38,49 @@ public class User implements Serializable
 	 */
 	public User(String name, int roundScore, int totalScore, int gamesWon) {
 
-		this.name = name;
-		this.roundScore = roundScore;
-		this.totalScore = totalScore;
-		this.gamesWon = gamesWon;
+		mName = name;
+		mRoundScore = roundScore;
+		mTotalScore = totalScore;
+		mGamesWon = gamesWon;
 	}
 
 	public String getName()
 	{
-		return name;
+		return mName;
 	}
 
 	public void setName(String name)
 	{
-		this.name = name;
+		mName = name;
 	}
 
 	public int getRoundScore()
 	{
-		return roundScore;
+		return mRoundScore;
 	}
 
 	public void setRoundScore(int roundScore)
 	{
-		this.roundScore = roundScore;
+		mRoundScore = roundScore;
 	}
 
 	public int getTotalScore()
 	{
-		return totalScore;
+		return mTotalScore;
 	}
 
 	public void setTotalScore(int totalScore)
 	{
-		this.totalScore = totalScore;
+		mTotalScore = totalScore;
 	}
 
 	public int getGamesWon()
 	{
-		return gamesWon;
+		return mGamesWon;
 	}
 
 	public void setGamesWon(int gamesWon)
 	{
-		this.gamesWon = gamesWon;
+		mGamesWon = gamesWon;
 	}
 }

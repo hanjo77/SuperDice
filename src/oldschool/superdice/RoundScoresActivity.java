@@ -1,5 +1,6 @@
 package oldschool.superdice;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
  * @author Hansjürg Jaggi, Stephan Menzi & Satesh Paramasamy
  */
 
-public class RoundScoresActivity extends BaseActivity
+public class RoundScoresActivity extends Activity
 {
 	private TableLayout mTableLayout;
 
@@ -28,7 +29,7 @@ public class RoundScoresActivity extends BaseActivity
 		populateUserTable();
 	}
 
-	public void populateUserTable()
+	private void populateUserTable()
 	{
 		ArrayList<User> users = (ArrayList<User>) getIntent().getSerializableExtra("users");
 		for (User user : users)

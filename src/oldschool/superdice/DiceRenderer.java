@@ -16,37 +16,21 @@ import java.util.ArrayList;
 
 class DiceRenderer implements GLSurfaceView.Renderer
 {
-	/**
-	 * The parent activity.
-	 */
-	private DiceAnimationActivity context;
-	/**
-	 * An ArrayList of all the dice used.
-	 */
+	private final DiceAnimationActivity mContext;
 	private ArrayList<Die> mDice = new ArrayList<Die>();
-	/**
-	 * The distance between the dice.
-	 */
-	final float dist = 3.3f;
-	/**
-	 * Defines if a dice roll is finished.
-	 */
-	private boolean isFinished = true;
-	/**
-	 * Defines whether the toast message on the parent activity shall be updated.
-	 */
-	private boolean doUpdateToast = false;
+	private boolean mIsFinished = true;
+	private boolean mDoUpdateToast = false;
 
 	/**
 	 * Instantiates a dice renderer object with one die
-	 * 
+	 *
 	 * @param context The context
 	 */
-	public DiceRenderer(Context context)
+	public DiceRenderer(Context context, float[][] rotations)
 	{
 
-		this.context = (DiceAnimationActivity) context;
-		this.setDice(1);
+		mContext = (DiceAnimationActivity) context;
+		setDice(1, rotations);
 	}
 
 	/**
@@ -58,8 +42,8 @@ class DiceRenderer implements GLSurfaceView.Renderer
 	public DiceRenderer(Context context, int diceCount)
 	{
 
-		this.context = (DiceAnimationActivity) context;
-		this.setDice(diceCount);
+		mContext = (DiceAnimationActivity) context;
+		setDice(diceCount, new float[][]{{0, 0, 0}});
 	}
 
 	/**
@@ -67,11 +51,11 @@ class DiceRenderer implements GLSurfaceView.Renderer
 	 * 
 	 * @param count number of dice
 	 */
-	private void setDice(int count)
+	private void setDice(int count, float[][] rotations)
 	{
 		for (int i = 0; i < count; i++)
 		{
-			mDice.add(new Die());
+			mDice.add(new Die(rotations[i]));
 		}
 	}
 
@@ -85,6 +69,7 @@ class DiceRenderer implements GLSurfaceView.Renderer
 		gl.glLoadIdentity();
 		gl.glEnable(GL10.GL_TEXTURE_2D);
 
+		float dist = 3.3f;
 		float posY = 0.0f;
 
 		if (mDice.size() == 2)
@@ -92,7 +77,7 @@ class DiceRenderer implements GLSurfaceView.Renderer
 			posY = dist/-3.8f;
 		}
 
-		isFinished = true;
+		mIsFinished = true;
 
 		gl.glTranslatef(0.0f, posY, -6.0f);
 
@@ -106,7 +91,7 @@ class DiceRenderer implements GLSurfaceView.Renderer
 
 			if (die.isNotReady())
 			{
-				isFinished = false;
+				mIsFinished = false;
 			}
 
 			if (mDice.size() == 2)
@@ -119,10 +104,10 @@ class DiceRenderer implements GLSurfaceView.Renderer
 		}
 
 		// If all the dice are ready, the result should be sent to the activity.
-		if (isFinished && doUpdateToast)
+		if (mIsFinished && mDoUpdateToast)
 		{
-			context.finishRoll();
-			doUpdateToast = false;
+			mContext.finishRoll();
+			mDoUpdateToast = false;
 			for (Die die : mDice)
 			{
 				die.setReady(true);
@@ -146,7 +131,7 @@ class DiceRenderer implements GLSurfaceView.Renderer
 
 		for (Die die : mDice)
 		{
-			die.loadGLTexture(gl, context);
+			die.loadGLTexture(gl, mContext);
 		}
 	}
 
@@ -186,9 +171,9 @@ class DiceRenderer implements GLSurfaceView.Renderer
 	 */
 	public void rollDice(float[] dirs)
 	{
-		if (isFinished)
+		if (mIsFinished)
 		{
-			doUpdateToast = true;
+			mDoUpdateToast = true;
 			for (int i = 0; i < mDice.size(); i++)
 			{
 				Die die = mDice.get(i);
@@ -199,6 +184,16 @@ class DiceRenderer implements GLSurfaceView.Renderer
 		}
 	}
 
+	/**
+	 * Sets the rotation of all dice. Expects the angles in the following structure:
+	 * {
+	 *  {dice0.x, dice0.y, dice0.z},
+	 *  {dice1.x, dice1.y, dice1.z},
+	 *  ...
+	 * }
+	 *
+	 * @param rotations 2-dimensional Array with float values for the x, y and z rotation angles
+	 */
 	public void setDiceRotations(float[][] rotations)
 	{
 		for (int i = 0; i < mDice.size(); i++)
@@ -209,6 +204,16 @@ class DiceRenderer implements GLSurfaceView.Renderer
 		}
 	}
 
+	/**
+	 * Returns the dice rotation angles in the following structure:
+	 * {
+	 *  {dice0.x, dice0.y, dice0.z},
+	 *  {dice1.x, dice1.y, dice1.z},
+	 *  ...
+	 * }
+	 *
+	 * @return 2-dimensional Array with float values for the x, y and z rotation angles
+	 */
 	public float[][] getDiceRotations()
 	{
 		float[][] rotations = new float[mDice.size()][3];

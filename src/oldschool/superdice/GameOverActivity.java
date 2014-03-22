@@ -1,7 +1,9 @@
 package oldschool.superdice;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
@@ -17,18 +19,18 @@ import java.util.ArrayList;
  * @author Hansjürg Jaggi, Stephan Menzi & Satesh Paramasamy
  */
 
-public class GameOverActivity extends BaseActivity
+public class GameOverActivity extends Activity
 {
-	private ArrayList<User> users;
-	private int targetScore;
+	private ArrayList<User> mUsers;
+	private int mTargetScore;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 
-		users = (ArrayList<User>) getIntent().getSerializableExtra("users");
-		targetScore = getIntent().getIntExtra("targetscore", 10);
+		mUsers = (ArrayList<User>) getIntent().getSerializableExtra("users");
+		mTargetScore = getIntent().getIntExtra("targetscore", 10);
 		User winner = getWinner();
 		winner.setGamesWon(winner.getGamesWon() + 1);
 		setContentView(R.layout.activity_game_over);
@@ -50,7 +52,7 @@ public class GameOverActivity extends BaseActivity
 	{
 		User winner = null;
 		int maxScore = 0;
-		for (User user : users)
+		for (User user : mUsers)
 		{
 			if (user.getTotalScore() > maxScore)
 			{
@@ -63,31 +65,37 @@ public class GameOverActivity extends BaseActivity
 
 	private void populateUserTable(TableLayout tableLayout)
 	{
-		ArrayList<User> users = (ArrayList<User>) getIntent().getSerializableExtra("users");
-		for (User user : users)
+		try
 		{
-			TableRow row= new TableRow(this);
-			TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
-			row.setLayoutParams(lp);
-			int padding = (int)getResources().getDimension(R.dimen.activity_vertical_margin);
-			row.setPadding(padding, padding, padding, padding);
-			TextView textName = new TextView(this);
-			textName.setText(user.getName());
-			formatText(textName);
-			TextView textScore = new TextView(this);
-			textScore.setPadding(padding, 0, 0, 0);
-			textScore.setGravity(Gravity.RIGHT);
-			textScore.setText("" + user.getTotalScore());
-			formatText(textScore);
-			row.addView(textName);
-			row.addView(textScore);
-			tableLayout.addView(row);
+			for (User user : mUsers)
+			{
+				TableRow row= new TableRow(this);
+				TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
+				row.setLayoutParams(lp);
+				int padding = (int)getResources().getDimension(R.dimen.activity_vertical_margin);
+				row.setPadding(padding, padding, padding, padding);
+				TextView textName = new TextView(this);
+				textName.setText(user.getName());
+				formatText(textName);
+				TextView textScore = new TextView(this);
+				textScore.setPadding(padding, 0, 0, 0);
+				textScore.setGravity(Gravity.RIGHT);
+				textScore.setText("" + user.getTotalScore());
+				formatText(textScore);
+				row.addView(textName);
+				row.addView(textScore);
+				tableLayout.addView(row);
+			}
+		}
+		catch (NullPointerException e)
+		{
+			Log.e("USERS", "No users passed to GameOverActivity");
 		}
 	}
 
 	private void resetUserScores()
 	{
-		for (User user : users)
+		for (User user : mUsers)
 		{
 			user.setTotalScore(0);
 			user.setRoundScore(0);
@@ -108,8 +116,8 @@ public class GameOverActivity extends BaseActivity
 	{
 		resetUserScores();
 		Intent intent = new Intent(this, DiceAnimationActivity.class);
-		intent.putExtra("users", users);
-		intent.putExtra("targetscore", targetScore);
+		intent.putExtra("users", mUsers);
+		intent.putExtra("targetscore", mTargetScore);
 		finish();
 		startActivity(intent);
 	}

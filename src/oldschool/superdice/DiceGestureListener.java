@@ -12,8 +12,8 @@ import android.view.View;
  */
 public class DiceGestureListener implements View.OnTouchListener
 {
-	private GestureDetector mGestureDetector;
-	private DiceRenderer mDiceRenderer;
+	private final GestureDetector mGestureDetector;
+	private final DiceRenderer mDiceRenderer;
 
 	public DiceGestureListener (Context context)
 	{
