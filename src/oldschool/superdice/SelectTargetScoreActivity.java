@@ -9,7 +9,9 @@ import android.widget.EditText;
 import java.util.ArrayList;
 
 /**
- * Created by Thunderchild on 21.03.2014.
+ * Select the target score for the game
+ *
+ * @author Hansjürg Jaggi, Stephan Menzi & Satesh Paramasamy
  */
 public class SelectTargetScoreActivity  extends Activity {
 
@@ -32,11 +34,13 @@ public class SelectTargetScoreActivity  extends Activity {
             intent.putExtra("users", users);
             intent.putExtra("targetscore", targetScoreValue);
             stopService(getIntent());
+            finish();
             startActivity(intent);
         }
         public void getBackToMain(View view){
             Intent intent = new Intent(this, MainActivity.class);
             stopService(getIntent());
+            finish();
             startActivity(intent);
     }
 }
