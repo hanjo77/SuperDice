@@ -11,7 +11,7 @@ import java.util.ArrayList;
 /**
  * Created by Thunderchild on 21.03.2014.
  */
-public class SelectTargetScoreActivity  extends BaseActivity {
+public class SelectTargetScoreActivity  extends Activity {
 
         @Override
         public void onCreate(Bundle savedInstanceState)
@@ -34,4 +34,9 @@ public class SelectTargetScoreActivity  extends BaseActivity {
             stopService(getIntent());
             startActivity(intent);
         }
+        public void getBackToMain(View view){
+            Intent intent = new Intent(this, MainActivity.class);
+            stopService(getIntent());
+            startActivity(intent);
+    }
 }
