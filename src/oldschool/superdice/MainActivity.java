@@ -42,12 +42,6 @@ public class MainActivity extends Activity
 	public void startSelectTargetScore(View view)
 	{
 		Intent intent = new Intent(this, SelectTargetScoreActivity.class);
-//		ArrayList<User> users = new ArrayList<User>();
-//		users.add(new User("Hanjo"));
-//		users.add(new User("Steff"));
-//		users.add(new User("Sädu"));
-//		intent.putExtra("users", users);
-//		intent.putExtra("targetscore", 20);
     	stopService(getIntent());
 		startActivity(intent);
 	}

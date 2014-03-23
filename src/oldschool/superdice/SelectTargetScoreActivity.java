@@ -14,8 +14,8 @@ import java.util.ArrayList;
  * @author Hansjürg Jaggi, Stephan Menzi & Satesh Paramasamy
  */
 public class SelectTargetScoreActivity  extends Activity {
-
-        @Override
+    private int targetScoreValue;
+    @Override
         public void onCreate(Bundle savedInstanceState)
         {
             super.onCreate(savedInstanceState);
@@ -26,7 +26,11 @@ public class SelectTargetScoreActivity  extends Activity {
         {
             Intent intent = new Intent(this, DiceAnimationActivity.class);
             EditText EditTargetScore = (EditText)findViewById(R.id.editTargetScore);
-            int targetScoreValue = Integer.parseInt(EditTargetScore.getText().toString());
+            targetScoreValue= Integer.parseInt(EditTargetScore.getText().toString());
+            System.out.println(targetScoreValue);
+            if (targetScoreValue <= 1){
+                targetScoreValue = R.string.target_score_default;
+            }
             ArrayList<User> users = new ArrayList<User>();
             users.add(new User("Hanjo"));
             users.add(new User("Steff"));

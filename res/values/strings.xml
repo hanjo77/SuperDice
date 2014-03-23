@@ -25,7 +25,7 @@
 	<string name="button_pass_text">Pass</string>
 
 	<string name="target_score_title">Choose target score:</string>
-	<string name="target_score_default"></string>
+	<string name="target_score_default">20</string>
 	<string name="target_score_text">
 		You will play in rounds to achieve a target score.\n\n
 		If the player throws a one, the score of the current round will be eliminated and the die is passed to the next player.\n\n
