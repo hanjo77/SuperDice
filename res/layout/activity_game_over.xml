@@ -9,60 +9,7 @@
     android:gravity="center"
     tools:context=".DiceAnimationActivity" >
 
-	<TextView android:id="@+id/titleText"
-	          android:text="@string/game_over_title"
-	          android:layout_width="wrap_content"
-	          android:layout_height="wrap_content"
-	          android:textSize="@dimen/title_font_size"
-	          android:layout_centerHorizontal="true"
-	          android:gravity="center"
-	          android:layout_margin="@dimen/activity_vertical_margin" />
-
-
-	<ScrollView
-			android:orientation="vertical"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_below="@id/titleText"
-			android:layout_marginLeft="@dimen/activity_vertical_margin"
-			android:layout_marginRight="@dimen/activity_vertical_margin"
-			>
-
-		<RelativeLayout
-				android:orientation="vertical"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:gravity="center_vertical"
-				android:layout_margin="@dimen/activity_vertical_margin">
-
-			<TextView android:id="@+id/userNameText"
-			          android:layout_width="match_parent"
-			          android:layout_height="wrap_content"
-			          android:textSize="24pt"
-			          android:gravity="center" />
-
-			<TextView android:id="@+id/hasWonText"
-			          android:layout_width="match_parent"
-			          android:layout_height="wrap_content"
-			          android:gravity="center"
-			          android:layout_below="@id/userNameText"
-			          android:text="@string/won_the_game"	/>
-
-			<TableLayout android:id="@+id/roundScoreTable"
-			             android:layout_width="wrap_content"
-			             android:layout_height="wrap_content"
-			             android:gravity="center_vertical"
-			             android:layout_below="@id/hasWonText"
-			             android:layout_centerVertical="true"
-			             android:layout_centerHorizontal="true"
-			             android:padding="@dimen/activity_vertical_margin">
-			</TableLayout>
-
-		</RelativeLayout>
-
-	</ScrollView>
-
-	<LinearLayout
+	<RelativeLayout
 			android:orientation="vertical"
 			android:id="@+id/buttonContainer"
 			android:layout_width="wrap_content"
@@ -73,25 +20,60 @@
 
 		<Button
 				android:id="@+id/againButton"
-				android:layout_width="match_parent"
+				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:text="@string/button_again_text"
 				android:onClick="startDiceAnimation"/>
 
 		<Button
 				android:id="@+id/syncButton"
-				android:layout_width="match_parent"
+				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
+				android:layout_toRightOf="@id/againButton"
 				android:text="@string/button_sync_text"
 				android:onClick="exit"/>
 
 		<Button
 				android:id="@+id/exitButton"
-				android:layout_width="match_parent"
+				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
+				android:layout_toRightOf="@id/syncButton"
 				android:text="@string/button_exit_text"
 				android:onClick="exit" />
 
-	</LinearLayout>
+	</RelativeLayout>
+
+	<RelativeLayout
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="fill_parent"
+			android:layout_above="@id/buttonContainer"
+			android:gravity="center_vertical"
+			android:layout_margin="@dimen/activity_vertical_margin">
+
+		<TextView android:id="@+id/userNameText"
+		          android:layout_width="match_parent"
+		          android:layout_height="wrap_content"
+		          android:textSize="24pt"
+		          android:gravity="center" />
+
+		<TextView android:id="@+id/hasWonText"
+		          android:layout_width="match_parent"
+		          android:layout_height="wrap_content"
+		          android:gravity="center"
+		          android:layout_below="@id/userNameText"
+		          android:text="@string/won_the_game"	/>
+
+		<ListView android:id="@+id/roundScoreTable"
+		          android:layout_width="wrap_content"
+		          android:layout_height="wrap_content"
+		          android:gravity="center_vertical"
+		          android:layout_below="@id/hasWonText"
+		          android:layout_centerHorizontal="true"
+		          android:padding="@dimen/activity_vertical_margin">
+		</ListView>
+
+	</RelativeLayout>
+
 
 </RelativeLayout>

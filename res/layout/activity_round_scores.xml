@@ -24,14 +24,14 @@
 			android:layout_below="@+id/titleText"
 			android:layout_above="@+id/buttonContainer">
 
-		<TableLayout android:id="@+id/roundScoreTable"
+		<ListView android:id="@+id/roundScoreTable"
 		             android:layout_width="wrap_content"
 		             android:layout_height="wrap_content"
 		             android:gravity="center_vertical"
 		             android:padding="@dimen/activity_vertical_margin"
 		             android:layout_centerVertical="true"
 					 android:layout_centerHorizontal="true">
-		</TableLayout>
+		</ListView>
 
 	</RelativeLayout>
 
