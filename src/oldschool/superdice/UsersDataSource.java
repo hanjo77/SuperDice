@@ -31,7 +31,7 @@ public class UsersDataSource {
 	public User createUser(User user) {
 		ContentValues values = new ContentValues();
 		values.put(SQLiteHelper.COLUMN_NAME, user.getName());
-		values.put(SQLiteHelper.COLUMN_WON_GAMES, 0);
+		values.put(SQLiteHelper.COLUMN_WON_GAMES, user.getGamesWon());
 		long insertId = database.insert(SQLiteHelper.TABLE_USERS, null,
 				values);
 		Cursor cursor = database.query(SQLiteHelper.TABLE_USERS,
@@ -76,6 +76,14 @@ public class UsersDataSource {
 		Cursor cursor = database.query(SQLiteHelper.TABLE_USERS, allColumns, whereClause, whereArgs, null, null, null);
 		cursor.moveToFirst();
 		return cursorToUser(cursor);
+	}
+
+	public void update(User user)
+	{
+		String strFilter = "name=" + user.getName();
+		ContentValues args = new ContentValues();
+		args.put(SQLiteHelper.COLUMN_WON_GAMES, user.getGamesWon());
+		database.update(SQLiteHelper.TABLE_USERS, args, strFilter, null);
 	}
 
 	private User cursorToUser(Cursor cursor)

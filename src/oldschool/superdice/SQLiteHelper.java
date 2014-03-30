@@ -7,12 +7,12 @@ import android.util.Log;
 
 public class SQLiteHelper extends SQLiteOpenHelper {
 
-	public static final String TABLE_USERS = "users";
-	public static final String COLUMN_ID = "_id";
+	public static final String TABLE_USERS = "user";
+	public static final String COLUMN_ID = "id";
 	public static final String COLUMN_NAME = "name";
-	public static final String COLUMN_WON_GAMES = "won_games";
+	public static final String COLUMN_WON_GAMES = "score";
 
-	private static final String DATABASE_NAME = "users.db";
+	private static final String DATABASE_NAME = "user.db";
 	private static final int DATABASE_VERSION = 1;
 
 	// Database creation sql statement

@@ -27,11 +27,12 @@
   <component name="ChangeListManager">
     <list default="true" id="9fabfe62-49b7-42f3-94f2-f6eb64780319" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oldschool/superdice/MainActivity.java" afterPath="$PROJECT_DIR$/src/oldschool/superdice/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oldschool/superdice/GameOverActivity.java" afterPath="$PROJECT_DIR$/src/oldschool/superdice/GameOverActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oldschool/superdice/SQLiteHelper.java" afterPath="$PROJECT_DIR$/src/oldschool/superdice/SQLiteHelper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oldschool/superdice/SelectTargetScoreActivity.java" afterPath="$PROJECT_DIR$/src/oldschool/superdice/SelectTargetScoreActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oldschool/superdice/User.java" afterPath="$PROJECT_DIR$/src/oldschool/superdice/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_user_selection.xml" afterPath="$PROJECT_DIR$/res/layout/activity_user_selection.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oldschool/superdice/SelectUsersActivity.java" afterPath="$PROJECT_DIR$/src/oldschool/superdice/SelectUsersActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oldschool/superdice/UsersDataSource.java" afterPath="$PROJECT_DIR$/src/oldschool/superdice/UsersDataSource.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_game_over.xml" afterPath="$PROJECT_DIR$/res/layout/activity_game_over.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SuperDice.iws" />
@@ -113,61 +114,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SelectTargetScoreActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/SelectTargetScoreActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="207" max-vertical-offset="795">
-              <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SelectUsersActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="SelectUsersActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/SelectUsersActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="965" max-vertical-offset="1815">
-              <caret line="84" column="49" selection-start-line="84" selection-start-column="49" selection-end-line="84" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.5586957" vertical-offset="2263" max-vertical-offset="2940">
+              <caret line="168" column="53" selection-start-line="168" selection-start-column="53" selection-end-line="168" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#447#453#0" expanded="true" />
-                <element signature="e#512#518#0" expanded="true" />
+                <element signature="e#734#740#0" expanded="true" />
+                <element signature="e#799#805#0" expanded="true" />
+                <element signature="e#3261#4414#0" expanded="true" />
+                <element signature="e#4241#4336#0" expanded="true" />
+                <element signature="e#4328#4329#0" expanded="true" />
+                <element signature="e#4409#4410#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SQLiteHelper.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/SQLiteHelper.java">
+      <file leaf-file-name="RoundScoresActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/RoundScoresActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6847826" vertical-offset="0" max-vertical-offset="705">
-              <caret line="21" column="51" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#852#853#0" expanded="true" />
-                <element signature="e#912#913#0" expanded="true" />
-                <element signature="e#973#974#0" expanded="true" />
-                <element signature="e#1013#1014#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UsersDataSource.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/UsersDataSource.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.3636365" vertical-offset="1095" max-vertical-offset="1530">
-              <caret line="89" column="15" selection-start-line="89" selection-start-column="15" selection-end-line="89" selection-end-column="15" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#526#527#0" expanded="true" />
-                <element signature="e#569#570#0" expanded="true" />
-                <element signature="e#612#613#0" expanded="true" />
-                <element signature="e#660#661#0" expanded="true" />
-                <element signature="e#684#685#0" expanded="true" />
-                <element signature="e#707#708#0" expanded="true" />
-                <element signature="e#1600#1606#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="155" max-vertical-offset="705">
+              <caret line="37" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -175,13 +145,58 @@
       <file leaf-file-name="User.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1185">
+            <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="1095">
               <caret line="95" column="5" selection-start-line="95" selection-start-column="5" selection-end-line="95" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SelectTargetScoreActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/SelectTargetScoreActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
+              <caret line="30" column="90" selection-start-line="30" selection-start-column="90" selection-end-line="30" selection-end-column="90" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameOverActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/GameOverActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1355" max-vertical-offset="2265">
+              <caret line="134" column="0" selection-start-line="111" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
               <folding>
-                <element signature="e#1397#1398#0" expanded="true" />
-                <element signature="e#1414#1415#0" expanded="true" />
-                <element signature="e#1446#1447#0" expanded="true" />
-                <element signature="e#1461#1462#0" expanded="true" />
+                <element signature="e#2473#2479#0" expanded="true" />
+                <element signature="e#2713#3313#0" expanded="true" />
+                <element signature="e#2977#2992#0" expanded="true" />
+                <element signature="e#3308#3309#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DiceAnimationActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3222" max-vertical-offset="4725">
+              <caret line="265" column="26" selection-start-line="265" selection-start-column="26" selection-end-line="265" selection-end-column="26" />
+              <folding>
+                <element signature="e#5705#8836#0" expanded="true" />
+                <element signature="e#8831#8832#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserScoresArrayAdapter.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/UserScoresArrayAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="581" max-vertical-offset="1035">
+              <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -190,7 +205,7 @@
       <file leaf-file-name="UserSelectionListArrayAdapter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/UserSelectionListArrayAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="1110">
+            <state vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="1110">
               <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -199,70 +214,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="row_layout_user_selection.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/row_layout_user_selection.xml">
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.8" vertical-offset="0" max-vertical-offset="510">
-              <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+      <file leaf-file-name="SQLiteHelper.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/SQLiteHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="645">
+              <caret line="14" column="53" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
               <folding>
-                <element signature="e#1014#1047#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_target_score_selection.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/activity_target_score_selection.xml">
+      <file leaf-file-name="UsersDataSource.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/UsersDataSource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.01923" vertical-offset="0" max-vertical-offset="1140">
-              <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.6" vertical-offset="95" max-vertical-offset="720">
-              <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_user_selection.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/activity_user_selection.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.75" vertical-offset="570" max-vertical-offset="1350">
-              <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+            <state vertical-scroll-proportion="-5.181818" vertical-offset="1020" max-vertical-offset="1650">
+              <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
               <folding>
-                <element signature="e#233#266#0" expanded="true" />
-                <element signature="e#291#326#0" expanded="true" />
-                <element signature="e#352#387#0" expanded="true" />
-                <element signature="e#411#444#0" expanded="true" />
-                <element signature="e#583#613#0" expanded="true" />
-                <element signature="e#737#761#0" expanded="true" />
-                <element signature="e#795#828#0" expanded="true" />
-                <element signature="e#992#1025#0" expanded="true" />
-                <element signature="e#1049#1080#0" expanded="true" />
-                <element signature="e#1105#1136#0" expanded="true" />
-                <element signature="e#1677#1710#0" expanded="true" />
-                <element signature="e#1806#1831#0" expanded="true" />
-                <element signature="e#2107#2140#0" expanded="true" />
-                <element signature="e#2824#2850#0" expanded="true" />
-                <element signature="e#3043#3072#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#526#527#0" expanded="true" />
+                <element signature="e#569#570#0" expanded="true" />
+                <element signature="e#612#613#0" expanded="true" />
+                <element signature="e#660#661#0" expanded="true" />
+                <element signature="e#684#685#0" expanded="true" />
+                <element signature="e#707#708#0" expanded="true" />
+                <element signature="e#1617#1623#0" expanded="true" />
               </folding>
             </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
           </provider>
         </entry>
       </file>
@@ -298,25 +277,25 @@
         <option value="$PROJECT_DIR$/src/oldschool/superdice/DiceGestureListener.java" />
         <option value="$PROJECT_DIR$/src/oldschool/superdice/DiceRenderer.java" />
         <option value="$PROJECT_DIR$/src/oldschool/superdice/Die.java" />
-        <option value="$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java" />
         <option value="$PROJECT_DIR$/res/layout/activity_target_score_selection.xml" />
         <option value="$PROJECT_DIR$/res/layout/activity_round_scores.xml" />
         <option value="$PROJECT_DIR$/res/layout/row_layout_round_scores.xml" />
         <option value="$PROJECT_DIR$/src/oldschool/superdice/UserScoresArrayAdapter.java" />
         <option value="$PROJECT_DIR$/src/oldschool/superdice/RoundScoresActivity.java" />
-        <option value="$PROJECT_DIR$/res/layout/activity_game_over.xml" />
-        <option value="$PROJECT_DIR$/src/oldschool/superdice/GameOverActivity.java" />
         <option value="$PROJECT_DIR$/src/oldschool/superdice/MainActivity.java" />
-        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/src/oldschool/superdice/UserSelectionListArrayAdapter.java" />
-        <option value="$PROJECT_DIR$/src/oldschool/superdice/SelectTargetScoreActivity.java" />
         <option value="$PROJECT_DIR$/src/oldschool/superdice/User.java" />
-        <option value="$PROJECT_DIR$/src/oldschool/superdice/SQLiteHelper.java" />
         <option value="$PROJECT_DIR$/res/layout/activity_user_selection.xml" />
         <option value="$PROJECT_DIR$/res/layout/row_layout_user_selection.xml" />
-        <option value="$PROJECT_DIR$/src/oldschool/superdice/SelectUsersActivity.java" />
+        <option value="$PROJECT_DIR$/res/layout/activity_game_over.xml" />
+        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/oldschool/superdice/GameOverActivity.java" />
+        <option value="$PROJECT_DIR$/src/oldschool/superdice/SelectTargetScoreActivity.java" />
+        <option value="$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java" />
+        <option value="$PROJECT_DIR$/src/oldschool/superdice/SQLiteHelper.java" />
         <option value="$PROJECT_DIR$/src/oldschool/superdice/UsersDataSource.java" />
+        <option value="$PROJECT_DIR$/src/oldschool/superdice/SelectUsersActivity.java" />
       </list>
     </option>
   </component>
@@ -707,7 +686,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32692307" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29807693" sideWeight="0.7323009" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29807693" sideWeight="0.7323009" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -769,13 +748,43 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/oldschool/superdice/UserScoresArrayAdapter.java</url>
-          <line>56</line>
+          <url>file://$PROJECT_DIR$/src/oldschool/superdice/GameOverActivity.java</url>
+          <line>150</line>
           <properties />
-          <option name="timeStamp" value="2" />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/oldschool/superdice/GameOverActivity.java</url>
+          <line>122</line>
+          <properties />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/oldschool/superdice/SelectTargetScoreActivity.java</url>
+          <line>31</line>
+          <properties />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/oldschool/superdice/SelectUsersActivity.java</url>
+          <line>52</line>
+          <properties />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/oldschool/superdice/SelectUsersActivity.java</url>
+          <line>163</line>
+          <properties />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/oldschool/superdice/UsersDataSource.java</url>
+          <line>95</line>
+          <properties />
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="6" />
+      <option name="time" value="12" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1021,16 +1030,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/UserScoresArrayAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="1035">
-          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.8" vertical-offset="50" max-vertical-offset="510">
@@ -1050,46 +1049,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="181" max-vertical-offset="4665">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_game_over.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.269231" vertical-offset="207" max-vertical-offset="1275">
-          <caret line="39" column="57" selection-start-line="39" selection-start-column="57" selection-end-line="39" selection-end-column="57" />
-          <folding>
-            <element signature="e#233#266#0" expanded="true" />
-            <element signature="e#291#326#0" expanded="true" />
-            <element signature="e#352#387#0" expanded="true" />
-            <element signature="e#411#444#0" expanded="true" />
-            <element signature="e#944#971#0" expanded="true" />
-            <element signature="e#1204#1230#0" expanded="true" />
-            <element signature="e#1448#1474#0" expanded="true" />
-            <element signature="e#1763#1796#0" expanded="true" />
-            <element signature="e#2268#2290#0" expanded="true" />
-            <element signature="e#2613#2646#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/GameOverActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1695">
-          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-          <folding>
-            <element signature="e#2319#2325#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/row_layout_round_scores.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="345">
@@ -1101,26 +1060,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/RoundScoresActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="155" max-vertical-offset="705">
-          <caret line="37" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="260" max-vertical-offset="720">
           <caret line="43" column="60" selection-start-line="43" selection-start-column="60" selection-end-line="43" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="95" max-vertical-offset="585">
-          <caret line="29" column="44" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
           <folding />
         </state>
       </provider>
@@ -1142,37 +1085,6 @@
       </provider>
       <provider editor-type-id="android-designer">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/SelectTargetScoreActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="207" max-vertical-offset="795">
-          <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1185">
-          <caret line="95" column="5" selection-start-line="95" selection-start-column="5" selection-end-line="95" selection-end-column="5" />
-          <folding>
-            <element signature="e#1397#1398#0" expanded="true" />
-            <element signature="e#1414#1415#0" expanded="true" />
-            <element signature="e#1446#1447#0" expanded="true" />
-            <element signature="e#1461#1462#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/UserSelectionListArrayAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="1005">
-          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/activity_user_selection.xml">
@@ -1215,22 +1127,107 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/SelectUsersActivity.java">
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_game_over.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="965" max-vertical-offset="1815">
-          <caret line="84" column="49" selection-start-line="84" selection-start-column="49" selection-end-line="84" selection-end-column="49" />
+        <state vertical-scroll-proportion="-5.826923" vertical-offset="192" max-vertical-offset="1275">
+          <caret line="33" column="44" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="95" max-vertical-offset="615">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1185">
+          <caret line="95" column="5" selection-start-line="95" selection-start-column="5" selection-end-line="95" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/SelectTargetScoreActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
+          <caret line="30" column="90" selection-start-line="30" selection-start-column="90" selection-end-line="30" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/RoundScoresActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="155" max-vertical-offset="705">
+          <caret line="37" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/GameOverActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1355" max-vertical-offset="2265">
+          <caret line="134" column="0" selection-start-line="111" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+          <folding>
+            <element signature="e#2473#2479#0" expanded="true" />
+            <element signature="e#2713#3313#0" expanded="true" />
+            <element signature="e#2977#2992#0" expanded="true" />
+            <element signature="e#3308#3309#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/DiceAnimationActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3222" max-vertical-offset="4725">
+          <caret line="265" column="26" selection-start-line="265" selection-start-column="26" selection-end-line="265" selection-end-column="26" />
+          <folding>
+            <element signature="e#5705#8836#0" expanded="true" />
+            <element signature="e#8831#8832#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/UserScoresArrayAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="371" max-vertical-offset="1035">
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#447#453#0" expanded="true" />
-            <element signature="e#512#518#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/UserSelectionListArrayAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="1005">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/SQLiteHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="645">
+          <caret line="14" column="53" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/UsersDataSource.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.3636365" vertical-offset="1095" max-vertical-offset="1530">
-          <caret line="89" column="15" selection-start-line="89" selection-start-column="15" selection-end-line="89" selection-end-column="15" />
+        <state vertical-scroll-proportion="-5.181818" vertical-offset="1020" max-vertical-offset="1650">
+          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#526#527#0" expanded="true" />
@@ -1239,21 +1236,23 @@
             <element signature="e#660#661#0" expanded="true" />
             <element signature="e#684#685#0" expanded="true" />
             <element signature="e#707#708#0" expanded="true" />
-            <element signature="e#1600#1606#0" expanded="true" />
+            <element signature="e#1617#1623#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/SQLiteHelper.java">
+    <entry file="file://$PROJECT_DIR$/src/oldschool/superdice/SelectUsersActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6847826" vertical-offset="0" max-vertical-offset="705">
-          <caret line="21" column="51" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.5586957" vertical-offset="2263" max-vertical-offset="2940">
+          <caret line="168" column="53" selection-start-line="168" selection-start-column="53" selection-end-line="168" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#852#853#0" expanded="true" />
-            <element signature="e#912#913#0" expanded="true" />
-            <element signature="e#973#974#0" expanded="true" />
-            <element signature="e#1013#1014#0" expanded="true" />
+            <element signature="e#734#740#0" expanded="true" />
+            <element signature="e#799#805#0" expanded="true" />
+            <element signature="e#3261#4414#0" expanded="true" />
+            <element signature="e#4241#4336#0" expanded="true" />
+            <element signature="e#4328#4329#0" expanded="true" />
+            <element signature="e#4409#4410#0" expanded="true" />
           </folding>
         </state>
       </provider>

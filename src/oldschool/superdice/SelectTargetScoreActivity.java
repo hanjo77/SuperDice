@@ -16,7 +16,6 @@ import java.util.ArrayList;
  */
 public class SelectTargetScoreActivity  extends Activity {
     private int targetScoreValue;
-    private ArrayList<User> mUsers;
 
     @Override
         public void onCreate(Bundle savedInstanceState)
