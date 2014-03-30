@@ -3,6 +3,7 @@ package oldschool.superdice;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.widget.*;
 import org.apache.http.HttpResponse;
@@ -91,8 +92,11 @@ public class SelectUsersActivity extends Activity {
 	public void addUser(View view)
 	{
 		EditText editText = (EditText) findViewById(R.id.editUserName);
-		String userName = editText.getText().toString();
-		addUser(new User(userName));
+		Editable userName = editText.getText();
+		if (userName != null)
+		{
+			addUser(new User(userName.toString()));
+		}
 		editText.setText("");
 	}
 

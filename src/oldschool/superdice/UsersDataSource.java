@@ -80,7 +80,7 @@ public class UsersDataSource {
 
 	public void update(User user)
 	{
-		String strFilter = "name=" + user.getName();
+		String strFilter = "name='" + user.getName() + "'";
 		ContentValues args = new ContentValues();
 		args.put(SQLiteHelper.COLUMN_WON_GAMES, user.getGamesWon());
 		database.update(SQLiteHelper.TABLE_USERS, args, strFilter, null);

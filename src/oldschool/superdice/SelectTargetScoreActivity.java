@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -28,7 +27,7 @@ public class SelectTargetScoreActivity  extends Activity {
         {
             Intent intent = new Intent(this, DiceAnimationActivity.class);
             targetScoreValue = getTargetScore();
-            ArrayList users = (ArrayList<User>) getIntent().getSerializableExtra("users");
+            ArrayList users = (ArrayList) getIntent().getSerializableExtra("users");
             intent.putExtra("users", users);
             intent.putExtra("targetscore", targetScoreValue);
             stopService(getIntent());

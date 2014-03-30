@@ -37,31 +37,37 @@ public class UserSelectionListArrayAdapter extends ArrayAdapter<User> {
 	* @param parent -- The parent that this view will eventually be attached to.
 	* @return -- A View corresponding to the data at the specified position.
 	*/
-	public View getView(int position, View convertView, ViewGroup parent) {
+	public View getView(int position, View convertView, ViewGroup parent)
+	{
 
 		View rowView = convertView;
 		User user = rowData[position];
 
-		if (rowView == null) {
+		if (rowView == null)
+		{
 			// initialize row view
-			LayoutInflater vi = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			rowView = vi.inflate(R.layout.row_layout_user_selection, parent, false);
 		}
 
 		// configure view holder
-		ViewHolder viewHolder = new ViewHolder();
-		viewHolder.userNameText = (TextView) rowView.findViewById(R.id.userName);
-		viewHolder.checkBox = (CheckBox) rowView.findViewById(R.id.checkBox);
-		viewHolder.deleteButton = (Button) rowView.findViewById(R.id.deleteButton);
+		if (rowView != null)
+		{
+			ViewHolder viewHolder = new ViewHolder();
+			viewHolder.userNameText = (TextView) rowView.findViewById(R.id.userName);
+			viewHolder.checkBox = (CheckBox) rowView.findViewById(R.id.checkBox);
+			viewHolder.deleteButton = (Button) rowView.findViewById(R.id.deleteButton);
 
-		viewHolder.checkBox.setTag(user);
-		viewHolder.deleteButton.setTag(user);
+			viewHolder.checkBox.setTag(user);
+			viewHolder.deleteButton.setTag(user);
 
-		rowView.setTag(viewHolder);
+			rowView.setTag(viewHolder);
 
-		// fill data
-		ViewHolder holder = (ViewHolder) rowView.getTag();
-		holder.userNameText.setText(user.getName());
+			// fill data
+			ViewHolder holder = (ViewHolder) rowView.getTag();
+			holder.userNameText.setText(user.getName());
+		}
+
 
 		return rowView;
 	}

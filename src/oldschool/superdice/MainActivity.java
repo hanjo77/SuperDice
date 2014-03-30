@@ -7,8 +7,6 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 /**
  * The title activity called when the app is started up.
  * 
