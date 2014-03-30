@@ -14,6 +14,7 @@ public class User implements Serializable
 	private int mRoundScore;
 	private int mTotalScore;
 	private int mGamesWon;
+	private long mId;
 
 	/**
 	 * Constructor for a new user
@@ -82,5 +83,15 @@ public class User implements Serializable
 	public void setGamesWon(int gamesWon)
 	{
 		mGamesWon = gamesWon;
+	}
+
+	public long getId()
+	{
+		return mId;
+	}
+
+	public void setId(long id)
+	{
+		mId = id;
 	}
 }

@@ -41,7 +41,7 @@ public class MainActivity extends Activity
      */
 	public void startSelectTargetScore(View view)
 	{
-		Intent intent = new Intent(this, SelectTargetScoreActivity.class);
+		Intent intent = new Intent(this, SelectUsersActivity.class);
     	stopService(getIntent());
 		startActivity(intent);
 	}
