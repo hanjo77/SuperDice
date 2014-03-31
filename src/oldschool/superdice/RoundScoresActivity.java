@@ -4,9 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
+import android.widget.*;
 
 import java.util.ArrayList;
 
@@ -18,44 +16,25 @@ import java.util.ArrayList;
 
 public class RoundScoresActivity extends Activity
 {
-	private TableLayout mTableLayout;
+	private ListView mListView;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_round_scores);
-		mTableLayout = (TableLayout) findViewById(R.id.roundScoreTable);
-		populateUserTable();
-	}
+		mListView = (ListView) findViewById(R.id.roundScoreTable);
 
-	private void populateUserTable()
-	{
 		ArrayList<User> users = (ArrayList<User>) getIntent().getSerializableExtra("users");
+		User[] userArray = new User[users.size()];
+		int i = 0;
 		for (User user : users)
 		{
-			TableRow row= new TableRow(this);
-			TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
-			row.setLayoutParams(lp);
-			int padding = (int)getResources().getDimension(R.dimen.activity_vertical_margin);
-			row.setPadding(padding, padding, padding, padding);
-			TextView textName = new TextView(this);
-			textName.setText(user.getName());
-			formatText(textName);
-			TextView textScore = new TextView(this);
-			textScore.setPadding(padding, 0, 0, 0);
-			textScore.setGravity(Gravity.RIGHT);
-			textScore.setText("" + user.getTotalScore());
-			formatText(textScore);
-			row.addView(textName);
-			row.addView(textScore);
-			mTableLayout.addView(row);
+			userArray[i] = user;
+			i++;
 		}
-	}
-
-	private void formatText(TextView textView)
-	{
-		textView.setTextSize(getResources().getDimension(R.dimen.default_font_size)/2);
+		ArrayAdapter<User> adapter = new UserScoresArrayAdapter(this, userArray);
+		mListView.setAdapter(adapter);
 	}
 
 	/**

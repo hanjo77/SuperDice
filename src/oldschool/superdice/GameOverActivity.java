@@ -7,11 +7,10 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
+import android.widget.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The title activity called when the app is started up.
@@ -21,7 +20,7 @@ import java.util.ArrayList;
 
 public class GameOverActivity extends Activity
 {
-	private ArrayList<User> mUsers;
+	private User[] mUsers;
 	private int mTargetScore;
 
 	@Override
@@ -29,15 +28,23 @@ public class GameOverActivity extends Activity
 	{
 		super.onCreate(savedInstanceState);
 
-		mUsers = (ArrayList<User>) getIntent().getSerializableExtra("users");
+		ArrayList<User> users = (ArrayList<User>) getIntent().getSerializableExtra("users");
+		mUsers = new User[users.size()];
+		int i = 0;
+		for (User user : users)
+		{
+			mUsers[i] = user;
+			i++;
+		}
 		mTargetScore = getIntent().getIntExtra("targetscore", 10);
 		User winner = getWinner();
 		winner.setGamesWon(winner.getGamesWon() + 1);
 		setContentView(R.layout.activity_game_over);
 		TextView textView = (TextView)findViewById(R.id.userNameText);
 		textView.setText(winner.getName());
-		TableLayout tableLayout = (TableLayout)findViewById(R.id.roundScoreTable);
-		populateUserTable(tableLayout);
+		ListView listView = (ListView)findViewById(R.id.roundScoreTable);
+		ArrayAdapter<User> adapter = new UserScoresArrayAdapter(this, mUsers);
+		listView.setAdapter(adapter);
 	}
 
 	@Override
@@ -52,8 +59,10 @@ public class GameOverActivity extends Activity
 	{
 		User winner = null;
 		int maxScore = 0;
+		int i = 0;
 		for (User user : mUsers)
 		{
+			i++;
 			if (user.getTotalScore() > maxScore)
 			{
 				winner = user;
@@ -61,36 +70,6 @@ public class GameOverActivity extends Activity
 			}
 		}
 		return winner;
-	}
-
-	private void populateUserTable(TableLayout tableLayout)
-	{
-		try
-		{
-			for (User user : mUsers)
-			{
-				TableRow row= new TableRow(this);
-				TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
-				row.setLayoutParams(lp);
-				int padding = (int)getResources().getDimension(R.dimen.activity_vertical_margin);
-				row.setPadding(padding, padding, padding, padding);
-				TextView textName = new TextView(this);
-				textName.setText(user.getName());
-				formatText(textName);
-				TextView textScore = new TextView(this);
-				textScore.setPadding(padding, 0, 0, 0);
-				textScore.setGravity(Gravity.RIGHT);
-				textScore.setText("" + user.getTotalScore());
-				formatText(textScore);
-				row.addView(textName);
-				row.addView(textScore);
-				tableLayout.addView(row);
-			}
-		}
-		catch (NullPointerException e)
-		{
-			Log.e("USERS", "No users passed to GameOverActivity");
-		}
 	}
 
 	private void resetUserScores()
@@ -116,7 +95,12 @@ public class GameOverActivity extends Activity
 	{
 		resetUserScores();
 		Intent intent = new Intent(this, DiceAnimationActivity.class);
-		intent.putExtra("users", mUsers);
+		ArrayList<User> users = new ArrayList<User>();
+		for (User user : mUsers)
+		{
+			users.add(user);
+		}
+		intent.putExtra("users", users);
 		intent.putExtra("targetscore", mTargetScore);
 		finish();
 		startActivity(intent);
