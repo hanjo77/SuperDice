@@ -24,7 +24,7 @@ public class SelectTargetScoreActivity  extends Activity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_target_score_selection);
         }
-
+        //Starts the game **waiting for implementation of User selection**
         public void startDiceAnimation(View view)
         {
             Intent intent = new Intent(this, DiceAnimationActivity.class);
@@ -46,6 +46,7 @@ public class SelectTargetScoreActivity  extends Activity {
             finish();
             startActivity(intent);
         }
+    //get back to start menu
         public void getBackToMain(View view){
             Intent intent = new Intent(this, MainActivity.class);
             stopService(getIntent());
@@ -57,9 +58,10 @@ public class SelectTargetScoreActivity  extends Activity {
 
         EditText EditTargetScore = (EditText) findViewById(R.id.editTargetScore);
         if (EditTargetScore.getText().toString().matches("[\\d]")) {
-           return targetScoreValue = Integer.parseInt(EditTargetScore.getText().toString());
+          targetScoreValue = Integer.parseInt(EditTargetScore.getText().toString());
         } else {
-            return targetScoreValue = Integer.parseInt(getString(R.string.target_score_default));
+          targetScoreValue = Integer.parseInt(getString(R.string.target_score_default));
         }
+        return targetScoreValue;
     }
 }
