@@ -29,7 +29,7 @@ public class SelectTargetScoreActivity  extends Activity {
         {
             Intent intent = new Intent(this, DiceAnimationActivity.class);
             targetScoreValue = getTargetScore();
-            String tValue= R.string.target_score_toast +" " +targetScoreValue;
+            String tValue= getString(R.string.target_score_toast) + " " + targetScoreValue;
             Toast.makeText(getApplicationContext(), tValue,
                     Toast.LENGTH_LONG).show();
             //mUsers = (ArrayList<User>) getIntent().getSerializableExtra("users");
@@ -50,15 +50,16 @@ public class SelectTargetScoreActivity  extends Activity {
             finish();
             startActivity(intent);
     }
-
-    public int getTargetScore() {
-
-        EditText EditTargetScore = (EditText) findViewById(R.id.editTargetScore);
-        if (!EditTargetScore.getText().toString().isEmpty()) {
-          targetScoreValue = Integer.parseInt(EditTargetScore.getText().toString());
-        } else {
-          targetScoreValue = Integer.parseInt(getString(R.string.target_score_default));
+    //get the TargetScore or the default value
+        private int getTargetScore() {
+            int value;
+            EditText EditTargetScore = (EditText) findViewById(R.id.editTargetScore);
+            if (EditTargetScore.getText().toString().matches("\\d+")) {
+              value = Integer.parseInt(EditTargetScore.getText().toString());
+            }
+            else {
+              value= Integer.parseInt(getString(R.string.target_score_default));
+            }
+           return value;
         }
-        return targetScoreValue;
-    }
 }
