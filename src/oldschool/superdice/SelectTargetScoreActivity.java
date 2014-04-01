@@ -28,19 +28,16 @@ public class SelectTargetScoreActivity  extends Activity {
         public void startDiceAnimation(View view)
         {
             Intent intent = new Intent(this, DiceAnimationActivity.class);
-//            EditText EditTargetScore = (EditText)findViewById(R.id.editTargetScore);
-//            targetScoreValue= Integer.parseInt(EditTargetScore.getText().toString());
             targetScoreValue = getTargetScore();
             String tValue= R.string.target_score_toast +" " +targetScoreValue;
             Toast.makeText(getApplicationContext(), tValue,
                     Toast.LENGTH_LONG).show();
             //mUsers = (ArrayList<User>) getIntent().getSerializableExtra("users");
-            ArrayList<User> users = new ArrayList<User>();
-            users.add(new User("Hanjo"));
-            users.add(new User("Steff"));
-            users.add(new User("Sädu"));
-            intent.putExtra("users", users);
-            //intent.putExtra("users", mUsers);
+            mUsers = new ArrayList<User>();
+            mUsers.add(new User("Hanjo"));
+            mUsers.add(new User("Steff"));
+            mUsers.add(new User("Sädu"));
+            intent.putExtra("users", mUsers);
             intent.putExtra("targetscore", targetScoreValue);
             stopService(getIntent());
             finish();
