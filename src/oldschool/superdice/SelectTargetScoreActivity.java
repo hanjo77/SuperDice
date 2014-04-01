@@ -31,9 +31,9 @@ public class SelectTargetScoreActivity  extends Activity {
 //            EditText EditTargetScore = (EditText)findViewById(R.id.editTargetScore);
 //            targetScoreValue= Integer.parseInt(EditTargetScore.getText().toString());
             targetScoreValue = getTargetScore();
-//            String tValue= "TargetScoreValue is " + targetScoreValue;
-//            Toast.makeText(getApplicationContext(), tValue,
-//                    Toast.LENGTH_LONG).show();
+            String tValue= R.string.target_score_toast +" " +targetScoreValue;
+            Toast.makeText(getApplicationContext(), tValue,
+                    Toast.LENGTH_LONG).show();
             //mUsers = (ArrayList<User>) getIntent().getSerializableExtra("users");
             ArrayList<User> users = new ArrayList<User>();
             users.add(new User("Hanjo"));
@@ -57,7 +57,7 @@ public class SelectTargetScoreActivity  extends Activity {
     public int getTargetScore() {
 
         EditText EditTargetScore = (EditText) findViewById(R.id.editTargetScore);
-        if (EditTargetScore.getText().toString().matches("[\\d]")) {
+        if (!EditTargetScore.getText().toString().isEmpty()) {
           targetScoreValue = Integer.parseInt(EditTargetScore.getText().toString());
         } else {
           targetScoreValue = Integer.parseInt(getString(R.string.target_score_default));
