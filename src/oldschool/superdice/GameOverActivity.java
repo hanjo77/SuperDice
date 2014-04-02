@@ -49,7 +49,7 @@ public class GameOverActivity extends Activity
 		TextView textView = (TextView)findViewById(R.id.userNameText);
 		textView.setText(winner.getName());
 		ListView listView = (ListView)findViewById(R.id.roundScoreTable);
-		ArrayAdapter<User> adapter = new UserScoresArrayAdapter(this, mUsers);
+		ArrayAdapter<User> adapter = new UserScoresArrayAdapter(this, mUsers, true);
 		listView.setAdapter(adapter);
 	}
 
