@@ -7,16 +7,12 @@ import android.view.ViewGroup;
 import android.widget.*;
 
 import java.util.ArrayList;
-import java.util.Enumeration;
 
-public class UserScoresArrayAdapter extends ArrayAdapter<User>
-{
+public class UserScoresArrayAdapter extends ArrayAdapter<User> {
 	private final Context context;
 	private final User[] rowData;
-	private boolean mShowTotal;
 
-	static class ViewHolder
-	{
+	static class ViewHolder {
 		public TextView userNameText;
 		public TextView scoreText;
 	}
@@ -25,12 +21,10 @@ public class UserScoresArrayAdapter extends ArrayAdapter<User>
 	* Adapter to fetch the strings and images for each row
 	*   Make sure you store any per-item state in this adapter, not in the Views which may be recycled upon scrolling
 	*/
-	public UserScoresArrayAdapter(Context context, User[] rowData, boolean showTotal)
-	{
+	public UserScoresArrayAdapter(Context context, User[] rowData) {
 		super(context, R.layout.row_layout_round_scores, rowData);
 		this.context = context;
 		this.rowData = rowData;
-		mShowTotal = showTotal;
 	}
 
 	@Override
@@ -41,18 +35,12 @@ public class UserScoresArrayAdapter extends ArrayAdapter<User>
 	* @param parent -- The parent that this view will eventually be attached to.
 	* @return -- A View corresponding to the data at the specified position.
 	*/
-	public View getView(int position, View convertView, ViewGroup parent)
-	{
+	public View getView(int position, View convertView, ViewGroup parent) {
+
 		View rowView = convertView;
 		User user = rowData[position];
-		int score = user.getRoundScore();
-		if (mShowTotal)
-		{
-			score = user.getTotalScore();
-		}
 
-		if (rowView == null)
-		{
+		if (rowView == null) {
 			// initialize row view
 			LayoutInflater vi = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			rowView = vi.inflate(R.layout.row_layout_round_scores, parent, false);
@@ -67,7 +55,7 @@ public class UserScoresArrayAdapter extends ArrayAdapter<User>
 		// fill data
 		ViewHolder holder = (ViewHolder) rowView.getTag();
 		holder.userNameText.setText(user.getName());
-		holder.scoreText.setText(score+"");
+		holder.scoreText.setText(user.getRoundScore()+"");
 
 		return rowView;
 	}

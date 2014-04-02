@@ -33,7 +33,7 @@ public class RoundScoresActivity extends Activity
 			userArray[i] = (User) user;
 			i++;
 		}
-		ArrayAdapter<User> adapter = new UserScoresArrayAdapter(this, userArray, false);
+		ArrayAdapter<User> adapter = new UserScoresArrayAdapter(this, userArray);
 		listView.setAdapter(adapter);
 	}
 
