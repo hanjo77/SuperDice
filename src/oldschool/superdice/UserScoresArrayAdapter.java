@@ -55,7 +55,7 @@ public class UserScoresArrayAdapter extends ArrayAdapter<User> {
 		// fill data
 		ViewHolder holder = (ViewHolder) rowView.getTag();
 		holder.userNameText.setText(user.getName());
-		holder.scoreText.setText(user.getRoundScore()+"");
+		holder.scoreText.setText(user.getTotalScore()+"");
 
 		return rowView;
 	}

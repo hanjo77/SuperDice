@@ -75,7 +75,9 @@ public class UsersDataSource {
 		String[] whereArgs = new String[] { name };
 		Cursor cursor = database.query(SQLiteHelper.TABLE_USERS, allColumns, whereClause, whereArgs, null, null, null);
 		cursor.moveToFirst();
-		return cursorToUser(cursor);
+		User user = cursorToUser(cursor);
+		cursor.close();
+		return user;
 	}
 
 	public void update(User user)

@@ -25,7 +25,8 @@ import java.util.ArrayList;
 public class SelectUsersActivity extends Activity {
 
 	private UsersDataSource mDatasource;
-    private ArrayList<User> mUsers = new ArrayList<User>();
+	private ListView mListView;
+	private ArrayList<User> mUsers = new ArrayList<User>();
 	private ArrayList<User> mSelectedUsers = new ArrayList<User>();
 
     @Override
@@ -33,6 +34,7 @@ public class SelectUsersActivity extends Activity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_selection);
+	    mListView = (ListView)findViewById(R.id.userListView);
 	    mDatasource = new UsersDataSource(this);
 	    mDatasource.open();
 	    mUsers = mDatasource.getAllUsers();
@@ -44,6 +46,13 @@ public class SelectUsersActivity extends Activity {
 	public void onStop()
 	{
 		super.onStop();
+		mDatasource.close();
+	}
+
+	@Override
+	public void finish()
+	{
+		super.finish();
 		mDatasource.close();
 	}
 
@@ -68,7 +77,6 @@ public class SelectUsersActivity extends Activity {
 
 	public void populateUserList()
 	{
-		ListView listView = (ListView)findViewById(R.id.userListView);
 		mUsers = mDatasource.getAllUsers();
 		User[] userArray = new User[mUsers.size()];
 		int i = 0;
@@ -80,12 +88,12 @@ public class SelectUsersActivity extends Activity {
 		if (userArray.length > 0)
 		{
 			ArrayAdapter<User> adapter = new UserSelectionListArrayAdapter(this, userArray);
-			listView.setAdapter(adapter);
-			listView.setVisibility(View.VISIBLE);
+			mListView.setAdapter(adapter);
+			mListView.setVisibility(View.VISIBLE);
 		}
 		else
 		{
-			listView.setVisibility(View.INVISIBLE);
+			mListView.setVisibility(View.INVISIBLE);
 		}
 	}
 
