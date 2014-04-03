@@ -20,6 +20,7 @@ class DiceRenderer implements GLSurfaceView.Renderer
 	private ArrayList<Die> mDice = new ArrayList<Die>();
 	private boolean mIsFinished = true;
 	private boolean mDoUpdateToast = false;
+	private final float mInitialRotation = 2;
 
 	/**
 	 * Instantiates a dice renderer object with one die
@@ -177,7 +178,10 @@ class DiceRenderer implements GLSurfaceView.Renderer
 			for (int i = 0; i < mDice.size(); i++)
 			{
 				Die die = mDice.get(i);
-				die.rotate(dirs[(i % 3)], dirs[(i + 1) % 3], dirs[(i + 2) % 3]);
+
+				die.rotate(mInitialRotation + dirs[(i % 3)],
+						mInitialRotation + dirs[(i + 1) % 3],
+						mInitialRotation + dirs[(i + 2) % 3]);
 				die.setRolling(true);
 				die.setReady(false);
 			}

@@ -32,7 +32,6 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 	private User mCurrentUser;
 	private int mCurrentUserIndex = 0;
 	private int mTargetScore;
-	private AlertDialog.Builder mAlertDialogBuilder;
 	private boolean mCanRollDice = false;
 	private boolean mUserSwitched = true;
 
@@ -41,7 +40,6 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 	{
 		super.onCreate(savedInstanceState);
 
-		mAlertDialogBuilder = new AlertDialog.Builder(DiceAnimationActivity.this);
 		mUsers = (ArrayList<User>) getIntent().getSerializableExtra("users");
 		mTargetScore = getIntent().getIntExtra("targetscore", 10);
 		float[][] diceRotations = new float[][]{{}};
@@ -199,7 +197,8 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 				boolean isFinished = false;
 
 				// set title
-				mAlertDialogBuilder.setTitle(getResources().getText(R.string.you_rolled_a) + " " + number);
+				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(DiceAnimationActivity.this);
+				alertDialogBuilder.setTitle(getResources().getText(R.string.you_rolled_a) + " " + number);
 				User nextUser;
 				if (mCurrentUserIndex >= mUsers.size()-1) {
 
@@ -225,9 +224,9 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 					else
 					{
 						// set dialog message for successful round
-						mAlertDialogBuilder.setMessage(getResources().getText(R.string.roll_again_text).toString().replace("[NAME]", nextUser.getName()));
-						mAlertDialogBuilder.setCancelable(false);
-						mAlertDialogBuilder.setPositiveButton(getResources().getText(R.string.button_roll_again_text), new DialogInterface.OnClickListener()
+						alertDialogBuilder.setMessage(getResources().getText(R.string.roll_again_text).toString().replace("[NAME]", nextUser.getName()));
+						alertDialogBuilder.setCancelable(false);
+						alertDialogBuilder.setPositiveButton(getResources().getText(R.string.button_roll_again_text), new DialogInterface.OnClickListener()
 						{
 							public void onClick(DialogInterface dialog, int id)
 							{
@@ -235,7 +234,7 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 								mCanRollDice = true;
 							}
 						});
-						mAlertDialogBuilder.setNegativeButton(getResources().getText(R.string.button_pass_text), new DialogInterface.OnClickListener()
+						alertDialogBuilder.setNegativeButton(getResources().getText(R.string.button_pass_text), new DialogInterface.OnClickListener()
 						{
 							public void onClick(DialogInterface dialog, int id)
 							{
@@ -250,22 +249,22 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 				else {
 					mCurrentUser.setRoundScore(0);
 					// set dialog message for successful round
-					mAlertDialogBuilder.setMessage(getResources().getText(R.string.round_finished_text).toString().replace("[NAME]", nextUser.getName()));
-					mAlertDialogBuilder.setCancelable(false);
-					mAlertDialogBuilder.setPositiveButton(getResources().getText(R.string.button_confirm_text), new DialogInterface.OnClickListener()
+					alertDialogBuilder.setMessage(getResources().getText(R.string.round_finished_text).toString().replace("[NAME]", nextUser.getName()));
+					alertDialogBuilder.setCancelable(false);
+					alertDialogBuilder.setPositiveButton(getResources().getText(R.string.button_confirm_text), new DialogInterface.OnClickListener()
 					{
 						public void onClick(DialogInterface dialog, int id)
 						{
 							dialog.cancel();
+							switchUser();
 						}
 					});
-					switchUser();
 				}
 
 				if (!isFinished)
 				{
 					// create alert dialog
-					AlertDialog alertDialog = mAlertDialogBuilder.create();
+					AlertDialog alertDialog = alertDialogBuilder.create();
 
 					// show it
 					alertDialog.show();
