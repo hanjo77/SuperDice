@@ -100,21 +100,23 @@ public class SelectUsersActivity extends Activity {
 	public void addUser(View view)
 	{
 		EditText editText = (EditText) findViewById(R.id.editUserName);
-		Editable userName = editText.getText();
-		if (userName != null)
-		{
-			addUser(new User(userName.toString()));
-		}
+		String userName = editText.getText().toString();
+		addUser(new User(userName));
 		editText.setText("");
 	}
 
 	private void addUser(User user)
 	{
-		if (mDatasource.getUserByName(user.getName()) == null)
+		String userName = user.getName();
+		if (!userName.equals("") && (mDatasource.getUserByName(userName) == null))
 		{
 			mUsers.add(user);
 			mDatasource.createUser(user);
 			populateUserList();
+		}
+		else
+		{
+			Toast.makeText(this, getResources().getText(R.string.could_not_add_user).toString().replace("[NAME]", userName), Toast.LENGTH_SHORT).show();
 		}
 	}
 
@@ -172,7 +174,7 @@ public class SelectUsersActivity extends Activity {
 					for (int i = 0; i < finalResult.length(); i++)
 					{
 						JSONObject userObj = finalResult.getJSONObject(i);
-						User user = new User(userObj.getString("name"));
+						final User user = new User(userObj.getString("name"));
 						user.setGamesWon(userObj.getInt("score"));
 						User localUser = findUser(user);
 						if (localUser != null)
@@ -182,7 +184,13 @@ public class SelectUsersActivity extends Activity {
 						}
 						else
 						{
-							addUser(user);
+							runOnUiThread(new Runnable()
+							{
+								public void run()
+								{
+									SelectUsersActivity.this.addUser(user);
+								}
+							});
 						}
 					}
 					runOnUiThread(new Runnable()

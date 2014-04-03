@@ -3,6 +3,9 @@ package oldschool.superdice;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Looper;
+import android.os.Message;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -15,8 +18,12 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.IDN;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Handler;
 
 /**
  * The title activity called when the app is started up.
@@ -121,17 +128,37 @@ public class GameOverActivity extends Activity
 				{
 					ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 					nameValuePairs.add(new BasicNameValuePair("users", getUsersJSON()));
-					System.out.println(getUsersJSON());
-
 					httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 					HttpResponse response = httpclient.execute(httppost);
+					BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
+					String responseText = reader.readLine();
+					if (responseText.equals("OK"))
+					{
+						GameOverActivity.this.toastSyncResult(true);
+					}
+					else
+					{
+						throw(new Exception());
+					}
 				}
 				catch(Exception e)
 				{
-					e.printStackTrace();
+					GameOverActivity.this.toastSyncResult(false);
 				}
 			}
 		}).start();
+	}
+
+	public void toastSyncResult(final boolean isSuccess)
+	{
+		this.runOnUiThread(new Runnable()
+		{
+			public void run()
+			{
+				int messageId = (isSuccess ? R.string.sync_ok : R.string.sync_failed);
+				Toast.makeText(GameOverActivity.this, getResources().getText(messageId), Toast.LENGTH_SHORT).show();
+			}
+		});
 	}
 
 	private String getUsersJSON()

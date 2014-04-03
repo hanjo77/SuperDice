@@ -14,6 +14,7 @@
 	<string name="ask_for_start_text">Press OK and shake or swipe your device to roll the die.</string>
 
 	<string name="user_selection_title">Choose and add players:</string>
+	<string name="could_not_add_user">Could not add user "[NAME]"!</string>
 	<string name="input_name_default_text">Name</string>
 	<string name="button_add_text">+</string>
 	<string name="button_back_text">Back</string>
@@ -39,5 +40,7 @@
 	<string name="won_the_game">won the game</string>
 
 	<string name="round_scores_title">Current scores:</string>
+	<string name="sync_failed">Online synchronization failed!</string>
+	<string name="sync_ok">Your users and their won games were synchronized online.</string>
 
 </resources>
