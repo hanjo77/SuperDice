@@ -31,7 +31,7 @@
 				android:layout_height="wrap_content"
 				android:layout_toRightOf="@id/againButton"
 				android:text="@string/button_sync_text"
-				android:onClick="exit"/>
+				android:onClick="synchronize"/>
 
 		<Button
 				android:id="@+id/exitButton"

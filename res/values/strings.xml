@@ -23,6 +23,7 @@
 	<string name="button_again_text">Again</string>
 	<string name="button_roll_again_text">Again</string>
 	<string name="button_pass_text">Pass</string>
+	<string name="button_delete_text">-</string>
 
 	<string name="target_score_title">Choose target score:</string>
 	<string name="target_score_default">40</string>

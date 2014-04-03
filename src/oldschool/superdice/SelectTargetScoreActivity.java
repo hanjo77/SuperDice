@@ -16,7 +16,6 @@ import java.util.ArrayList;
  */
 public class SelectTargetScoreActivity  extends Activity {
     private int targetScoreValue;
-    private ArrayList<User> mUsers;
 
     @Override
         public void onCreate(Bundle savedInstanceState)
@@ -31,13 +30,9 @@ public class SelectTargetScoreActivity  extends Activity {
             targetScoreValue = getTargetScore();
             String tValue= getString(R.string.target_score_toast) + " " + targetScoreValue;
             Toast.makeText(getApplicationContext(), tValue,
-                    Toast.LENGTH_LONG).show();
-            //mUsers = (ArrayList<User>) getIntent().getSerializableExtra("users");
-            mUsers = new ArrayList<User>();
-            mUsers.add(new User("Hanjo"));
-            mUsers.add(new User("Steff"));
-            mUsers.add(new User("Sädu"));
-            intent.putExtra("users", mUsers);
+		            Toast.LENGTH_LONG).show();
+            ArrayList users = (ArrayList) getIntent().getSerializableExtra("users");
+            intent.putExtra("users", users);
             intent.putExtra("targetscore", targetScoreValue);
             stopService(getIntent());
             finish();

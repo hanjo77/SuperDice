@@ -26,7 +26,6 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:inputType="textPersonName"
-			android:text="@string/input_name_default_text"
 			android:ems="10"
 			android:background="@color/input_background_color"
 			android:layout_alignTop="@+id/addUserButton"
@@ -44,24 +43,20 @@
 			android:text="@string/button_add_text"
 			android:layout_below="@+id/titleText"
 			android:layout_alignParentRight="true"
+			android:onClick="addUser"
 			android:layout_alignParentEnd="true"/>
 
 	<ListView
 			android:layout_width="match_parent"
 			android:layout_height="fill_parent"
-			android:layout_marginLeft="@dimen/activity_vertical_margin"
-			android:layout_marginRight="@dimen/activity_vertical_margin"
 			android:layout_marginBottom="@dimen/activity_vertical_margin"
 			android:layout_below="@+id/editUserName"
 			android:layout_above="@+id/buttonContainer"
 			android:id="@+id/userListView"
-			android:paddingLeft="@dimen/input_vertical_padding"
-			android:paddingRight="@dimen/input_vertical_padding"
 			android:layout_marginTop="0pt"
 			android:layout_alignParentStart="false"
 			android:choiceMode="multipleChoiceModal"
 			android:textAlignment="center" />
-
 
 	<LinearLayout
 			android:id="@+id/buttonContainer"
@@ -74,12 +69,14 @@
 				android:id="@+id/userBackButton"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
+				android:onClick="getBackToMain"
 				android:text="@string/button_back_text" />
 
 		<Button
 				android:id="@+id/userConfirmButton"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
+				android:onClick="selectTargetScore"
 				android:text="@string/button_confirm_text" />
 
 	</LinearLayout>

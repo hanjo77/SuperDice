@@ -8,6 +8,12 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.*;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,11 +87,6 @@ public class GameOverActivity extends Activity
 		}
 	}
 
-	private void formatText(TextView textView)
-	{
-		textView.setTextSize(getResources().getDimension(R.dimen.default_font_size)/4);
-	}
-
 	/**
 	 * Finishes this activity and Starts the dice animation activity, called by the "again" button.
 	 *
@@ -106,6 +107,49 @@ public class GameOverActivity extends Activity
 		startActivity(intent);
 	}
 
+	public void synchronize(View vie)
+	{
+		new Thread(new Runnable()
+		{
+			public void run()
+			{
+
+				DefaultHttpClient httpclient = new DefaultHttpClient();
+				HttpPost httppost = new HttpPost("http://hanjo.no-ip.biz/superdice/save.php");
+
+				try
+				{
+					ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+					nameValuePairs.add(new BasicNameValuePair("users", getUsersJSON()));
+					System.out.println(getUsersJSON());
+
+					httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+					HttpResponse response = httpclient.execute(httppost);
+				}
+				catch(Exception e)
+				{
+					e.printStackTrace();
+				}
+			}
+		}).start();
+	}
+
+	private String getUsersJSON()
+	{
+		String json = "[";
+		for (User user : mUsers)
+		{
+			if (json.length() > 1)
+			{
+				json += ",";
+			}
+			json += "{"
+				+ "\"name\":\"" + user.getName() + "\","
+				+ "\"games_won\":" + user.getGamesWon()
+				+ "}";
+		}
+		return json + "]";
+	}
 
 	/**
 	 * Finishes the activity and returns to home-screen.

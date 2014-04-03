@@ -32,6 +32,7 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 	private User mCurrentUser;
 	private int mCurrentUserIndex = 0;
 	private int mTargetScore;
+	private AlertDialog.Builder mAlertDialogBuilder;
 	private boolean mCanRollDice = false;
 	private boolean mUserSwitched = true;
 
@@ -40,6 +41,7 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 	{
 		super.onCreate(savedInstanceState);
 
+		mAlertDialogBuilder = new AlertDialog.Builder(DiceAnimationActivity.this);
 		mUsers = (ArrayList<User>) getIntent().getSerializableExtra("users");
 		mTargetScore = getIntent().getIntExtra("targetscore", 10);
 		float[][] diceRotations = new float[][]{{}};
@@ -194,10 +196,10 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 			public void run()
 			{
 				int number = mDiceRenderer.getNumber()[0];
-				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(DiceAnimationActivity.this);
+				boolean isFinished = false;
 
 				// set title
-				alertDialogBuilder.setTitle(getResources().getText(R.string.you_rolled_a) + " " + number);
+				mAlertDialogBuilder.setTitle(getResources().getText(R.string.you_rolled_a) + " " + number);
 				User nextUser;
 				if (mCurrentUserIndex >= mUsers.size()-1) {
 
@@ -218,13 +220,14 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 						intent.putExtra("targetscore", mTargetScore);
 						startActivity(intent);
 						finish();
+						isFinished = true;
 					}
 					else
 					{
 						// set dialog message for successful round
-						alertDialogBuilder.setMessage(getResources().getText(R.string.roll_again_text).toString().replace("[NAME]", nextUser.getName()));
-						alertDialogBuilder.setCancelable(false);
-						alertDialogBuilder.setPositiveButton(getResources().getText(R.string.button_roll_again_text), new DialogInterface.OnClickListener()
+						mAlertDialogBuilder.setMessage(getResources().getText(R.string.roll_again_text).toString().replace("[NAME]", nextUser.getName()));
+						mAlertDialogBuilder.setCancelable(false);
+						mAlertDialogBuilder.setPositiveButton(getResources().getText(R.string.button_roll_again_text), new DialogInterface.OnClickListener()
 						{
 							public void onClick(DialogInterface dialog, int id)
 							{
@@ -232,7 +235,7 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 								mCanRollDice = true;
 							}
 						});
-						alertDialogBuilder.setNegativeButton(getResources().getText(R.string.button_pass_text), new DialogInterface.OnClickListener()
+						mAlertDialogBuilder.setNegativeButton(getResources().getText(R.string.button_pass_text), new DialogInterface.OnClickListener()
 						{
 							public void onClick(DialogInterface dialog, int id)
 							{
@@ -247,9 +250,9 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 				else {
 					mCurrentUser.setRoundScore(0);
 					// set dialog message for successful round
-					alertDialogBuilder.setMessage(getResources().getText(R.string.round_finished_text).toString().replace("[NAME]", nextUser.getName()));
-					alertDialogBuilder.setCancelable(false);
-					alertDialogBuilder.setPositiveButton(getResources().getText(R.string.button_confirm_text), new DialogInterface.OnClickListener()
+					mAlertDialogBuilder.setMessage(getResources().getText(R.string.round_finished_text).toString().replace("[NAME]", nextUser.getName()));
+					mAlertDialogBuilder.setCancelable(false);
+					mAlertDialogBuilder.setPositiveButton(getResources().getText(R.string.button_confirm_text), new DialogInterface.OnClickListener()
 					{
 						public void onClick(DialogInterface dialog, int id)
 						{
@@ -259,22 +262,24 @@ public class DiceAnimationActivity extends Activity implements SensorEventListen
 					switchUser();
 				}
 
-
-				// create alert dialog
-				AlertDialog alertDialog = alertDialogBuilder.create();
-
-				// show it
-				alertDialog.show();
-
-				// Must call show() prior to fetching text view
-				TextView titleView = (TextView)alertDialog.findViewById(getResources().getIdentifier("alertTitle", "id", "android"));
-				if (titleView != null) {
-					titleView.setGravity(Gravity.CENTER);
-				}
-				TextView messageView = (TextView)alertDialog.findViewById(android.R.id.message);
-				if (messageView != null)
+				if (!isFinished)
 				{
-					messageView.setGravity(Gravity.CENTER);
+					// create alert dialog
+					AlertDialog alertDialog = mAlertDialogBuilder.create();
+
+					// show it
+					alertDialog.show();
+
+					// Must call show() prior to fetching text view
+					TextView titleView = (TextView)alertDialog.findViewById(getResources().getIdentifier("alertTitle", "id", "android"));
+					if (titleView != null) {
+						titleView.setGravity(Gravity.CENTER);
+					}
+					TextView messageView = (TextView)alertDialog.findViewById(android.R.id.message);
+					if (messageView != null)
+					{
+						messageView.setGravity(Gravity.CENTER);
+					}
 				}
 			}
 		});

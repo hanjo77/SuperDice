@@ -7,8 +7,6 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 /**
  * The title activity called when the app is started up.
  * 
@@ -41,7 +39,7 @@ public class MainActivity extends Activity
      */
 	public void startSelectTargetScore(View view)
 	{
-		Intent intent = new Intent(this, SelectTargetScoreActivity.class);
+		Intent intent = new Intent(this, SelectUsersActivity.class);
     	stopService(getIntent());
 		startActivity(intent);
 	}
