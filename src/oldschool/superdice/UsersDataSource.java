@@ -56,7 +56,7 @@ public class UsersDataSource {
 		ArrayList<User> users = new ArrayList<User>();
 
 		Cursor cursor = database.query(SQLiteHelper.TABLE_USERS,
-				allColumns, null, null, null, null, null);
+				allColumns, null, null, null, null, SQLiteHelper.COLUMN_NAME + " asc");
 
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
