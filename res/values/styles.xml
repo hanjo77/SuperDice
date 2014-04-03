@@ -15,7 +15,6 @@
 
 	<!-- Application theme. -->
 	<style name="AppTheme" parent="AppBaseTheme">
-		<item name="android:windowBackground">@drawable/background</item>
 		<item name="android:textColor">@color/text_color</item>
 		<item name="android:textSize">@dimen/default_font_size</item>
 	</style>
