@@ -128,7 +128,8 @@ public class GameOverActivity extends Activity
 				{
 					ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 					nameValuePairs.add(new BasicNameValuePair("users", getUsersJSON()));
-					httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+					httppost.setHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+					httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs, "UTF-8"));
 					HttpResponse response = httpclient.execute(httppost);
 					BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
 					String responseText = reader.readLine();
