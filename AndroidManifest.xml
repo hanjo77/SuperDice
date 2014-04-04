@@ -28,7 +28,8 @@
 	              android:theme="@style/AppTheme" />
 	    <activity android:name=".RoundScoresActivity" />
 	    <activity android:name=".GameOverActivity" />
-	    <activity android:name=".SelectTargetScoreActivity"/>
+	    <activity android:name=".SelectTargetScoreActivity"
+	              android:windowSoftInputMode="stateHidden" />
 	    <activity android:name=".SelectUsersActivity"
 	              android:windowSoftInputMode="stateHidden" />
     </application>

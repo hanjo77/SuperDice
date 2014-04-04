@@ -18,23 +18,31 @@
 	          android:gravity="center"
 	          android:layout_margin="@dimen/activity_vertical_margin" />
 
-    <EditText android:id="@+id/editTargetScore"
-	          android:layout_width="wrap_content"
+	<TableRow android:id="@+id/editTargetScoreContainer"
+	    	  android:layout_width="wrap_content"
+	          android:layout_height="wrap_content"
+	    	  android:focusable="true" 
+	    	  android:focusableInTouchMode="true"
+	          android:layout_below="@+id/titleText"
+	          android:layout_centerHorizontal="true">
+        <EditText android:id="@+id/editTargetScore"
+              android:layout_width="wrap_content"
 	          android:layout_height="wrap_content"
 	          android:paddingLeft="@dimen/input_vertical_padding"
 	          android:paddingRight="@dimen/input_vertical_padding"
 	          android:inputType="number"
               android:ems="2"
-	          android:layout_below="@+id/titleText"
-	          android:layout_centerHorizontal="true"
+              android:textSize="@dimen/default_font_size"
+	          android:text="@string/target_score_default"
 	          android:background="@color/input_background_color" />
+    </TableRow>
 
 	<ScrollView
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
 			android:layout_margin="@dimen/activity_vertical_margin"
 			android:text="@string/target_score_text"
-			android:layout_below="@+id/editTargetScore"
+			android:layout_below="@+id/editTargetScoreContainer"
 			android:layout_above="@+id/buttonContainer">
 
 		<TextView android:id="@+id/hasWonText"
