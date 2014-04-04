@@ -5,24 +5,33 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="14"
-        android:targetSdkVersion="18" />
+        android:minSdkVersion="19"
+        android:targetSdkVersion="19" />
+
+	<uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:allowBackup="true"
+		android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/NoTitle" >
         <activity
-            android:name="oldschool.superdice.MainActivity"
+            android:name=".MainActivity"
+            android:theme="@style/NoTitle"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-	    <activity android:name="oldschool.superdice.DiceAnimationActivity" android:screenOrientation="portrait" />
+	    <activity android:name=".DiceAnimationActivity"
+	              android:theme="@style/AppTheme" />
+	    <activity android:name=".RoundScoresActivity" />
+	    <activity android:name=".GameOverActivity" />
+	    <activity android:name=".SelectTargetScoreActivity"
+	              android:windowSoftInputMode="stateHidden" />
+	    <activity android:name=".SelectUsersActivity"
+	              android:windowSoftInputMode="stateHidden" />
     </application>
 
 </manifest>
